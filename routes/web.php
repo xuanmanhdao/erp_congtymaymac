@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\qlsx\QuanTriVienController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix' => 'quan-ly-san-xuat'], function(){
+    Route::get('/',[QuanTriVienController::class, 'index'])->name('qtv.index');
 });
