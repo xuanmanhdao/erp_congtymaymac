@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
+use App\Models\KeHoach;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +20,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'quan-ly-san-xuat'], function(){
-    Route::get('/',[QuanTriVienController::class, 'index'])->name('qtv.index');
+Route::group(['prefix' => 'quan-ly-ke-hoach'], function(){
+    Route::get('/',[KeHoachController::class, 'index'])->name('kehoach.index');
+    Route::get('/create',[KeHoachController::class,'create'])->name('kehoach.create');
+    Route::post('/store',[KeHoachController::class,'store'])->name('kehoach.store');
+    Route::get('/edit/{kehoach}', [KeHoachController::class, 'edit'])->name('kehoach.edit');
+    Route::put('/update/{kehoach}', [KeHoachController::class, 'update'])->name('kehoach.update');
+    Route::delete('/delete/{kehoach}', [KeHoachController::class, 'destroy'])->name('kehoach.delete');
 });
