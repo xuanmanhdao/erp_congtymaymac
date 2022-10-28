@@ -10,4 +10,5 @@
 </br>
 <p><b>Ảnh diagram:</b></p>
 
-![diagram](https://user-images.githubusercontent.com/80588701/198016962-18b0b25e-b00d-4d28-bbd9-5ac38bc12900.jpg)
+
+![diagram_version2](https://user-images.githubusercontent.com/80588701/198513305-a8b2f66b-3aee-4e07-a4cf-932814438bfe.jpg)
