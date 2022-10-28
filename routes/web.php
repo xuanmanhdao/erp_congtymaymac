@@ -21,3 +21,12 @@ Route::get('/', function () {
 Route::group(['prefix' => 'quan-ly-san-xuat'], function(){
     Route::get('/',[QuanTriVienController::class, 'index'])->name('qtv.index');
 });
+
+Route::group(['prefix' => 'quan-ly-kho'], function(){
+    Route::get('/', function () {
+        return view('QuanLyKho.index');
+    });
+    Route::get('/product', function () {
+        return view('QuanLyKho.product');
+    });
+});

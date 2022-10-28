@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    margin: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+input:focus, select:focus-visible {
+    outline: none;
+}
+
+input, select {
+    opacity: 0.4;
+    border: 1px solid #545F73;
+    border-radius: 2px;
+    padding: 6px 20px 6px 18px;
+}
+
+.content {
+    min-height: calc(100vh - 8px - 55px);
+    width: 87%;
+    background-color: #E5E5E5;
+}
+
+.box {
+    padding: 27px 60px;
+    margin: 10px 0 0 0;
+    background-color: #fff;
+}
+
+/*  */
+.add-btn, .add-btn:hover {
+    background-color: #EC6660;
+}
+
+.export-btn, .export-btn:hover {
+    background-color: #4DA977;
+}
+
+/*  */
+
+.btn {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    margin-left: 20px;
+    padding: 6px 17px;
+    text-align: center;
+}

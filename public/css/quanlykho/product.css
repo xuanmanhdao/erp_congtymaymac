@@ -1,0 +1,193 @@
+
+.filter-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px;
+    margin: 15px 0;
+}
+
+.filter-options label {
+    margin-right: 28px;
+    color: #27303F;
+    opacity: 0.6;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.filter-input-icon {
+    position: relative;
+    width: 320px;
+}
+
+.filter-input-icon > input, .filter-input-icon > select {
+    /* position: relative; */
+    padding-right: 30px;
+    width: 100%;
+}
+
+.filter-input-icon > i {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    bottom: 12px;
+}
+
+.filter-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    width: 320px;
+}
+
+.filter-input input {
+    width: 137px;
+    text-align: center;
+}
+
+.filter-btn {
+    padding: 0 60px;
+    margin-top: 32px;
+}
+
+.filter-btn .add-btn a {
+    color: #FFFF;
+}
+
+.filter-btn .reset-btn {
+    border-color: #bdc3c7;
+}
+
+.filter-btn .reset-btn a {
+    color: #27303F;
+}
+
+/*  */
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    /* opacity: 0.7; */
+    border-bottom: 1px solid rgba(196, 196, 196, 0.8);
+}
+
+.tabs .tap-options {
+    min-width: 103px;
+    padding: 14px 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    border-bottom: 5px solid transparent;
+    text-align: center;
+    color: rgba(196, 196, 196, 0.8);
+}
+
+.tabs .tap-options:hover {
+    color: #EC6660;
+    border-bottom: 5px solid #EC6660;
+}
+
+/*  */
+.control-table {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.control-table .control-info {
+    max-width: 200px;
+    color: rgba(196, 196, 196, 0.8);
+}
+
+.control-info .progress {
+    height: 6px;
+}
+
+.control-info .progress-bar {
+    background-color: #51EF1A;
+}
+
+.control-table .total-products {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    color: #27303F;
+    opacity: 0.6;
+}
+
+.control-info .upload-info {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/*  */
+.control-actions { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.control-actions .btn {
+    border: 1px solid transparent;
+    border-radius: 2px;
+    margin-left: 20px;
+    padding: 6px 17px;
+    text-align: center;
+}
+
+.control-actions .btn a {
+    color: #FFFFFF;
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/*  */
+.custom-table .table {
+    border: 1px solid rgba(196, 196, 196, 0.8);
+    border-radius: 3px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    /* color: rgba(84, 95, 115, 0.5); */
+}
+
+.custom-table .table td {
+    text-align: center;
+    border: none;
+    vertical-align: middle;
+}
+
+.custom-table .table td img {
+    margin: 0 10px;
+}
+
+.custom-table .td-input input {
+    margin-right: 10px;
+}
+
+.custom-table .table .thead {
+    background-color: #E7EBEF;
+}
+
+.custom-table .btn-edit {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #4294CC;
+}
+.custom-table tfoot .table-paginate a {
+    margin: 0 10px;
+}
+
+.custom-table tfoot .table-page {
+    margin: 0 10px;
+}
+
+.table>:not(caption)>*>* {
+    padding: 22px 0.5rem;
+}
