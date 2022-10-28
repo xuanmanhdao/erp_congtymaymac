@@ -19,8 +19,10 @@ class CreateNguyenVatLieusTable extends Migration
             $table->integer('SoLuong');
             $table->string('DonViTinh', 50);
             $table->string('MaXuong', 50);
+            $table->string('MaDonViPhanPhoi', 50);
 
             $table->foreign('MaXuong')->references('MaXuong')->on('xuong');
+            $table->foreign('MaDonViPhanPhoi')->references('MaDonViPhanPhoi')->on('donviphanphoi');
         });
     }
 

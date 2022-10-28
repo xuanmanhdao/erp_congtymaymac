@@ -21,11 +21,9 @@ class CreateSanPhamsTable extends Migration
             $table->integer('Gia');
             $table->text('MoTaSanPham');
             $table->string('MaLoai', 50);
-            $table->string('MaDonViPhanPhoi', 50);
             $table->string('MaLoaiQuyTrinh', 50);
 
             $table->foreign('MaLoai')->references('MaLoai')->on('loai');
-            $table->foreign('MaDonViPhanPhoi')->references('MaDonViPhanPhoi')->on('donviphanphoi');
             $table->foreign('MaLoaiQuyTrinh')->references('MaLoaiQuyTrinh')->on('loaiquytrinh');
         });
     }
