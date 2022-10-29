@@ -19,6 +19,10 @@ class CreateVatTusTable extends Migration
             $table->integer('SoLuong');
             $table->integer('GiaVatTu');
             $table->string('MoTaVatTu', 200);
+            // $table->text('MoTaVatTu');
+
+            // $table->foreign('MaVatTu')->references('MaVatTu')->on('vattu');
+
         });
     }
 

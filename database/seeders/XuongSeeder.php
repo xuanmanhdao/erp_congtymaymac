@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Xuong;
 use Illuminate\Database\Seeder;
 
 class XuongSeeder extends Seeder
@@ -13,6 +14,7 @@ class XuongSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Xuong::factory()->count(50)->create();
+
     }
 }

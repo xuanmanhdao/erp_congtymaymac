@@ -20,6 +20,7 @@ class CreateXuongsTable extends Migration
             $table->string('MaVatTu', 50);
             $table->integer('SoLuongVatTu');
             $table->string('MoTaXuong', 200);
+            // $table->text('MoTaXuong');
 
             $table->foreign('MaVatTu')->references('MaVatTu')->on('vattu');
         });

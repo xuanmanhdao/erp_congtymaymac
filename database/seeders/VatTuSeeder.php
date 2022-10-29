@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\VatTu;
 use Illuminate\Database\Seeder;
 
 class VatTuSeeder extends Seeder
@@ -13,6 +14,6 @@ class VatTuSeeder extends Seeder
      */
     public function run()
     {
-        //
+        VatTu::factory()->count(50)->create();
     }
 }

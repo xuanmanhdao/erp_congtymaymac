@@ -2,10 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\NhanVien;
+use App\Models\TaiKhoan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TaiKhoanFactory extends Factory
 {
+    protected $model=TaiKhoan::class;
+
     /**
      * Define the model's default state.
      *
@@ -14,7 +18,9 @@ class TaiKhoanFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'MaNhanVien' => $this->faker->unique()->randomElement(NhanVien::pluck('MaNhanVien')),
+            'MatKhau' => '123456',
+            'Quyen' => $this->faker->randomElements(['0', '1', '2'])[0],
         ];
     }
 }

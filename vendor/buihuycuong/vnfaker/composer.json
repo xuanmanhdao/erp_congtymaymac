@@ -1,0 +1,42 @@
+{
+    "name": "buihuycuong/vnfaker",
+    "description": "VNFaker is a Laravel package that generates fake data about name, city, address, phone,... in Viet Nam",
+    "type": "package",
+    "keywords": [
+      "vnfaker",
+      "data",
+      "viet nam",
+      "laravel",
+      "php",
+      "Bui Huy Cuong",
+      "laravel faker",
+      "Richard Bui"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/BuiHuyCuong/VNFaker",
+    "authors": [
+        {
+            "name": "Bui Huy Cuong",
+            "email": "buihuycuong1510@gmail.com"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Buihuycuong\\Vnfaker\\VNFakerServiceProvider"
+          ],
+          "aliases": {
+            "VNFaker": "Buihuycuong\\Vnfaker\\Facades\\VNFaker"
+          }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Buihuycuong\\Vnfaker\\": "src"
+        },
+         "files": [
+             "src/helpers.php"
+         ]
+    }
+}

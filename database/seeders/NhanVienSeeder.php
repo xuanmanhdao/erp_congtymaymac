@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\NhanVien;
 use Illuminate\Database\Seeder;
 
 class NhanVienSeeder extends Seeder
@@ -13,6 +14,7 @@ class NhanVienSeeder extends Seeder
      */
     public function run()
     {
-        //
+        NhanVien::factory()->count(50)->create();
+
     }
 }

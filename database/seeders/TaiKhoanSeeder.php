@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\TaiKhoan;
 use Illuminate\Database\Seeder;
 
 class TaiKhoanSeeder extends Seeder
@@ -13,6 +14,7 @@ class TaiKhoanSeeder extends Seeder
      */
     public function run()
     {
-        //
+        TaiKhoan::factory()->count(10)->create();
+
     }
 }

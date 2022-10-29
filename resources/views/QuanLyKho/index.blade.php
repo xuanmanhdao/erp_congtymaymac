@@ -28,7 +28,7 @@
                 <div class="login-form">
                     <div class="login-input">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Email" class="">
+                        <input type="text" placeholder="Email" class="" >
                     </div>
                     <div class="login-input">
                         <i class="fa-solid fa-lock"></i>

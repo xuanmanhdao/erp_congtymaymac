@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => NULL,
+        'reference' => 'b9c8ba2b57eb9cfca37c52354ab86e188237f702',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -35,6 +35,17 @@
             'install_path' => __DIR__ . '/../brick/math',
             'aliases' => array(),
             'reference' => 'ca57d18f028f84f777b2168cd1911b0dee2343ae',
+            'dev_requirement' => false,
+        ),
+        'buihuycuong/vnfaker' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'type' => 'package',
+            'install_path' => __DIR__ . '/../buihuycuong/vnfaker',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '9427dc74f00d3734d1894e6069adc2bb43c8c026',
             'dev_requirement' => false,
         ),
         'cordoval/hamcrest-php' => array(
@@ -404,12 +415,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => NULL,
+            'reference' => 'b9c8ba2b57eb9cfca37c52354ab86e188237f702',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
