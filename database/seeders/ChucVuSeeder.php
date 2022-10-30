@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ChucVu;
 use Illuminate\Database\Seeder;
 
 class ChucVuSeeder extends Seeder
@@ -13,6 +14,6 @@ class ChucVuSeeder extends Seeder
      */
     public function run()
     {
-        //
+        ChucVu::factory()->count(3)->create();
     }
 }
