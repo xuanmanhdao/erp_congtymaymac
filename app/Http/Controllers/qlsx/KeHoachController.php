@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\qlsx;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\KeHoach\KeHoachStoreRequest;
+use App\Http\Requests\KeHoach\StoreKeHoachRequest;
+use App\Http\Requests\KeHoach\UpdateKeHoachRequest;
 use App\Models\KeHoach;
 use Illuminate\Http\Request;
 
@@ -13,15 +16,14 @@ class KeHoachController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, KeHoach $keHoach)
+    public function index(Request $request, KeHoach $kehoach)
     {
         $search = $request->get('q');
 
-        $kehoach = KeHoach::query()
-        ->where('MaKeHoach', 'like', '%'. $search. '%')
+        $kehoach = $kehoach->query()
+        ->where('MaKeHoach','like', '%'. $search. '%')
         ->paginate(10);
 
-        $kehoach = KeHoach::query()->get();
         return view('Qlkh.index',[
             'kehoach' => $kehoach,
             'search'  => $search,
@@ -44,9 +46,9 @@ class KeHoachController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, KeHoach $kehoach)
+    public function store(StoreKeHoachRequest $request, KeHoach $kehoach)
     {
-        $kehoach->create($request->all());
+        $kehoach->create($request->validated());
         return redirect()->route('kehoach.index');
     }
 
@@ -82,9 +84,9 @@ class KeHoachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KeHoach $kehoach)
+    public function update(UpdateKeHoachRequest $request, KeHoach $kehoach)
     {
-        $kehoach->update($request->all());
+        $kehoach->update($request->validated());
         return redirect()->route('kehoach.index');   
     }
 
