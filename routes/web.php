@@ -34,6 +34,10 @@ Route::group(['prefix' => 'quan-ly-ke-hoach'], function () {
 Route::group(['prefix' => 'quan-ly-kho'], function () {
     Route::get('/', [AuthController::class, 'dangNhap'])->name('dangnhap');
     Route::post('duyet-dang-nhap', [AuthController::class, 'duyetDangNhap'])->name('duyetdangnhap');
+    Route::get('/quen-mat-khau', [AuthController::class,'quenMatKhau'])->name('quenmatkhau');
+    Route::post('/quen-mat-khau', [AuthController::class,'guiEmail'])->name('guiemail'); 
+    Route::get('/quen-mat-khau/{token}', [AuthController::class,'duyetXacThucEmail'])->name('duyetxacthucemail');
+    Route::post('/doi-mat-khau', [AuthController::class,'doiMatKhau'])->name('doimatkhau');
 
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');

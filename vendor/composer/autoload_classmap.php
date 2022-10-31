@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
+    'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\ChiTietNhapKhoController' => $baseDir . '/app/Http/Controllers/ChiTietNhapKhoController.php',
     'App\\Http\\Controllers\\ChiTietXuatKhoController' => $baseDir . '/app/Http/Controllers/ChiTietXuatKhoController.php',
     'App\\Http\\Controllers\\ChucVuController' => $baseDir . '/app/Http/Controllers/ChucVuController.php',
@@ -34,6 +35,9 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\AuthRequest' => $baseDir . '/app/Http/Requests/AuthRequest.php',
+    'App\\Http\\Requests\\KeHoach\\StoreKeHoachRequest' => $baseDir . '/app/Http/Requests/KeHoach/StoreKeHoachRequest.php',
+    'App\\Http\\Requests\\KeHoach\\UpdateKeHoachRequest' => $baseDir . '/app/Http/Requests/KeHoach/UpdateKeHoachRequest.php',
     'App\\Http\\Requests\\StoreChiTietNhapKhoRequest' => $baseDir . '/app/Http/Requests/StoreChiTietNhapKhoRequest.php',
     'App\\Http\\Requests\\StoreChiTietXuatKhoRequest' => $baseDir . '/app/Http/Requests/StoreChiTietXuatKhoRequest.php',
     'App\\Http\\Requests\\StoreChucVuRequest' => $baseDir . '/app/Http/Requests/StoreChucVuRequest.php',

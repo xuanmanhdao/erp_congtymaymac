@@ -22,7 +22,7 @@ class NhanVienFactory extends Factory
             'CanCuocCongDan' => $this->faker->uuid(),
             'GioiTinh' => $this->faker->randomElements(['0', '1'])[0],
             'DiaChi' => $this->faker->address(),
-            'Email' => $this->faker->email(),
+            'Email' => $this->faker->unique()->email(),
             'SoDienThoai' => $this->faker->phoneNumber(),
             'MaChucVu' => $this->faker->randomElement(ChucVu::pluck('MaChucVu')),
             'MaXuong' =>$this->faker->randomElement(Xuong::pluck('MaXuong')),

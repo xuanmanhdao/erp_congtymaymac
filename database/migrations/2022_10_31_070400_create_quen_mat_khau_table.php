@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateNhanViensTable extends Migration
+class CreateQuenMatKhauTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +13,10 @@ class UpdateNhanViensTable extends Migration
      */
     public function up()
     {
-        Schema::table('nhanvien', function (Blueprint $table) {
-            DB::statement('ALTER TABLE nhanvien MODIFY COLUMN SoDienThoai VARCHAR (50)');
-            DB::statement('ALTER TABLE nhanvien ADD UNIQUE (Email);');
+        Schema::create('quenmatkhau', function (Blueprint $table) {
+            $table->string('Email')->index();
+            $table->string('Token');
+            $table->timestamp('Created_at')->nullable();
         });
     }
 
@@ -27,6 +27,6 @@ class UpdateNhanViensTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('quenmatkhau');
     }
 }

@@ -520,6 +520,7 @@ class ComposerStaticInitd45f0e35a6981fdc27d333ace25dc44a
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\ChiTietNhapKhoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChiTietNhapKhoController.php',
         'App\\Http\\Controllers\\ChiTietXuatKhoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChiTietXuatKhoController.php',
         'App\\Http\\Controllers\\ChucVuController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChucVuController.php',
@@ -546,6 +547,9 @@ class ComposerStaticInitd45f0e35a6981fdc27d333ace25dc44a
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\AuthRequest' => __DIR__ . '/../..' . '/app/Http/Requests/AuthRequest.php',
+        'App\\Http\\Requests\\KeHoach\\StoreKeHoachRequest' => __DIR__ . '/../..' . '/app/Http/Requests/KeHoach/StoreKeHoachRequest.php',
+        'App\\Http\\Requests\\KeHoach\\UpdateKeHoachRequest' => __DIR__ . '/../..' . '/app/Http/Requests/KeHoach/UpdateKeHoachRequest.php',
         'App\\Http\\Requests\\StoreChiTietNhapKhoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreChiTietNhapKhoRequest.php',
         'App\\Http\\Requests\\StoreChiTietXuatKhoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreChiTietXuatKhoRequest.php',
         'App\\Http\\Requests\\StoreChucVuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreChucVuRequest.php',

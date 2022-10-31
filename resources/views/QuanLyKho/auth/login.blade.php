@@ -60,7 +60,7 @@
                                 <input type="checkbox" id="remember">
                                 <label for="remember">Ghi nhớ tài khoản</label>
                             </div>
-                            <a href="#">Quên mật khẩu?</a>
+                            <a href="{{ route('quenmatkhau') }}">Quên mật khẩu?</a>
                         </div>
                     </div>
                     <div class="login-button">
