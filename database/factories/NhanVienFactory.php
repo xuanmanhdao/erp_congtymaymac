@@ -15,6 +15,7 @@ class NhanVienFactory extends Factory
      */
     public function definition()
     {
+        
         return [
             'MaNhanVien' => $this->faker->unique()->userName(),
             'TenNhanVien' => $this->faker->name(),

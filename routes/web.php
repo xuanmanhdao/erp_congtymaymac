@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
 use Illuminate\Support\Facades\Route;
 
@@ -18,11 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [AuthController::class, 'dangNhap'])->name('dangnhap');
+Route::post('duyet-dang-nhap', [AuthController::class, 'duyetDangNhap'])->name('duyetdangnhap');
+Route::get('/quen-mat-khau', [AuthController::class, 'quenMatKhau'])->name('quenmatkhau');
+Route::post('/quen-mat-khau', [AuthController::class, 'guiEmail'])->name('guiemail');
+Route::get('/quen-mat-khau/{token}', [AuthController::class, 'duyetXacThucEmail'])->name('duyetxacthucemail');
+Route::post('/doi-mat-khau', [AuthController::class, 'doiMatKhau'])->name('doimatkhau');
 
-Route::group(['prefix' => 'quan-ly-ke-hoach'], function () {
+Route::group(['prefix' => 'quan-ly-ke-hoach', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::get('/', [KeHoachController::class, 'index'])->name('kehoach.index');
     Route::get('/create', [KeHoachController::class, 'create'])->name('kehoach.create');
     Route::post('/store', [KeHoachController::class, 'store'])->name('kehoach.store');
@@ -31,14 +35,7 @@ Route::group(['prefix' => 'quan-ly-ke-hoach'], function () {
     Route::delete('/delete/{kehoach}', [KeHoachController::class, 'destroy'])->name('kehoach.delete');
 });
 
-Route::group(['prefix' => 'quan-ly-kho'], function () {
-    Route::get('/', [AuthController::class, 'dangNhap'])->name('dangnhap');
-    Route::post('duyet-dang-nhap', [AuthController::class, 'duyetDangNhap'])->name('duyetdangnhap');
-    Route::get('/quen-mat-khau', [AuthController::class,'quenMatKhau'])->name('quenmatkhau');
-    Route::post('/quen-mat-khau', [AuthController::class,'guiEmail'])->name('guiemail'); 
-    Route::get('/quen-mat-khau/{token}', [AuthController::class,'duyetXacThucEmail'])->name('duyetxacthucemail');
-    Route::post('/doi-mat-khau', [AuthController::class,'doiMatKhau'])->name('doimatkhau');
-
+Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
     });

@@ -149,7 +149,7 @@
                                         <table border="0" cellspacing="0" cellpadding="0">
                                             <tr>
                                                 <td align="center" style="border-radius: 3px;" bgcolor="#FFA73B"><a
-                                                        href="http://127.0.0.1:8000/quan-ly-kho/quen-mat-khau/{{$Token}}"
+                                                        href="http://127.0.0.1:8000/quen-mat-khau/{{$Token}}"
                                                         target="_blank"
                                                         style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 2px; border: 1px solid #FFA73B; display: inline-block;">Xác nhận tài khoản</a></td>
                                             </tr>
@@ -169,7 +169,7 @@
                         <td bgcolor="#ffffff" align="left"
                             style="padding: 20px 30px 20px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400; line-height: 25px;">
                             <p style="margin: 0;"><a href="#" target="_blank"
-                                    style="color: #FFA73B;">http://127.0.0.1:8000/quan-ly-kho/quen-mat-khau/{{$Token}}</a></p>
+                                    style="color: #FFA73B;">http://127.0.0.1:8000/quen-mat-khau/{{$Token}}</a></p>
                         </td>
                     </tr>
                     <tr>
