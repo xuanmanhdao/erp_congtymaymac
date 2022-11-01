@@ -1,34 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\qlsx;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\KeHoach\KeHoachStoreRequest;
-use App\Http\Requests\KeHoach\StoreKeHoachRequest;
-use App\Http\Requests\KeHoach\UpdateKeHoachRequest;
-use App\Models\KeHoach;
 use Illuminate\Http\Request;
 
-class KeHoachController extends Controller
+class DauVaoController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, KeHoach $kehoach)
+    public function index()
     {
-        $search = $request->get('q');
-
-        $kehoach = $kehoach->query()
-        ->where('MaKeHoach','like', '%'. $search. '%')
-        ->paginate(10);
-
-        return view('Qlkh.index',[
-            'kehoach' => $kehoach,
-            'search'  => $search,
-        ]);
+        //
     }
 
     /**
@@ -38,7 +24,7 @@ class KeHoachController extends Controller
      */
     public function create()
     {
-        return view('qlkh.create');
+        //
     }
 
     /**
@@ -47,10 +33,9 @@ class KeHoachController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKeHoachRequest $request, KeHoach $kehoach)
+    public function store(Request $request)
     {
-        $kehoach->create($request->validated());
-        return redirect()->route('kehoach.index');
+        //
     }
 
     /**
@@ -70,12 +55,9 @@ class KeHoachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(KeHoach $kehoach)
+    public function edit($id)
     {
-        return view('Qlkh.edit',[
-            'data' => $kehoach,
-        ]);
-
+        //
     }
 
     /**
@@ -85,10 +67,9 @@ class KeHoachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKeHoachRequest $request, KeHoach $kehoach)
+    public function update(Request $request, $id)
     {
-        $kehoach->update($request->validated());
-        return redirect()->route('kehoach.index');   
+        //
     }
 
     /**
@@ -99,8 +80,6 @@ class KeHoachController extends Controller
      */
     public function destroy($id)
     {
-        KeHoach::destroy($id);
-        return redirect()->route('kehoach.index');   
-
+        //
     }
 }

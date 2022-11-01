@@ -3,34 +3,32 @@
 namespace App\Http\Controllers\qlsx;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\KeHoach\KeHoachStoreRequest;
-use App\Http\Requests\KeHoach\StoreKeHoachRequest;
-use App\Http\Requests\KeHoach\UpdateKeHoachRequest;
-use App\Models\KeHoach;
 use Illuminate\Http\Request;
 
-class KeHoachController extends Controller
+use App\Http\Requests\DauVao\StoreDauVaoRequest;
+use App\Http\Requests\DauVao\UpdateDauVaoRequest;
+use App\Models\DauVao;
+class DauVaoController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, KeHoach $kehoach)
+    public function index(Request $request, DauVao $dauvao)
     {
         $search = $request->get('q');
 
-        $kehoach = $kehoach->query()
-        ->where('MaKeHoach','like', '%'. $search. '%')
-        ->paginate(10);
+        $dauvao = DauVao::query()
+        ->where('MaDauVao', 'like', '%'. $search. '%')
+        ->paginate(6);
 
-        return view('Qlkh.index',[
-            'kehoach' => $kehoach,
+       
+        return view('Qldv.index',[
+            'dauvao' => $dauvao,
             'search'  => $search,
         ]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +36,8 @@ class KeHoachController extends Controller
      */
     public function create()
     {
-        return view('qlkh.create');
+        //
+        return view('Qldv.create');
     }
 
     /**
@@ -47,10 +46,10 @@ class KeHoachController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKeHoachRequest $request, KeHoach $kehoach)
+    public function store(StoreDauVaoRequest $request, DauVao $dauvao)
     {
-        $kehoach->create($request->validated());
-        return redirect()->route('kehoach.index');
+        $dauvao->create($request->validated());
+        return redirect()->route('dauvao.index')->with('success', 'Đã thêm thành công');;
     }
 
     /**
@@ -70,12 +69,12 @@ class KeHoachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(KeHoach $kehoach)
+    public function edit(DauVao $dauvao)
     {
-        return view('Qlkh.edit',[
-            'data' => $kehoach,
+        //
+        return view('Qldv.edit',[
+            'data' => $dauvao, // để im t làm ssắp xong
         ]);
-
     }
 
     /**
@@ -85,10 +84,12 @@ class KeHoachController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKeHoachRequest $request, KeHoach $kehoach)
+    public function update(UpdateDauVaoRequest $request ,DauVao $dauvao)
     {
-        $kehoach->update($request->validated());
-        return redirect()->route('kehoach.index');   
+        //
+        $dauvao->update($request->validated());
+        return redirect()->route('dauvao.index')->with('success', 'Đã sửa thành công');;
+         
     }
 
     /**
@@ -99,8 +100,7 @@ class KeHoachController extends Controller
      */
     public function destroy($id)
     {
-        KeHoach::destroy($id);
-        return redirect()->route('kehoach.index');   
-
+        DauVao::destroy($id);
+        return redirect()->route('dauvao.index')->with('success', 'Đã xoá thành công');; 
     }
 }

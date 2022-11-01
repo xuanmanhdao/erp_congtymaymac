@@ -82,7 +82,7 @@ class LoController extends Controller
     {
         //
         return view('Qll.edit',[
-            'data' => $lo,
+            'data' => $lo, // để im t làm ssắp xong
         ]);
     }
 
@@ -111,7 +111,7 @@ class LoController extends Controller
     {
         //
         Lo::destroy($id);
-        return redirect()->route('lo.index')->with('success', 'Đã xoá thành công');;  
+        return redirect()->route('lo.index')->with('success', 'Đã xoá thành công');
         // return Redirect::action([LoController::class,'lo.index']);
     }
 }
