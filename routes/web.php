@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
+use App\Http\Controllers\qlsx\LoController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
@@ -33,6 +34,15 @@ Route::group(['prefix' => 'quan-ly-ke-hoach', 'middleware' => KiemTraDangNhapMid
     Route::get('/edit/{kehoach}', [KeHoachController::class, 'edit'])->name('kehoach.edit');
     Route::put('/update/{kehoach}', [KeHoachController::class, 'update'])->name('kehoach.update');
     Route::delete('/delete/{kehoach}', [KeHoachController::class, 'destroy'])->name('kehoach.delete');
+});
+
+Route::group(['prefix' => 'quan-ly-lo', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [LoController::class, 'index'])->name('lo.index');
+    Route::get('/create', [LoController::class, 'create'])->name('lo.create');
+    Route::post('/store', [LoController::class, 'store'])->name('lo.store');
+    Route::get('/edit/{lo}', [LoController::class, 'edit'])->name('lo.edit');
+    Route::put('/update/{lo}', [LoController::class, 'update'])->name('lo.update');
+    Route::delete('/delete/{lo}', [LoController::class, 'destroy'])->name('lo.delete');
 });
 
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
