@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
+use App\Http\Controllers\qlsx\DauVaoController;
 use App\Http\Controllers\qlsx\LoController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
@@ -43,6 +44,15 @@ Route::group(['prefix' => 'quan-ly-lo', 'middleware' => KiemTraDangNhapMiddlewar
     Route::get('/edit/{lo}', [LoController::class, 'edit'])->name('lo.edit');
     Route::put('/update/{lo}', [LoController::class, 'update'])->name('lo.update');
     Route::delete('/delete/{lo}', [LoController::class, 'destroy'])->name('lo.delete');
+});
+
+Route::group(['prefix' => 'quan-ly-dau-vao', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [DauVaoController::class, 'index'])->name('dauvao.index');
+    Route::get('/create', [DauVaoController::class, 'create'])->name('dauvao.create');
+    Route::post('/store', [DauVaoController::class, 'store'])->name('dauvao.store');
+    Route::get('/edit/{dauvao}', [DauVaoController::class, 'edit'])->name('dauvao.edit');
+    Route::put('/update/{dauvao}', [DauVaoController::class, 'update'])->name('dauvao.update');
+    Route::delete('/delete/{dauvao}', [DauVaoController::class, 'destroy'])->name('dauvao.delete');
 });
 
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
