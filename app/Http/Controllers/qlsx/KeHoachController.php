@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 class KeHoachController extends Controller
 {
+    //quyet
     /**
      * Display a listing of the resource.
      *
