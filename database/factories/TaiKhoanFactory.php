@@ -20,7 +20,7 @@ class TaiKhoanFactory extends Factory
         return [
             'MaNhanVien' => $this->faker->unique()->randomElement(NhanVien::pluck('MaNhanVien')),
             'MatKhau' => '123456',
-            'Quyen' => $this->faker->randomElements(['0', '1', '2'])[0],
+            'Quyen' => $this->faker->randomElements(['0', '1', '2','5','10','11'])[0],
         ];
     }
 }

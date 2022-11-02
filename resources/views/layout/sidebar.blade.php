@@ -30,17 +30,17 @@
             <li class="side-nav-title side-nav-item">Công ty may mặc</li>
 
             <li class="side-nav-item">
-                <a href="#" class="side-nav-link">
+                <a href="{{ route('kehoach.index') }}" class="side-nav-link">
                     <i class="uil-home-alt"></i>
                     <span class="badge badge-success float-right"></span>
-                    <span> Quản lý sản xuất</span>
+                    <span>Quản lý kế hoạch</span>
                 </a>
             </li>
 
             <li class="side-nav-item">
-                <a href="#"class="side-nav-link">
+                <a href=""class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span>Quản lý kế hoạch </span>
+                    <span>Quản lý đầu vào </span>
                 </a>
             </li>
 
@@ -61,9 +61,9 @@
                 </ul>
             </li> --}}
             <li class="side-nav-item">
-                <a href="#"class="side-nav-link">
+                <a href=""class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span> Quản lý lịch sản xuất </span>
+                    <span> Quản lý lô </span>
                 </a>
             </li>
 

@@ -16,6 +16,7 @@ class UpdateNhanViensTable extends Migration
     {
         Schema::table('nhanvien', function (Blueprint $table) {
             DB::statement('ALTER TABLE nhanvien MODIFY COLUMN SoDienThoai VARCHAR (50)');
+            DB::statement('ALTER TABLE nhanvien ADD UNIQUE (Email);');
         });
     }
 

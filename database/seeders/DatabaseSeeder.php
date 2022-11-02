@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\TaiKhoan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +19,7 @@ class DatabaseSeeder extends Seeder
             VatTuSeeder::class,
             ChucVuSeeder::class,
             NhanVienSeeder::class,
-            TaiKhoan::class,
+            TaiKhoanSeeder::class,
         ]); 
         // $this->seed(VatTuSeeder::class);
     }

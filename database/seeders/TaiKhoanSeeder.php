@@ -14,7 +14,6 @@ class TaiKhoanSeeder extends Seeder
      */
     public function run()
     {
-        TaiKhoan::factory()->count(10)->create();
-
+        TaiKhoan::factory()->count(30)->create();
     }
 }
