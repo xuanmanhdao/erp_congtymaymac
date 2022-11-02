@@ -61,7 +61,7 @@
                 </ul>
             </li> --}}
             <li class="side-nav-item">
-                <a href="{{ route('lo.index') }}"class="side-nav-link">
+                <a href=""class="side-nav-link">
                     <i class="uil-store"></i>
                     <span> Quản lý lô </span>
                 </a>
