@@ -38,6 +38,7 @@ Route::group(['prefix' => 'quan-ly-ke-hoach', 'middleware' => KiemTraDangNhapMid
 
 
 
+
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
