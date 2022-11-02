@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
+use App\Http\Controllers\qlsx\DauVaoController;
+use App\Http\Controllers\qlsx\LoController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
