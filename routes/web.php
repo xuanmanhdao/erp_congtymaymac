@@ -7,6 +7,8 @@ use App\Http\Controllers\qlsx\QuanTriVienController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
+use App\Models\DonViPhanPhoi;
+use App\Http\Controllers\qlsx\DonViPhanPhoiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +36,15 @@ Route::group(['prefix' => 'quan-ly-ke-hoach', 'middleware' => KiemTraDangNhapMid
     Route::get('/edit/{kehoach}', [KeHoachController::class, 'edit'])->name('kehoach.edit');
     Route::put('/update/{kehoach}', [KeHoachController::class, 'update'])->name('kehoach.update');
     Route::delete('/delete/{kehoach}', [KeHoachController::class, 'destroy'])->name('kehoach.delete');
+});
+
+Route::group(['prefix' => 'quan-ly-don-vi-phan-phoi', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [DonViPhanPhoiController::class, 'index'])->name('donviphanphoi.index');
+    Route::get('/create', [DonViPhanPhoiController::class, 'create'])->name('donviphanphoi.create');
+    Route::post('/store', [DonViPhanPhoiController::class, 'store'])->name('donviphanphoi.store');
+    Route::get('/edit/{donviphanphoi}', [DonViPhanPhoiController::class, 'edit'])->name('donviphanphoi.edit');
+    Route::put('/update/{donviphanphoi}', [DonViPhanPhoiController::class, 'update'])->name('donviphanphoi.update');
+    // Route::delete('/delete/{donviphanphoi}', [KeHoachController::class, 'destroy'])->name('donviphanphoi.delete');
 });
 
 
