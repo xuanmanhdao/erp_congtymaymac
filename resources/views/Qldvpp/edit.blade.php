@@ -82,7 +82,7 @@
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Đơn vị phân phối: </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="MaDonViPhanPhoi" value="{{ $data->MaDonViPhanPhoi }}">
+          <input type="text" disabled class="form-control" name="MaDonViPhanPhoi" value="{{ $data->MaDonViPhanPhoi }}">
           @if ($errors->has('MaDonViPhanPhoi'))
           <span class="error" style="color: red;">
                {{ $errors->first('MaDonViPhanPhoi') }}

@@ -21,8 +21,8 @@ class CreateNhapKhosTable extends Migration
             $table->string('MaNhanVien', 50);
             $table->string('MaDonViPhanPhoi', 50);
 
-            $table->foreign('MaNhanVien')->references('MaNhanVien')->on('nhanvien');
-            $table->foreign('MaDonViPhanPhoi')->references('MaDonViPhanPhoi')->on('donviphanphoi');
+            $table->foreign('MaNhanVien')->references('MaNhanVien')->on('nhanvien'); 
+            $table->foreign('MaDonViPhanPhoi')->references('MaDonViPhanPhoi')->on('donviphanphoi');  // forrein khoá ngoại
         });
     }
 

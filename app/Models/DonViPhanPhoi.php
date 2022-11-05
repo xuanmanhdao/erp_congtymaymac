@@ -22,4 +22,7 @@ class DonViPhanPhoi extends Model
         'Fax',
         'Email',
     ];
+    // public function post(){
+    //     return $this->hasMany();
+    // }
 }
