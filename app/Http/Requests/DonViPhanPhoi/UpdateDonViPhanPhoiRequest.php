@@ -25,7 +25,7 @@ class UpdateDonViPhanPhoiRequest extends FormRequest
    public function rules()
     {
         return [
-            "MaDonViPhanPhoi" => ['bail', 'required','string', Rule::unique('donviphanphoi')->ignore($this->donviphanphoi)],
+            "MaDonViPhanPhoi" => ['bail','string', Rule::unique('donviphanphoi')->ignore($this->donviphanphoi)],
             "TenDonViPhanPhoi" => ['required'],
             "DiaChi" => ['required'],
             "SoDienThoai" => ['numeric', 'digits:10'],

@@ -8,7 +8,9 @@ use App\Http\Controllers\SanPhamController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
 use App\Models\DonViPhanPhoi;
+use App\Models\NhapKho;
 use App\Http\Controllers\qlsx\DonViPhanPhoiController;
+use App\Http\Controllers\qlsx\NhapKhoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +49,14 @@ Route::group(['prefix' => 'quan-ly-don-vi-phan-phoi', 'middleware' => KiemTraDan
     // Route::delete('/delete/{donviphanphoi}', [KeHoachController::class, 'destroy'])->name('donviphanphoi.delete');
 });
 
+Route::group(['prefix' => 'quan-ly-nhap-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [NhapKhoController::class, 'index'])->name('nhapkho.index');
+    Route::get('/create', [NhapKhoController::class, 'create'])->name('nhapkho.create');
+    Route::post('/store', [NhapKhoController::class, 'store'])->name('nhapkho.store');
+    Route::get('/edit/{nhapkho}', [NhapKhoController::class, 'edit'])->name('nhapkho.edit');
+    Route::put('/update/{nhapkho}', [NhapKhoController::class, 'update'])->name('nhapkho.update');
+    // Route::delete('/delete/{donviphanphoi}', [KeHoachController::class, 'destroy'])->name('donviphanphoi.delete');
+});
 
 
 

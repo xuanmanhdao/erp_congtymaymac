@@ -1,7 +1,7 @@
 @extends('layout.master')
 @section('content')
 
-  <title>Quản lý đơn vị phân phối</title>
+  <title>Quản lý nhập kho</title>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -21,41 +21,37 @@
     </div>
   </div>
 
-    <h3>Quản lý Đơn vị phân phối</h3>
+    <h3>Quản lý Nhập kho</h3>
     <hr>
-    
 
-    <a class="btn btn-success" href="{{ route('donviphanphoi.create') }}">Thêm đơn vị</a>
-
-   
-
+    <a class="btn btn-success" href="{{ route('nhapkho.create') }}">Thêm kho nhập</a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
-            <input type="search" name="q" value="{{ $search }}" placeholder="Theo  mã đơn vị phân phối" class="form-control">
+            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã nhập kho" class="form-control">
         </form>
     </caption>
     <table class="table table-striped table-centered mb-0">
         <tr>
-            <th>Mã đơn vị phân phối</th>
-            <th>Tên đơn vị phân phối</th>
-            <th>Địa chỉ</th>
-            <th>Số điện thoại</th>
-            <th>FAX</th>
-            <th>Email</th>
+            <th>Mã nhập kho</th>
+            <th>Thời gian nhập</th>
+            <th>Tổng giá </th>
+            <th>Ghi chú</th>
+            <th>Mã nhân viên</th>
+            <th>Đơn vị phân phối</th>
            
             <th>Tác vụ</th>
         </tr>
-        @foreach ($donviphanphoi as $data)
+        @foreach ($nhapkho as $data)
             <tr>
+                <td>{{ $data->MaNhapKho }}</td>
+                <td>{{ $data->ThoiGianNhap }}</td>
+                <td>{{ $data->TongGia }}</td>
+                <td>{{ $data->GhiChu }}</td>
+                <td>{{ $data->MaNhanVien }}</td>
                 <td>{{ $data->MaDonViPhanPhoi }}</td>
-                <td>{{ $data->TenDonViPhanPhoi }}</td>
-                <td>{{ $data->DiaChi }}</td>
-                <td>{{ $data->SoDienThoai }}</td>
-                <td>{{ $data->Fax }}</td>
-                <td>{{ $data->Email }}</td>
                 <td>
-                    <a class="btn btn-success" href="{{ route('donviphanphoi.edit', $data->MaDonViPhanPhoi) }}">Sửa</a>
+                    <a class="btn btn-success" href="{{ route('nhapkho.edit', $data->MaNhapKho) }}">Sửa</a>
                 </td>
                 
                 
@@ -64,7 +60,7 @@
     </table>
     <nav>
         <ul class="pagination pagination-rounded mb-0">
-            {{ $donviphanphoi->links() }}
+            {{ $nhapkho->links() }}
         </ul>
     </nav>
     </div>
