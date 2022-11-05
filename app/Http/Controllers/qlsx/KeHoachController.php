@@ -50,7 +50,7 @@ class KeHoachController extends Controller
     public function store(StoreKeHoachRequest $request, KeHoach $kehoach)
     {
         $kehoach->create($request->validated());
-        return redirect()->route('kehoach.index');
+        return redirect()->route('kehoach.index')->with('success', "Đã thêm thành công");
     }
 
     /**
@@ -100,7 +100,7 @@ class KeHoachController extends Controller
     public function destroy($id)
     {
         KeHoach::destroy($id);
-        return redirect()->route('kehoach.index');   
+        return redirect()->route('kehoach.index')->with('deleted', "Đã xoá thành công");   
 
     }
 }

@@ -33,7 +33,7 @@ class AuthController extends Controller
                 return redirect()->route('dangnhap')->with('error', 'Đăng nhập thất bại! Kiểm tra lại tài khoản hoặc mật khẩu!');
             } else {
                 // put sẽ ghi đè lên nếu nó tồn tại rồi
-                session()->put('MaGiangVien', $taiKhoan->MaNhanVien);
+                session()->put('MaNhanVien', $taiKhoan->MaNhanVien);
                 session()->put('Quyen', $taiKhoan->Quyen);
 
                 if (session()->get('Quyen') === 0) {

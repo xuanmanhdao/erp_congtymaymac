@@ -50,7 +50,7 @@
                                     </div>
                                 @endif
                                 @if (session()->has('deleted'))
-                                    <div class="alert alert-danger">
+                                    <div class="alert alert-success">
                                         <ul>
                                             {{ session()->get('deleted') }}
                                         </ul>
