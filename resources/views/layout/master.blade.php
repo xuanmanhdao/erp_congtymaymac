@@ -50,12 +50,21 @@
                                     </div>
                                 @endif
                                 @if (session()->has('deleted'))
-                                    <div class="alert alert-danger">
+                                    <div class="alert alert-success">
                                         <ul>
                                             {{ session()->get('deleted') }}
                                         </ul>
                                     </div>
                                 @endif
+
+                                @if (session()->has('edited'))
+                                    <div class="alert alert-success">
+                                        <ul>
+                                            {{ session()->get('edited') }}
+                                        </ul>
+                                    </div>
+                                @endif
+
                                 @if (session()->has('fail'))
                                 <div class="alert alert-danger">
                                     <ul>

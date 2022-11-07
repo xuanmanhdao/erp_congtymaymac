@@ -13,7 +13,7 @@ class StoreLoaiQuyTrinhRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,18 @@ class StoreLoaiQuyTrinhRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'MaLoaiQuyTrinh' =>['bail','required','string','unique:loaiquytrinh,MaLoaiQuyTrinh'],
+            'MaNguyenVatLieu' => ['required'],
+            'TenQuyTrinh' =>['required','string'],
+            'MoTaQuyTrinh' => ['required','string'],
+        ];   
+    }
+    public function messages() : array
+    {
+        return [
+        'unique' => 'Mã quy trình bị trùng',
+        'required' => 'Trường này không được trống',
+        'string' => 'A message is String',
         ];
     }
 }

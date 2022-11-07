@@ -19,6 +19,14 @@ class CreateKeHoachesTable extends Migration
             $table->date('NgayKetThuc');
             $table->text('NoiDungKeHoach');
             $table->text('GhiChu');
+            $table->string('MaLoaiQuyTrinh');
+            $table->string('MaXuong');
+
+            $table->foreign('MaLoaiQuyTrinh')->references('MaLoaiQuyTrinh')->on('loaiquytrinh');
+            $table->foreign('MaXuong')->references('MaXuong')->on('xuong');
+
+
+
         });
     }
 

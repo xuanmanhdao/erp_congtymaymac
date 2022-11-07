@@ -25,6 +25,8 @@ class StoreKeHoachRequest extends FormRequest
     {
         return [
             "MaKeHoach" => ['bail', 'required','string', 'unique:kehoach,MaKeHoach'],
+            "MaLoaiQuyTrinh" => ['required'],
+            "MaXuong" => ['required'],
             "NgayBatDau" => ['required'],
             "NgayKetThuc" => ['required'],
             "NoiDungKeHoach" => ['string','nullable'],

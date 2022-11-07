@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoaiQuyTrinhController;
+use App\Http\Controllers\NguyenVatLieuController;
 use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
 use App\Http\Controllers\qlsx\XuongController;
@@ -86,6 +88,25 @@ Route::group(['prefix' => 'quan-ly-chi-tiet-nhap-kho', 'middleware' => KiemTraDa
     Route::post('/store', [ChiTietNhapKhoController::class, 'store'])->name('chitietnhapkho.store');
     // Route::get('/edit/{nhapkho}', [NhapKhoController::class, 'edit'])->name('nhapkho.edit');
     // Route::put('/update/{nhapkho}', [NhapKhoController::class, 'update'])->name('nhapkho.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
+
+
+Route::group(['prefix' => 'quan-ly-quy-trinh', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [LoaiQuyTrinhController::class, 'index'])->name('quytrinh.index');
+    Route::get('/create', [LoaiQuyTrinhController::class, 'create'])->name('quytrinh.create');
+    Route::post('/store', [LoaiQuyTrinhController::class, 'store'])->name('quytrinh.store');
+    Route::get('/edit/{quytrinh}', [LoaiQuyTrinhController::class, 'edit'])->name('quytrinh.edit');
+    Route::put('/update/{quytrinh}', [LoaiQuyTrinhController::class, 'update'])->name('quytrinh.update');
+    // Route::delete('/delete/{quytrinh}', [quytrinhController::class, 'destroy'])->name('xuong.delete');
+});
+
+Route::group(['prefix' => 'quan-ly-nguyen-vat-lieu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [NguyenVatLieuController::class, 'index'])->name('nguyenvatlieu.index');
+    Route::get('/create', [NguyenVatLieuController::class, 'create'])->name('nguyenvatlieu.create');
+    Route::post('/store', [NguyenVatLieuController::class, 'store'])->name('nguyenvatlieu.store');
+    Route::get('/edit/{nguyenvatlieu}', [NguyenVatLieuController::class, 'edit'])->name('nguyenvatlieu.edit');
+    Route::put('/update/{nguyenvatlieu}', [NguyenVatLieuController::class, 'update'])->name('nguyenvatlieu.update');
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 
