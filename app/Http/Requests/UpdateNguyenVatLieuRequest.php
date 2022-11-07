@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateNguyenVatLieuRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateNguyenVatLieuRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,9 +23,16 @@ class UpdateNguyenVatLieuRequest extends FormRequest
      * @return array
      */
     public function rules()
+    
     {
         return [
-            //
+            'MaNguyenVatLieu' =>['bail','required','string', Rule::unique('nguyenvatlieu')->ignore($this->nguyenvatlieu)],
+            'MaXuong' => ['required'],
+            'MaDonViPhanPhoi' => ['required'],
+            'TenNguyenVatLieu' =>['required','string'],
+            'SoLuong' => ['required','numeric'],
+            'DonViTinh' => ['required','string'],
+        
         ];
     }
 }

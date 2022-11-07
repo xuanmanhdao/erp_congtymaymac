@@ -38,6 +38,20 @@
             </li>
 
             <li class="side-nav-item">
+                <a href="{{ route('quytrinh.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span>Quản lý quy trình  </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
+                <a href="{{ route('nguyenvatlieu.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span>Quản lý nguyên vật liệu </span>
+                </a>
+            </li>
+
+            <li class="side-nav-item">
                 <a href="#"class="side-nav-link">
                     <i class="uil-store"></i>
                     <span>Quản lý đầu vào </span>

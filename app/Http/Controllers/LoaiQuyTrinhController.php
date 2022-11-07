@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\LoaiQuyTrinh;
 use App\Http\Requests\StoreLoaiQuyTrinhRequest;
 use App\Http\Requests\UpdateLoaiQuyTrinhRequest;
+use App\Models\NguyenVatLieu;
+use Illuminate\Http\Request;
 
 class LoaiQuyTrinhController extends Controller
 {
@@ -13,9 +15,20 @@ class LoaiQuyTrinhController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, LoaiQuyTrinh $quytrinh)
     {
-        //
+        $search = $request->get('q');
+
+        $quytrinh = $quytrinh->query()
+        ->where('MaLoaiQuyTrinh','like', '%'. $search. '%')
+        ->paginate(10);
+        $nguyenvatlieu = NguyenVatLieu::class;
+
+        return view('Qlqt.index',[
+            'quytrinh' => $quytrinh,
+            'search'  => $search,
+            'nguyenvatlieu' => $nguyenvatlieu,
+        ]);
     }
 
     /**
@@ -23,9 +36,12 @@ class LoaiQuyTrinhController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request, LoaiQuyTrinh $quytrinh)
     {
-        //
+        $nguyenvatlieu = NguyenVatLieu::get();
+        return view('Qlqt.create',[
+            'nguyenvatlieu' => $nguyenvatlieu,
+        ]);
     }
 
     /**
@@ -34,9 +50,10 @@ class LoaiQuyTrinhController extends Controller
      * @param  \App\Http\Requests\StoreLoaiQuyTrinhRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLoaiQuyTrinhRequest $request)
+    public function store(StoreLoaiQuyTrinhRequest $request, LoaiQuyTrinh $quytrinh)
     {
-        //
+        $quytrinh->create($request->validated());
+        return redirect()->route('quytrinh.index')->with('success', 'Đã thêm thành công');
     }
 
     /**
@@ -56,21 +73,19 @@ class LoaiQuyTrinhController extends Controller
      * @param  \App\Models\LoaiQuyTrinh  $loaiQuyTrinh
      * @return \Illuminate\Http\Response
      */
-    public function edit(LoaiQuyTrinh $loaiQuyTrinh)
+    public function edit(LoaiQuyTrinh $quytrinh)
     {
-        //
+        $nguyenvatlieu = NguyenVatLieu::get();
+        return view('Qlqt.edit',[
+            'data' => $quytrinh,
+            'nguyenvatlieu' => $nguyenvatlieu,
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateLoaiQuyTrinhRequest  $request
-     * @param  \App\Models\LoaiQuyTrinh  $loaiQuyTrinh
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateLoaiQuyTrinhRequest $request, LoaiQuyTrinh $loaiQuyTrinh)
+    public function update(UpdateLoaiQuyTrinhRequest $request, LoaiQuyTrinh $quytrinh)
     {
-        //
+        $quytrinh->update($request->validated());
+        return redirect()->route('quytrinh.index')->with('edited', 'Sửa thành công');
     }
 
     /**

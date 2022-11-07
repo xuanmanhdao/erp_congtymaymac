@@ -17,7 +17,9 @@
     <table class="table table-striped table-centered mb-0">
         <tr>
             <th>Mã kế hoạch</th>
-            <th>Kế hoạch</th>
+            <th>Nội dung kế hoạch</th>
+            <th>Tên quy trình</th>
+            <th>Tên xưởng</th>
             <th>Ngày bắt đầu</th>
             <th>Ngày kết thúc</th>
             <th>Ghi chú</th>
@@ -28,6 +30,8 @@
             <tr>
                 <td>{{ $data->MaKeHoach }}</td>
                 <td>{{ $data->NoiDungKeHoach }}</td>
+                <td>{{ $data->quytrinh->TenQuyTrinh}}</td>
+                <td>{{ $data->xuong->TenXuong}}</td>
                 <td>{{ $data->NgayBatDau }}</td>
                 <td>{{ $data->NgayKetThuc }}</td>
                 <td>{{ $data->GhiChu }}</td>
