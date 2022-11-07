@@ -16,23 +16,6 @@
     line-height: 24px;
 }
 
-.filter-input-icon {
-    position: relative;
-    width: 320px;
-}
-
-.filter-input-icon > input, .filter-input-icon > select {
-    /* position: relative; */
-    padding-right: 30px;
-    width: 100%;
-}
-
-.filter-input-icon > i {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    bottom: 12px;
-}
 
 .filter-input {
     display: flex;
@@ -89,6 +72,14 @@
     border-bottom: 5px solid #EC6660;
 }
 
+.tab-content {
+    display: none;
+}
+
+.tab-active {
+    display: flex;
+}
+
 /*  */
 .control-table {
     display: flex;
@@ -120,28 +111,6 @@
 
 .control-info .upload-info {
     font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-}
-
-/*  */
-.control-actions { 
-    display: flex;
-    justify-content: space-between;
-}
-
-.control-actions .btn {
-    border: 1px solid transparent;
-    border-radius: 2px;
-    margin-left: 20px;
-    padding: 6px 17px;
-    text-align: center;
-}
-
-.control-actions .btn a {
-    color: #FFFFFF;
-    margin-left: 10px;
-    font-weight: 700;
     font-size: 14px;
     line-height: 24px;
 }
@@ -190,4 +159,29 @@
 
 .table>:not(caption)>*>* {
     padding: 22px 0.5rem;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+}
+
+.table-footer > div:nth-of-type(2) .btn {
+    border-color: #27303F;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+/*  */
+.modal .modal-product-img {
+    display: flex;
+    justify-content: center;
+}
+
+.modal .modal-product-img img {
+    width: 110px;
+    height: 110px;
+    border: 1px dashed #000000;
 }

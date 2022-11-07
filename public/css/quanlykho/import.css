@@ -1,0 +1,43 @@
+.filter-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.filter-content input {
+    /* width: 400px; */
+}
+
+.table {
+    border: 1px solid #65BAC4;
+    border-radius: 3px;
+}
+
+.table>:not(caption)>*>* {
+    padding: 20px 20px;
+    border-bottom: none;
+    /* vertical-align: middle; */
+}
+
+.table thead {
+    background: rgba(101, 186, 196, 0.5);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.table .tbody tr:nth-child(odd) {
+    background-color: #dfe6e9;
+}
+
+.table .tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.table .table-actions {
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+
