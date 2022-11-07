@@ -62,6 +62,7 @@
             </tr>
         @endforeach
     </table>
+    <br>
     <nav>
         <ul class="pagination pagination-rounded mb-0">
             {{ $donviphanphoi->links() }}

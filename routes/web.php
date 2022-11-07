@@ -10,9 +10,15 @@ use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
 use App\Models\DonViPhanPhoi;
 use App\Models\NhapKho;
+
 use App\Http\Controllers\qlsx\DonViPhanPhoiController;
 use App\Http\Controllers\qlsx\NhapKhoController;
 use Illuminate\Support\Facades\Route;
+
+
+
+use App\Http\Controllers\qlsx\ChiTietNhapKhoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +78,14 @@ Route::group(['prefix' => 'quan-ly-nhap-kho', 'middleware' => KiemTraDangNhapMid
     Route::post('/store', [NhapKhoController::class, 'store'])->name('nhapkho.store');
     Route::get('/edit/{nhapkho}', [NhapKhoController::class, 'edit'])->name('nhapkho.edit');
     Route::put('/update/{nhapkho}', [NhapKhoController::class, 'update'])->name('nhapkho.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
+Route::group(['prefix' => 'quan-ly-chi-tiet-nhap-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [ChiTietNhapKhoController::class, 'index'])->name('chitietnhapkho.index');
+    Route::get('/create', [ChiTietNhapKhoController::class, 'create'])->name('chitietnhapkho.create');
+    Route::post('/store', [ChiTietNhapKhoController::class, 'store'])->name('chitietnhapkho.store');
+    // Route::get('/edit/{nhapkho}', [NhapKhoController::class, 'edit'])->name('nhapkho.edit');
+    // Route::put('/update/{nhapkho}', [NhapKhoController::class, 'update'])->name('nhapkho.update');
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 
