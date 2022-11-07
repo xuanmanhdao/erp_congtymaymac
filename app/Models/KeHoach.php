@@ -20,6 +20,16 @@ class KeHoach extends Model
         'NgayKetThuc',
         'NoiDungKeHoach',
         'GhiChu',
+        'MaLoaiQuyTrinh',
+        'MaXuong',
     ];
+
+    public function xuong(){
+        return $this->belongsTo(Xuong::class,'MaXuong','MaXuong'); 
+    }
+
+    public function quytrinh(){
+        return $this->belongsTo(LoaiQuyTrinh::class, 'MaLoaiQuyTrinh', 'MaLoaiQuyTrinh');
+    }
     
 }

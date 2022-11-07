@@ -19,7 +19,7 @@ class CreateLoaiQuyTrinhsTable extends Migration
             $table->text('MoTaQuyTrinh');
             $table->string('MaNguyenVatLieu', 50);
 
-            $table->foreign('MaNguyenVatLieu')->references('MaNguyenVatLieu')->on('nguyenvatlieu');
+            $table->foreign('MaNguyenVatLieu')->references('MaNguyenVatLieu')->on('nguyenvatlieu')->onDelete('cascade');;
         });
     }
 

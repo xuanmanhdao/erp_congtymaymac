@@ -13,7 +13,7 @@ class StoreNguyenVatLieuRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,12 @@ class StoreNguyenVatLieuRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'MaNguyenVatLieu' =>['bail','required','string','unique:nguyenvatlieu,MaNguyenVatLieu'],
+            'TenNguyenVatLieu' =>['required','string'],
+            'SoLuong' => ['required','numeric'],
+            'DonViTinh' => ['required','string'],
+            'MaXuong' => ['required'],
+            'MaDonViPhanPhoi' => ['required'],
         ];
     }
 }

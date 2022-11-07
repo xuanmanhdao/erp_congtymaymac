@@ -17,7 +17,35 @@
           @endif
         </div>
     </div>
+    <br>
 
+    <label class="col-sm-1,5 col-form-label"><strong> Tên quy trình: </strong></label>
+    <div class="col-sm-5">
+    <select name="MaLoaiQuyTrinh" class="form-control select">
+        {{-- <option selected>{{ $data->quytrinh->MaLoaiQuyTrinh  }}</option> --}}
+        @foreach ($quytrinh as $quytrinh)
+      <option value="{{ $quytrinh->MaLoaiQuyTrinh }}" {{ $quytrinh->MaLoaiQuyTrinh == $data->quytrinh->MaLoaiQuyTrinh ? 'selected' : '' }}>{{ $quytrinh->TenQuyTrinh }}</option>
+
+            {{-- <option value="{{ $quytrinh->MaLoaiQuyTrinh }}">
+                {{ $quytrinh->TenQuyTrinh }}
+            </option> --}}
+        @endforeach
+    </select>
+    </div>
+    <br>
+
+    <label class="col-sm-1,5 col-form-label"><strong> Tên xưởng: </strong></label>
+    <div class="col-sm-5">
+    <select name="MaXuong" class="form-control select">
+        @foreach ($xuong as $xuong)
+      <option value="{{ $xuong->MaXuong }}" {{ $xuong->MaXuong == $data->xuong->MaXuong ? 'selected' : '' }}>{{ $xuong->TenXuong }}</option>
+        
+            {{-- <option value="{{ $xuong->MaXuong }}">
+                {{ $xuong->TenXuong }}
+            </option> --}}
+        @endforeach
+    </select>
+    </div>
     <br>
 
     <div class="form-group row">
