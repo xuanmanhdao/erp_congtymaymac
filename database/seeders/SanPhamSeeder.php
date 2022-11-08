@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SanPham;
 use Illuminate\Database\Seeder;
 
 class SanPhamSeeder extends Seeder
@@ -13,6 +14,6 @@ class SanPhamSeeder extends Seeder
      */
     public function run()
     {
-        //
+        SanPham::factory()->count(50)->create();
     }
 }

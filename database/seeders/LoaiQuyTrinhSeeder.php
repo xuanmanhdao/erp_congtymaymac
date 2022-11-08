@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LoaiQuyTrinh;
 use Illuminate\Database\Seeder;
 
 class LoaiQuyTrinhSeeder extends Seeder
@@ -13,6 +14,6 @@ class LoaiQuyTrinhSeeder extends Seeder
      */
     public function run()
     {
-        //
+        LoaiQuyTrinh::factory()->count(50)->create();
     }
 }

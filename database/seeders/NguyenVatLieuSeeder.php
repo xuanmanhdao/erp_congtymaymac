@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\NguyenVatLieu;
 use Illuminate\Database\Seeder;
 
 class NguyenVatLieuSeeder extends Seeder
@@ -13,6 +14,6 @@ class NguyenVatLieuSeeder extends Seeder
      */
     public function run()
     {
-        //
+        NguyenVatLieu::factory()->count(50)->create();
     }
 }

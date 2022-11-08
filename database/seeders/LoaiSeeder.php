@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Loai;
 use Illuminate\Database\Seeder;
 
 class LoaiSeeder extends Seeder
@@ -13,6 +14,7 @@ class LoaiSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Loai::factory()->count(50)->create();
+
     }
 }

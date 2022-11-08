@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DonViPhanPhoi;
 use Illuminate\Database\Seeder;
 
 class DonViPhanPhoiSeeder extends Seeder
@@ -13,6 +14,6 @@ class DonViPhanPhoiSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DonViPhanPhoi::factory()->count(50)->create();
     }
 }

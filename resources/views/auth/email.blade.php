@@ -35,6 +35,14 @@
                             </div>
                         @endif
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                    {{ $error }}
+                                @endforeach
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('guiemail') }}">
                             @csrf
                             <div class="form-group row">
