@@ -1,12 +1,13 @@
 @extends('layout.master')
 @section('content')
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <h3>Quản lý quy trình</h3>
 
-    <a class="btn btn-success" href="{{ route('quytrinh.create') }}">Thêm quy trình</a>
+    <a class="btn btn-success" href="{{ route('quytrinh.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -35,7 +36,7 @@
                     @endforeach
                 </td>
                 <td>
-                    <a href="{{ route('quytrinh.edit', $data->MaLoaiQuyTrinh) }}">
+                    <a class="btn btn-warning" href="{{ route('quytrinh.edit', $data->MaLoaiQuyTrinh) }}">
                         <i class="fa-solid fa-pen-to-square"></i></a>
 
                     {{-- <button type="button" class="btn btn-primary" style="padding: 2px" data-toggle="modal"

@@ -1,11 +1,24 @@
 @extends('layout.master')
 @section('content')
+<style type="text/css">
+    .flex-div {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  font-weight: bold;
+  /*background-color: #f0fff0;*/
+ /* border: solid 1px lightgray;*/
+}
+</style>
     <h3>Thêm quy trình</h3>
     <br>
     <form action="{{ route('quytrinh.store') }}" method="post">
         @csrf
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Mã loại quy trình: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã loại quy trình: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="MaLoaiQuyTrinh" placeholder="Nhập mã quy trình...">
                 @if ($errors->has('MaLoaiQuyTrinh'))
@@ -19,7 +32,7 @@
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Tên quy trình: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên quy trình: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="TenQuyTrinh">
                 @if ($errors->has('TenQuyTrinh'))
@@ -34,7 +47,7 @@
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Mô tả quy trình: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
             <textarea name="MoTaQuyTrinh" cols="55" rows="4" placeholder="Nhập mô tả..."></textarea>
             @if ($errors->has('MoTaQuyTrinh'))
                 <span class="error" style="color: red;">

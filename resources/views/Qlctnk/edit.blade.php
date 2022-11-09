@@ -96,11 +96,11 @@
     <br>
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã nguyên vật liệu : </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên nguyên vật liệu : </strong></label>
         <div class="col-sm-5">
         <select type="text" class="form-control" name="MaNguyenVatLieu" >
           @foreach ($nguyenvatlieu as $vatlieu)
-                    <option value="{{ $vatlieu->MaNguyenVatLieu }}">{{ $vatlieu->MaNguyenVatLieu }}</option>
+                    <option value="{{ $vatlieu->MaNguyenVatLieu }}">{{ $vatlieu->TenNguyenVatLieu }}</option>
           @endforeach
          </select>
           
@@ -116,30 +116,46 @@ function format_curency(a) {
 
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div "><strong> Tổng giá: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div "><strong> Số lượng: </strong></label>
         <div class="col-sm-5">
-          <input  type="text" class="form-control" name="TongGia" value="{{ $data->TongGia }}">
-          @if ($errors->has('TongGia'))
+          <input  type="text" class="form-control" name="SoLuong" value="{{ $data->SoLuong }}">
+          @if ($errors->has('SoLuong'))
           <span class="error" style="color: red;">
-               {{ $errors->first('TongGia') }}
+               {{ $errors->first('SoLuong') }}
           </span>
           @endif
         </div>
     </div>
 
     <br>
+    <div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div "><strong>Thành tiền: </strong></label>
+        <div class="col-sm-5">
+          <input  type="text" class="form-control" name="ThanhTien" value="{{ $data->ThanhTien }}">
+          @if ($errors->has('ThanhTien'))
+          <span class="error" style="color: red;">
+               {{ $errors->first('ThanhTien') }}
+          </span>
+          @endif
+        </div>
+    </div>
+    <br>
 
-      <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label  flex-div"><strong> Ghi Chú: </strong></label>
-        <textarea name="GhiChu" cols="55" rows="4" >{{ $data->GhiChu }}</textarea>
-        @if ($errors->has('GhiChu'))
-        <span class="error" style="color: red;">
-             {{ $errors->first('GhiChu') }}
-        </span>
-        @endif
+   <div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div "><strong>Đơn vị tính: </strong></label>
+        <div class="col-sm-5">
+          <input  type="text" class="form-control" name="DonViTinh" value="{{ $data->DonViTinh }}">
+          @if ($errors->has('DonViTinh'))
+          <span class="error" style="color: red;">
+               {{ $errors->first('DonViTinh') }}
+          </span>
+          @endif
+        </div>
     </div>
 
+      
     <br>
+
     
 
     
@@ -155,7 +171,7 @@ function format_curency(a) {
     </div> --}}
 
 
-    <div class="form-group row">
+   {{--  <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Đơn vị phân phối: </strong></label>
         <div class="col-sm-5">
           <select type="text" class="form-control" name="MaDonViPhanPhoi" >
@@ -164,7 +180,7 @@ function format_curency(a) {
           @endforeach
          </select>
         </div>
-    </div>
+    </div> --}}
 
     <button   class="snip1582">Sửa</button>
 

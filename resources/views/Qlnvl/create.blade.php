@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('content')
-    <h3>Thêm kế hoạch</h3>
+    <h3>Thêm nguyên vật liệu</h3>
     <br>
     <form action="{{ route('nguyenvatlieu.store') }}" method="post">
         @csrf

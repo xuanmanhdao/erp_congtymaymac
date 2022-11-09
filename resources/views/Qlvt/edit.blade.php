@@ -73,12 +73,14 @@
 }
 </style>
 <title>Quản lý vật tư</title>
-<h3>Sửa vật tư</h3>
+<h3>Sửa vật tư mã: {{ $data->MaVatTu }}</h3>
+
 <br>
 <form action="{{ route('vattu.update',$data) }}" method="post">
 @method('PUT')
   @csrf
-  {{-- <div class="form-group row">
+ 
+  <!-- <div class="form-group row">
       <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Vật Tư: </strong></label>
       <div class="col-sm-5">
         <input type="hidden"  class="form-control" name="MaVatTu" value="{{ $data->MaVatTu }}">
@@ -88,9 +90,9 @@
         </span>
         @endif
       </div>
-  </div>
+  </div> -->
 
-  <br> --}}
+  <br> 
  <input type="hidden"  class="form-control" name="MaVatTu" value="{{ $data->MaVatTu }}">
   <div class="form-group row">
       <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Vật Tư: </strong></label>

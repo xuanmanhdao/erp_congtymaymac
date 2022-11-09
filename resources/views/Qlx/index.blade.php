@@ -20,7 +20,7 @@
   </div>
     <h3>Quản lý xưởng</h3>
 
-    <a class="btn btn-success" href="{{ route('xuong.create') }}">Thêm xưởng</a>
+    <a class="btn btn-success" href="{{ route('xuong.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -43,7 +43,7 @@
                 <td>{{ $data->MoTaXuong }}</td>
                
                 <td>
-                    <a class="btn btn-success " href="{{ route('xuong.edit', $data->MaXuong) }}">Sửa</a>
+                    <a class="btn btn-warning " href="{{ route('xuong.edit', $data->MaXuong) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 {{-- <td>
                     <form action="{{ route('xuong.delete', $data->MaXuong) }}" method="post">

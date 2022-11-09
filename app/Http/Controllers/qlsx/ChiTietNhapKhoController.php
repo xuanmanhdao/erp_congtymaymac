@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ChiTietNhapKho;
 use App\Models\NguyenVatLieu;
+use App\Models\DonViPhanPhoi;
 use App\Http\Requests\ChiTietNhapKho\StoreChiTietNhapKhoRequest;
 use App\Http\Requests\ChiTietNhapKho\UpdateChiTietNhapKhoRequest;
 use Illuminate\Support\Facades\DB;
@@ -42,8 +43,8 @@ class ChiTietNhapKhoController extends Controller
 
         $nhapkho = DB::table('nhapkho')->get('MaNhapKho');
         $nguyenvatlieu = NguyenVatLieu::get();
-        
-        return view('Qlctnk.create',['nhapkho'=>$nhapkho,'nguyenvatlieu'=>$nguyenvatlieu]); //,
+        $donviphanphoi = DonViPhanPhoi::get();
+        return view('Qlctnk.create',['nhapkho'=>$nhapkho,'nguyenvatlieu'=>$nguyenvatlieu,'donviphanphoi'=>$donviphanphoi]); //,
     }
 
     /**
@@ -82,10 +83,12 @@ class ChiTietNhapKhoController extends Controller
         //
        $nhapkho = DB::table('nhapkho')->get('MaNhapKho');
          $nguyenvatlieu = NguyenVatLieu::get();
+           $donviphanphoi = DonViPhanPhoi::get();
         return view('Qlctnk.edit',[
             'data' => $chitietnhapkho,
             'nhapkho'=>$nhapkho,
             'nguyenvatlieu'=>$nguyenvatlieu,
+            'donviphanphoi'=>$donviphanphoi,
         ]);
     }
 
