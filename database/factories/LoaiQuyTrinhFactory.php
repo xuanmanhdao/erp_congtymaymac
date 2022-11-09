@@ -20,7 +20,7 @@ class LoaiQuyTrinhFactory extends Factory
             'MaLoaiQuyTrinh' => $this->faker->unique()->userName(),
             'TenQuyTrinh' => $this->faker->name(),
             'MoTaQuyTrinh' => $this->faker->paragraph(),
-            'MaNguyenVatLieu' => $this->faker->unique()->randomElement(NguyenVatLieu::pluck('MaNguyenVatLieu')),
+            // 'MaNguyenVatLieu' => $this->faker->unique()->randomElement(NguyenVatLieu::pluck('MaNguyenVatLieu')),
         ];
     }
 }

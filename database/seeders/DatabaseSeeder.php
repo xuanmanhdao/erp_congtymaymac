@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             SanPhamSeeder::class,
             XuatKhoSeeder::class,
             ChiTietXuatKhoSeeder::class,
+            NguyenVatLieuLoaiQuyTrinhSeeder::class,
         ]); 
         // $this->seed(VatTuSeeder::class);
     }
