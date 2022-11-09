@@ -5,6 +5,8 @@ namespace App\Http\Controllers\qlsx;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NhapKho;
+use App\Models\NhanVien;
+use App\Models\DonViPhanPhoi;
 
 use App\Http\Requests\NhapKho\StoreNhapKhoRequest;
 use App\Http\Requests\NhapKho\UpdateNhapKhoRequest;
@@ -39,11 +41,14 @@ class NhapKhoController extends Controller
      */
     public function create()
     {
-        $nhanvien = session()->get('MaNhanVien');
-        $donviphanphoi = DB::table('donviphanphoi')->get('MaDonViPhanPhoi');
+         // $nhanvien = session()->get('MaNhanVien'); 
+        $nhanvien =NhanVien::get();
+      
+        $donviphanphoi = DonViPhanPhoi::get();
         
-        return view('Qlnk.create',['donviphanphoi'=>$donviphanphoi])->with('nhanvien',$nhanvien);
+        return view('Qlnk.create',['donviphanphoi'=>$donviphanphoi,'nhanvien'=>$nhanvien]);
 
+        // ->with('nhanvien',$nhanvien)
     }
 
     /**
@@ -85,10 +90,13 @@ class NhapKhoController extends Controller
     public function edit(NhapKho $nhapkho)
     {
         //
-        $donviphanphoi = DB::table('donviphanphoi')->get('MaDonViPhanPhoi');
+        $nhanvien =NhanVien::get();
+      
+        $donviphanphoi = DonViPhanPhoi::get();
         return view('Qlnk.edit',[
             'data' => $nhapkho,
             'donviphanphoi'=>$donviphanphoi,
+            'nhanvien'=>$nhanvien,
         ]);
     }
 
