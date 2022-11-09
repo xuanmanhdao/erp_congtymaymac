@@ -1,5 +1,8 @@
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>Quản lý đơn vị phân phối</title>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -25,7 +28,7 @@
     <hr>
     
 
-    <a class="btn btn-success" href="{{ route('donviphanphoi.create') }}">Thêm đơn vị</a>
+    <a class="btn btn-success" href="{{ route('donviphanphoi.create') }}"><i class="fa-solid fa-plus"></i></a>
 
    
 
@@ -55,13 +58,14 @@
                 <td>{{ $data->Fax }}</td>
                 <td>{{ $data->Email }}</td>
                 <td>
-                    <a class="btn btn-success" href="{{ route('donviphanphoi.edit', $data->MaDonViPhanPhoi) }}">Sửa</a>
+                    <a class="btn btn-warning" href="{{ route('donviphanphoi.edit', $data->MaDonViPhanPhoi) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 
                 
             </tr>
         @endforeach
     </table>
+    <br>
     <nav>
         <ul class="pagination pagination-rounded mb-0">
             {{ $donviphanphoi->links() }}

@@ -85,10 +85,13 @@ class NhapKhoController extends Controller
     public function edit(NhapKho $nhapkho)
     {
         //
+        $nhanvien = session()->get('MaNhanVien');
         $donviphanphoi = DB::table('donviphanphoi')->get('MaDonViPhanPhoi');
+        
+        return view('Qlnk.create',['donviphanphoi'=>$donviphanphoi])->with('nhanvien',$nhanvien);
+        
         return view('Qlnk.edit',[
             'data' => $nhapkho,
-            'donviphanphoi'=>$donviphanphoi,
         ]);
     }
 

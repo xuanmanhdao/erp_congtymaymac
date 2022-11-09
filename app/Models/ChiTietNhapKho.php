@@ -7,5 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChiTietNhapKho extends Model
 {
-    use HasFactory;
+   use HasFactory;
+    protected $table = 'chitietnhapkho';
+    protected $casts = [
+        'MaNhapKho' => 'string',
+    ];
+    public $timestamps = false;
+    protected $primaryKey = 'MaNhapKho';
+    protected $fillable = [
+        'MaNhapKho',
+        'MaNguyenVatLieu',
+        'SoLuong',
+        'DonViTinh',
+        'ThanhTien',
+        'MaDonViPhanPhoi',
+    ];
+
+    public function nguyenvatlieu()
+    {
+        return $this->belongsTo(NguyenVatLieu::class,'MaNguyenVatLieu','MaNguyenVatLieu');
+    }
+
 }

@@ -4,7 +4,7 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <title>Quản lý nhập kho</title>
+  <title>Quản lý chi tiết nhập kho</title>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -24,10 +24,10 @@
     </div>
   </div>
 
-    <h3>Quản lý Nhập kho</h3>
+    <h3>Quản lý chi tiết nhập kho</h3>
     <hr>
 
-    <a class="btn btn-success" href="{{ route('nhapkho.create') }}"><i class="fa-solid fa-plus"></i></a>
+    <a class="btn btn-success" href="{{ route('chitietnhapkho.create') }}"><i class="fa-solid fa-plus"></i> </a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -37,26 +37,24 @@
     <table class="table table-striped table-centered mb-0">
         <tr>
             <th>Mã nhập kho</th>
-            <th>Thời gian nhập</th>
-            <th>Tổng giá </th>
-            <th>Ghi chú</th>
-            <th>Tên nhân viên</th>
-            <th>Tên Đơn vị phân phối</th>
-           
+            <th>Tên nguyên vật liệu</th>
+            <th>Số lượng</th>
+            <th>Đơn vị tính</th>
+            <th>Thành tiền </th>
+            
             <th>Tác vụ</th>
         </tr>
-        @foreach ($nhapkho as $data)
+        @foreach ($chitietnhapkho as $data)
             <tr>
                 <td>{{ $data->MaNhapKho }}</td>
-                <td>{{ $data->ThoiGianNhap }}</td>
-                <td>{{ $data->TongGia }}</td>
-                <td>{{ $data->GhiChu }}</td>
-               
-                <td>{{ $data->nhanvien->TenNhanVien }}</td>
-                <td>{{ $data->donviphanphoi->TenDonViPhanPhoi }}</td>
-                <td>
-                    <a class="btn btn-warning" href="{{ route('nhapkho.edit', $data->MaNhapKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                </td>
+                <td>{{ $data->nguyenvatlieu->TenNguyenVatLieu }}</td>
+                <td>{{ $data->SoLuong }}</td>
+                <td>{{ $data->DonViTinh }}</td>
+                <td>{{ $data->ThanhTien }}</td>
+                
+              <td>
+                    <a class="btn btn-warning" href="{{ route('chitietnhapkho.edit', $data->MaNhapKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                </td> 
                 
                 
             </tr>
@@ -65,7 +63,7 @@
     <br>
     <nav>
         <ul class="pagination pagination-rounded mb-0">
-            {{ $nhapkho->links() }}
+            {{ $chitietnhapkho->links() }}
         </ul>
     </nav>
     </div>
