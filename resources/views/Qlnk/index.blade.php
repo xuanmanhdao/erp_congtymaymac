@@ -1,5 +1,8 @@
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>Quản lý nhập kho</title>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,7 +27,7 @@
     <h3>Quản lý Nhập kho</h3>
     <hr>
 
-    <a class="btn btn-success" href="{{ route('nhapkho.create') }}">Thêm kho nhập</a>
+    <a class="btn btn-success" href="{{ route('nhapkho.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -37,8 +40,8 @@
             <th>Thời gian nhập</th>
             <th>Tổng giá </th>
             <th>Ghi chú</th>
-            <th>Mã nhân viên</th>
-            <th>Đơn vị phân phối</th>
+            <th>Tên nhân viên</th>
+            <th>Tên Đơn vị phân phối</th>
            
             <th>Tác vụ</th>
         </tr>
@@ -48,10 +51,11 @@
                 <td>{{ $data->ThoiGianNhap }}</td>
                 <td>{{ $data->TongGia }}</td>
                 <td>{{ $data->GhiChu }}</td>
-                <td>{{ $data->MaNhanVien }}</td>
-                <td>{{ $data->MaDonViPhanPhoi }}</td>
+               
+                <td>{{ $data->nhanvien->TenNhanVien }}</td>
+                <td>{{ $data->donviphanphoi->TenDonViPhanPhoi }}</td>
                 <td>
-                    <a class="btn btn-success" href="{{ route('nhapkho.edit', $data->MaNhapKho) }}">Sửa</a>
+                    <a class="btn btn-warning" href="{{ route('nhapkho.edit', $data->MaNhapKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 
                 

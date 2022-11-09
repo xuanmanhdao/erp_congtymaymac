@@ -5,6 +5,7 @@ namespace App\Http\Controllers\qlsx;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ChiTietNhapKho;
+use App\Models\NguyenVatLieu;
 use App\Http\Requests\ChiTietNhapKho\StoreChiTietNhapKhoRequest;
 use App\Http\Requests\ChiTietNhapKho\UpdateChiTietNhapKhoRequest;
 use Illuminate\Support\Facades\DB;
@@ -40,8 +41,9 @@ class ChiTietNhapKhoController extends Controller
         //
 
         $nhapkho = DB::table('nhapkho')->get('MaNhapKho');
+        $nguyenvatlieu = NguyenVatLieu::get();
         
-        return view('Qlctnk.create',['nhapkho'=>$nhapkho]);
+        return view('Qlctnk.create',['nhapkho'=>$nhapkho,'nguyenvatlieu'=>$nguyenvatlieu]); //,
     }
 
     /**
@@ -75,9 +77,16 @@ class ChiTietNhapKhoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+   public function edit(ChiTietNhapKho $chitietnhapkho)
     {
         //
+       $nhapkho = DB::table('nhapkho')->get('MaNhapKho');
+         $nguyenvatlieu = NguyenVatLieu::get();
+        return view('Qlctnk.edit',[
+            'data' => $chitietnhapkho,
+            'nhapkho'=>$nhapkho,
+            'nguyenvatlieu'=>$nguyenvatlieu,
+        ]);
     }
 
     /**
@@ -87,9 +96,11 @@ class ChiTietNhapKhoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateChiTietNhapKhoRequest $request, ChiTietNhapKho $chitietnhapkho)
     {
         //
+         $chitietnhapkho->update($request->validated());
+        return redirect()->route('chitietnhapkho.index')->with('success','Sửa thành công !');   
     }
 
     /**

@@ -22,4 +22,15 @@ class NhapKho extends Model
         'MaNhanVien',
         'MaDonViPhanPhoi',
     ];
+
+    public function nhanvien()
+    {
+        return $this->belongsTo(NhanVien::class,'MaNhanVien','MaNhanVien');
+    }
+
+    public function donviphanphoi()
+    {
+
+        return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
+    }
 }

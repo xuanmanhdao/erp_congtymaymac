@@ -1,5 +1,8 @@
 @extends('layout.master')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <title>Quản lý chi tiết nhập kho</title>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -24,7 +27,7 @@
     <h3>Quản lý chi tiết nhập kho</h3>
     <hr>
 
-    <a class="btn btn-success" href="{{ route('chitietnhapkho.create') }}">Thêm </a>
+    <a class="btn btn-success" href="{{ route('chitietnhapkho.create') }}"><i class="fa-solid fa-plus"></i> </a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -34,7 +37,7 @@
     <table class="table table-striped table-centered mb-0">
         <tr>
             <th>Mã nhập kho</th>
-            <th>Mã nguyên vật liệu</th>
+            <th>Tên nguyên vật liệu</th>
             <th>Số lượng</th>
             <th>Đơn vị tính</th>
             <th>Thành tiền </th>
@@ -44,14 +47,14 @@
         @foreach ($chitietnhapkho as $data)
             <tr>
                 <td>{{ $data->MaNhapKho }}</td>
-                <td>{{ $data->MaNguyenVatLieu }}</td>
+                <td>{{ $data->nguyenvatlieu->TenNguyenVatLieu }}</td>
                 <td>{{ $data->SoLuong }}</td>
                 <td>{{ $data->DonViTinh }}</td>
                 <td>{{ $data->ThanhTien }}</td>
                 
-                {{-- <td>
-                    <a class="btn btn-success" href="{{ route('chitietnhapkho.edit', $data->MaNhapKho) }}">Sửa</a>
-                </td> --}}
+              <td>
+                    <a class="btn btn-warning" href="{{ route('chitietnhapkho.edit', $data->MaNhapKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                </td> 
                 
                 
             </tr>

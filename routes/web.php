@@ -86,8 +86,8 @@ Route::group(['prefix' => 'quan-ly-chi-tiet-nhap-kho', 'middleware' => KiemTraDa
     Route::get('/', [ChiTietNhapKhoController::class, 'index'])->name('chitietnhapkho.index');
     Route::get('/create', [ChiTietNhapKhoController::class, 'create'])->name('chitietnhapkho.create');
     Route::post('/store', [ChiTietNhapKhoController::class, 'store'])->name('chitietnhapkho.store');
-    // Route::get('/edit/{nhapkho}', [NhapKhoController::class, 'edit'])->name('nhapkho.edit');
-    // Route::put('/update/{nhapkho}', [NhapKhoController::class, 'update'])->name('nhapkho.update');
+    Route::get('/edit/{chitietnhapkho}', [ChiTietNhapKhoController::class, 'edit'])->name('chitietnhapkho.edit');
+    Route::put('/update/{chitietnhapkho}', [ChiTietNhapKhoController::class, 'update'])->name('chitietnhapkho.update');
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 

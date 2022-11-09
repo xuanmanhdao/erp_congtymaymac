@@ -22,4 +22,10 @@ class ChiTietNhapKho extends Model
         'ThanhTien',
         'MaDonViPhanPhoi',
     ];
+
+    public function nguyenvatlieu()
+    {
+        return $this->belongsTo(NguyenVatLieu::class,'MaNguyenVatLieu','MaNguyenVatLieu');
+    }
+
 }

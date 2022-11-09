@@ -29,7 +29,7 @@
   padding: 12px 40px 10px;
   position: relative;
   text-transform: uppercase;
-  font-weight: ;
+
 }
 
 .snip1582:before,
@@ -92,14 +92,13 @@
     <br>
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã nguyên vật liệu : </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên nguyên vật liệu : </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="MaNguyenVatLieu" placeholder="Nhập Mã nguyên vật liệu... ">
-          @if ($errors->has('MaNguyenVatLieu'))
-          <span class="error" style="color: red;">
-               {{ $errors->first('MaNguyenVatLieu') }}
-          </span>
-          @endif
+        <select type="text" class="form-control" name="MaNguyenLieu" >
+          @foreach ($nguyenvatlieu as $vatlieu)
+                    <option value="{{ $vatlieu->MaNguyenVatLieu }}">{{ $vatlieu->TenNguyenVatLieu }}</option>
+          @endforeach
+         </select>
           
         </div>
     </div>

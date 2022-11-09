@@ -28,7 +28,7 @@ class NguyenVatLieu extends Model
     }
 
     public function donviphanphoi(){
-        return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi', 'MaDonViPhanPhoi');
+        return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
     }
 
 }

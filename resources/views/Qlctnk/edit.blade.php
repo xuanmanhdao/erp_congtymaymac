@@ -82,24 +82,25 @@
     
     
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Nhập kho: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã nhập kho: </strong></label>
         <div class="col-sm-5">
-          <select type="text" class="form-control" name="MaNhapKho" >
-          @foreach ($nhapkho as $nhapkho1)
-                    <option value="{{ $nhapkho1->MaNhapKho }}">{{ $nhapkho1->MaNhapKho }}</option>
-          @endforeach
-         </select>
+          <input type="text" disabled class="form-control" name="MaNhapKho" value="{{ $data->MaNhapKho  }}" >
+          @if ($errors->has('MaNhapKho'))
+          <span class="error" style="color: red;">
+               {{ $errors->first('MaNhapKho') }}
+          </span>
+          @endif
         </div>
     </div>
 
     <br>
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên nguyên vật liệu : </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã nguyên vật liệu : </strong></label>
         <div class="col-sm-5">
-        <select type="text" class="form-control" name="MaNguyenLieu" >
+        <select type="text" class="form-control" name="MaNguyenVatLieu" >
           @foreach ($nguyenvatlieu as $vatlieu)
-                    <option value="{{ $vatlieu->MaNguyenVatLieu }}">{{ $vatlieu->TenNguyenVatLieu }}</option>
+                    <option value="{{ $vatlieu->MaNguyenVatLieu }}">{{ $vatlieu->MaNguyenVatLieu }}</option>
           @endforeach
          </select>
           
@@ -115,12 +116,12 @@ function format_curency(a) {
 
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div "><strong> Số lượng: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div "><strong> Tổng giá: </strong></label>
         <div class="col-sm-5">
-          <input  type="number" class="form-control" name="SoLuong" value="{{ $data->SoLuong }}">
-          @if ($errors->has('SoLuong'))
+          <input  type="text" class="form-control" name="TongGia" value="{{ $data->TongGia }}">
+          @if ($errors->has('TongGia'))
           <span class="error" style="color: red;">
-               {{ $errors->first('SoLuong') }}
+               {{ $errors->first('TongGia') }}
           </span>
           @endif
         </div>
@@ -129,19 +130,16 @@ function format_curency(a) {
     <br>
 
       <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div "><strong>Đơn vị tính: </strong></label>
-        <div class="col-sm-5">
-          <input  type="text" class="form-control" name="DonViTinh" value="{{ $data->DonViTinh }}">
-          @if ($errors->has('DonViTinh'))
-          <span class="error" style="color: red;">
-               {{ $errors->first('DonViTinh') }}
-          </span>
-          @endif
-        </div>
+        <label class="col-sm-1,5 col-form-label  flex-div"><strong> Ghi Chú: </strong></label>
+        <textarea name="GhiChu" cols="55" rows="4" >{{ $data->GhiChu }}</textarea>
+        @if ($errors->has('GhiChu'))
+        <span class="error" style="color: red;">
+             {{ $errors->first('GhiChu') }}
+        </span>
+        @endif
     </div>
 
     <br>
-    
     
 
     
@@ -155,15 +153,16 @@ function format_curency(a) {
           
     </select>
     </div> --}}
+
+
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div "><strong>Thành tiền: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Đơn vị phân phối: </strong></label>
         <div class="col-sm-5">
-          <input  type="text" class="form-control" name="ThanhTien" value="{{ $data->ThanhTien }}">
-          @if ($errors->has('ThanhTien'))
-          <span class="error" style="color: red;">
-               {{ $errors->first('ThanhTien') }}
-          </span>
-          @endif
+          <select type="text" class="form-control" name="MaDonViPhanPhoi" >
+          @foreach ($donviphanphoi as $phanphoi)
+                    <option value="{{ $phanphoi->MaDonViPhanPhoi }}">{{ $phanphoi->MaDonViPhanPhoi }}</option>
+          @endforeach
+         </select>
         </div>
     </div>
 
