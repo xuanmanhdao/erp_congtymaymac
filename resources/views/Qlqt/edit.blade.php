@@ -1,5 +1,18 @@
 @extends('layout.master')
 @section('content')
+<style type="text/css">
+    .flex-div {
+  display: flex;
+  width: 200px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: medium;
+  font-weight: bold;
+  /*background-color: #f0fff0;*/
+ /* border: solid 1px lightgray;*/
+}
+</style>
     <h3>Sửa quy trình {{ $data->MaLoaiQuyTrinh }}</h3>
     <br>
     <form action="{{ route('quytrinh.update', $data) }}" method="post">
@@ -7,7 +20,7 @@
         @csrf
         <input type="hidden" class="form-control" name="MaLoaiQuyTrinh" value="{{ $data->MaLoaiQuyTrinh }}">
         {{-- <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Mã loại quy trình: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã loại quy trình: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="MaLoaiQuyTrinh" value="{{ $data->MaLoaiQuyTrinh }}">
                 @if ($errors->has('MaLoaiQuyTrinh'))
@@ -21,7 +34,7 @@
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Tên quy trình: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên quy trình: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="TenQuyTrinh" value="{{ $data->TenQuyTrinh }}">
                 @if ($errors->has('TenQuyTrinh'))
@@ -36,7 +49,7 @@
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Mô tả quy trình: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
             <textarea name="MoTaQuyTrinh" cols="55" rows="4">{{ $data->MoTaQuyTrinh }}</textarea>
             @if ($errors->has('MoTaQuyTrinh'))
                 <span class="error" style="color: red;">
@@ -50,7 +63,7 @@
         <div class="form-group">
             <label style="display: block">Chọn nguyên vật liệu</label>
             @foreach ($nguyenvatlieu as $nguyenvatlieu)
-                <div class="custom-control custom-checkbox custom-control-inline">
+                <div class="custom-control custom-checkbox custom-control-inline ">
                     <input type="checkbox" name='NguyenVatLieu[]'
                         class="custom-control-input btn btn-warning nguyen-vat-lieu"
                         id="customCheck{{ $nguyenvatlieu->MaNguyenVatLieu }}" value="{{ $nguyenvatlieu->MaNguyenVatLieu }}">

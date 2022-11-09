@@ -25,7 +25,7 @@
                 </div>
             @endif --}}
 
-    <a class="btn btn-success" href="{{ route('vattu.create') }}">Thêm vật tư</a>
+    <a class="btn btn-success" href="{{ route('vattu.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -52,7 +52,7 @@
                 <td>{{ $data->MaXuong}}</td>
                
                 <td>
-                    <a class="btn btn-success " href="{{ route('vattu.edit', $data->MaVatTu) }}">Sửa</a>
+                    <a class="btn btn-warning" href="{{ route('vattu.edit', $data->MaVatTu) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 {{-- <td>
                     <form action="{{ route('vattu.delete', $data->MaVatTu) }}" method="post">

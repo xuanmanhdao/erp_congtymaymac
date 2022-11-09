@@ -52,11 +52,24 @@
             </li>
 
             <li class="side-nav-item">
-                <a href="#"class="side-nav-link">
+                <a href="{{ route('donviphanphoi.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span>Quản lý đầu vào </span>
+                    <span>Quản lý đơn vị phân phối </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{ route('nhapkho.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span>Quản nhập kho </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{ route('chitietnhapkho.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span>Quản lý chi tiết  nhập kho </span>
+                </a>
+            </li>
+
 
             {{-- <li class="side-nav-item"> có thể cụp mở
                 <a href="javascript: void(0);" class="side-nav-link">
@@ -66,18 +79,24 @@
                 </a>
                 <ul class="side-nav-second-level" aria-expanded="false">
                     <li>
-                        <a href="{{ route('phong.index') }}">Phòng</a>
+                        <a href="">Phòng</a>
                     </li>
                     <li>
-                        <a href="{{ route('loai-phong.index') }}">Loại phòng</a>
+                        <a href="">Loại phòng</a>
                     </li>
                     
                 </ul>
-            </li> --}}
+            </li>  --}}
             <li class="side-nav-item">
-                <a href="#"class="side-nav-link">
+                <a href="{{ route('xuong.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span> Quản lý lô </span>
+                    <span> Quản lý Xưởng </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{ route('vattu.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span> Quản lý Vật Tư </span>
                 </a>
             </li>
 

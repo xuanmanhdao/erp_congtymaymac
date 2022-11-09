@@ -20,7 +20,7 @@ class ChiTietNhapKho extends Model
         'SoLuong',
         'DonViTinh',
         'ThanhTien',
-        'MaDonViPhanPhoi',
+       
     ];
 
     public function nguyenvatlieu()

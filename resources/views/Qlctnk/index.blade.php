@@ -39,8 +39,9 @@
             <th>Mã nhập kho</th>
             <th>Tên nguyên vật liệu</th>
             <th>Số lượng</th>
-            <th>Đơn vị tính</th>
             <th>Thành tiền </th>
+            <th>Đơn vị tính</th>
+           
             
             <th>Tác vụ</th>
         </tr>
@@ -49,8 +50,10 @@
                 <td>{{ $data->MaNhapKho }}</td>
                 <td>{{ $data->nguyenvatlieu->TenNguyenVatLieu }}</td>
                 <td>{{ $data->SoLuong }}</td>
-                <td>{{ $data->DonViTinh }}</td>
                 <td>{{ $data->ThanhTien }}</td>
+                <td>{{ $data->DonViTinh }}</td>
+               {{--  <td>{{ $data->MaDonViPhanPhoi }}</td> --}}
+               
                 
               <td>
                     <a class="btn btn-warning" href="{{ route('chitietnhapkho.edit', $data->MaNhapKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>

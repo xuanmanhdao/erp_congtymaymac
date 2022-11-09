@@ -31,7 +31,7 @@ class UpdateLoaiQuyTrinhRequest extends FormRequest
             })],
             'TenQuyTrinh' =>['required','string'],
             'MoTaQuyTrinh' => ['required','string'],
-            'MaNguyenVatLieu' => ['nullable'],
+            'NguyenVatLieu' => ['required'],
         ];
     }
     public function messages() : array
