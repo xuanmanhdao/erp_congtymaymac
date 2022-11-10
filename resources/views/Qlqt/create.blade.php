@@ -6,7 +6,7 @@
 <form action="{{ route('quytrinh.store') }}" method="post">
     @csrf
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label"><strong> Mã loại quy trình: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã loại quy trình: </strong></label>
         <div class="col-sm-5">
           <input type="text" class="form-control" name="MaLoaiQuyTrinh" placeholder="Nhập mã quy trình...">
           @if ($errors->has('MaLoaiQuyTrinh'))
@@ -20,7 +20,7 @@
     <br>
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label"><strong> Tên quy trình: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên quy trình: </strong></label>
         <div class="col-sm-5">
           <input type="text" class="form-control" name="TenQuyTrinh">
           @if ($errors->has('TenQuyTrinh'))
@@ -35,7 +35,7 @@
     <br>
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label"><strong> Mô tả quy trình: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
         <textarea name="MoTaQuyTrinh" cols="55" rows="4" placeholder="Nhập mô tả..."></textarea>
         @if ($errors->has('MoTaQuyTrinh'))
         <span class="error" style="color: red;">
@@ -45,8 +45,10 @@
     </div>
     <br>
 
-    Nguyên vật liệu
-      <select name="MaNguyenVatLieu" class="form-control select">
+    <div class="form-group row">
+    <label class="col-sm-1,5 col-form-label flex-div"><strong> Nguyên vật liệu: </strong></label>
+    <div class="col-sm-5">   
+    <select name="MaNguyenVatLieu" class="form-control select ">
         <option selected>Chọn nguyên vật liệu</option>
         @foreach ($nguyenvatlieu as $nguyenvatlieu )
             <option value="{{ $nguyenvatlieu->MaNguyenVatLieu }}">
@@ -54,6 +56,9 @@
             </option>
         @endforeach
       </select>
+    </div>
+  </div>
+
 
 
     <button class="btn btn-success">Thêm</button>
