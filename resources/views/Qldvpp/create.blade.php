@@ -29,7 +29,7 @@
   padding: 12px 40px 10px;
   position: relative;
   text-transform: uppercase;
-  font-weight: ;
+
 }
 
 .snip1582:before,

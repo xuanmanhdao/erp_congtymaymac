@@ -6,7 +6,7 @@
 
     <h3>Quản lý kế hoạch</h3>
 
-    <a class="btn btn-success" href="{{ route('kehoach.create') }}">Thêm kế hoạch</a>
+    <a class="btn btn-success" href="{{ route('kehoach.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -36,7 +36,8 @@
                 <td>{{ $data->NgayKetThuc }}</td>
                 <td>{{ $data->GhiChu }}</td>
                 <td>
-                    <a href="{{ route('kehoach.edit', $data->MaKeHoach) }}">
+                    <a class="
+btn btn-warning" href="{{ route('kehoach.edit', $data->MaKeHoach) }}">
                         <i class="fa-solid fa-pen-to-square"></i></a>
 
                     <button type="button" class="btn btn-primary" style="padding: 2px" data-toggle="modal"

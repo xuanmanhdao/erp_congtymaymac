@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,14 @@ class DatabaseSeeder extends Seeder
             ChucVuSeeder::class,
             NhanVienSeeder::class,
             TaiKhoanSeeder::class,
+            DonViPhanPhoiSeeder::class,
+            NguyenVatLieuSeeder::class,
+            LoaiQuyTrinhSeeder::class,
+            LoaiSeeder::class,
+            SanPhamSeeder::class,
+            XuatKhoSeeder::class,
+            ChiTietXuatKhoSeeder::class,
+            NguyenVatLieuLoaiQuyTrinhSeeder::class,
         ]); 
         // $this->seed(VatTuSeeder::class);
     }

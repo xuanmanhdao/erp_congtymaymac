@@ -139,18 +139,17 @@ function format_curency(a) {
 
     <br>
     
-    <input type="hidden" class="form-control" name="MaNhanVien" value="{{ $nhanvien }}" >
-    <!-- <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã nhân viên: </strong></label>
+    <div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Nhân viên: </strong></label>
         <div class="col-sm-5">
-          <input type="hidden" class="form-control" name="MaNhanVien" value="{{ $nhanvien }}" >
-          @if ($errors->has('MaNhanVien'))
-          <span class="error" style="color: red;">
-              {{ $errors->first('MaNhanVien') }}
-          </span>
-          @endif
+          <select type="" class="form-control" name="MaNhanVien" >
+          @foreach ($nhanvien as $nv)
+                    <option value="{{ $nv->MaNhanVien }}">{{ $nv->TenNhanVien }}</option>
+          @endforeach
+         </select>
         </div>
-    </div> -->
+    </div>
+        <br>
 
     
    {{--  <div class="form-group row">
@@ -166,11 +165,11 @@ function format_curency(a) {
 
 
     <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Đơn vị phân phối: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Đơn vị phân phối: </strong></label>
         <div class="col-sm-5">
           <select type="text" class="form-control" name="MaDonViPhanPhoi" >
           @foreach ($donviphanphoi as $phanphoi)
-                    <option value="{{ $phanphoi->MaDonViPhanPhoi }}">{{ $phanphoi->MaDonViPhanPhoi }}</option>
+                    <option value="{{ $phanphoi->MaDonViPhanPhoi }}">{{ $phanphoi->TenDonViPhanPhoi }}</option>
           @endforeach
          </select>
         </div>

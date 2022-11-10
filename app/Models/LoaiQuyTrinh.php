@@ -19,10 +19,20 @@ class LoaiQuyTrinh extends Model
         'MaLoaiQuyTrinh',
         'TenQuyTrinh',
         'MoTaQuyTrinh',
-        'MaNguyenVatLieu',
+        // 'MaNguyenVatLieu',
     ];
 
-    public function nguyenvatlieu(){
+   /*  public function nguyenvatlieu(){
         return $this->belongsTo(NguyenVatLieu::class, 'MaNguyenVatLieu','MaNguyenVatLieu');
+    } */
+
+    /* public function setNguyenVatLieu($nguyenVatLieu)
+    {
+        $this->MaNguyenVatLieu = $nguyenVatLieu;
+    } */
+
+    // Quan hệ n-n
+    public function nguyenVatLieu(){
+        return $this->belongsToMany(NguyenVatLieu::class,'nguyenvatlieu_loaiquytrinh','MaLoaiQuyTrinh','MaNguyenVatLieu');
     }
 }

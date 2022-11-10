@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Loai extends Model
 {
     use HasFactory;
+
+    protected $table = 'loai';
+
+    public $incrementing = false;
+
+    public $timestamps = false;
+
+    protected $primaryKey = 'MaLoai';
+
+    protected $keyType = 'string';
+    
+    protected $fillable = [
+        'MaLoai',
+        'TenLoai',
+        'MauSac',
+        'ViTriXep'
+    ];
 }

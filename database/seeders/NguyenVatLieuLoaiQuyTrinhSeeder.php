@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\SanPham;
+use App\Models\NguyenVatLieuLoaiQuyTrinh;
 use Illuminate\Database\Seeder;
 
-class SanPhamSeeder extends Seeder
+class NguyenVatLieuLoaiQuyTrinhSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class SanPhamSeeder extends Seeder
      */
     public function run()
     {
-        SanPham::factory()->count(50)->create();
+        NguyenVatLieuLoaiQuyTrinh::factory()->count(50)->create();
     }
 }

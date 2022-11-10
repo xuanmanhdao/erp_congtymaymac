@@ -25,7 +25,8 @@ class StoreLoaiQuyTrinhRequest extends FormRequest
     {
         return [
             'MaLoaiQuyTrinh' =>['bail','required','string','unique:loaiquytrinh,MaLoaiQuyTrinh'],
-            'MaNguyenVatLieu' => ['required'],
+            // 'MaNguyenVatLieu' => ['required'],
+            'NguyenVatLieu' => ['required'],
             'TenQuyTrinh' =>['required','string'],
             'MoTaQuyTrinh' => ['required','string'],
         ];   

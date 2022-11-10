@@ -6,7 +6,7 @@
 
     <h3>Quản lý nguyên vật liêu</h3>
 
-    <a class="btn btn-success" href="{{ route('nguyenvatlieu.create') }}">Thêm</a>
+    <a class="btn btn-success" href="{{ route('nguyenvatlieu.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
@@ -35,7 +35,7 @@
                 <td>{{ $data->donviphanphoi->TenDonViPhanPhoi}}</td>
 
                 <td>
-                    <a href="{{ route('nguyenvatlieu.edit', $data->MaNguyenVatLieu) }}">
+                    <a class="btn btn-warning " href="{{ route('nguyenvatlieu.edit', $data->MaNguyenVatLieu) }}">
                         <i class="fa-solid fa-pen-to-square"></i></a>
 
                     {{-- <button type="button" class="btn btn-primary" style="padding: 2px" data-toggle="modal"
