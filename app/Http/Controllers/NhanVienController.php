@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\NhanVien;
+use App\Models\ChucVu;
+use App\Models\Xuong;
 use App\Http\Requests\StoreNhanVienRequest;
 use App\Http\Requests\UpdateNhanVienRequest;
 
@@ -13,9 +18,18 @@ class NhanVienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, NhanVien $nhanvien)
     {
-        //
+        $search = $request->get('q');
+
+        $nhanvien = $nhanvien->query()
+        ->where('MaNhanVien','like', '%'. $search. '%')
+        ->paginate(6);
+
+        return view('Qlnv.index',[
+            'nhanvien' => $nhanvien,
+            'search'  => $search,
+        ]);
     }
 
     /**
@@ -26,6 +40,9 @@ class NhanVienController extends Controller
     public function create()
     {
         //
+         $chucvu = ChucVu::get();
+         $xuong = Xuong::get();
+        return view('Qlnv.create',['chucvu'=>$chucvu,'xuong'=>$xuong]);
     }
 
     /**
@@ -34,9 +51,10 @@ class NhanVienController extends Controller
      * @param  \App\Http\Requests\StoreNhanVienRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNhanVienRequest $request)
+   public function store(StoreNhanVienRequest $request, NhanVien $nhanvien)
     {
-        //
+        $nhanvien->create($request->validated());
+        return redirect()->route('nhanvien.index')->with('success','Thêm thành công !');
     }
 
     /**
@@ -56,9 +74,18 @@ class NhanVienController extends Controller
      * @param  \App\Models\NhanVien  $nhanVien
      * @return \Illuminate\Http\Response
      */
-    public function edit(NhanVien $nhanVien)
+    public function edit(NhanVien $nhanvien)
     {
         //
+       
+          $chucvu = ChucVu::get();
+         $xuong = Xuong::get();
+        return view('Qlnv.edit',[
+            'data' => $nhanvien,
+            'nhanvien'=>$nhanvien,
+            'chucvu'=>$chucvu,
+            'xuong'=>$xuong,
+        ]);
     }
 
     /**
@@ -68,9 +95,11 @@ class NhanVienController extends Controller
      * @param  \App\Models\NhanVien  $nhanVien
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateNhanVienRequest $request, NhanVien $nhanVien)
+    public function update(UpdateNhanVienRequest $request, NhanVien $nhanvien)
     {
         //
+         $nhanvien->update($request->validated());
+        return redirect()->route('nhanvien.index')->with('success','Sửa thành công !');   
     }
 
     /**
