@@ -36,7 +36,7 @@
         <div class="form-group row">
             <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên quy trình: </strong></label>
             <div class="col-sm-5">
-                <input type="text" class="form-control" name="TenQuyTrinh" value="{{ $data->TenQuyTrinh }}">
+                <input disabled type="text" class="form-control" name="TenQuyTrinh" value="{{ $data->TenQuyTrinh }}">
                 @if ($errors->has('TenQuyTrinh'))
                     <span class="error" style="color: red;">
                         {{ $errors->first('TenQuyTrinh') }}

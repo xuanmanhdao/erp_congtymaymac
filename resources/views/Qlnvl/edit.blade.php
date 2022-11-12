@@ -9,7 +9,7 @@
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label"><strong> Mã nguyên vật liệu: </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="MaNguyenVatLieu" value="{{ $data->MaNguyenVatLieu }}">
+          <input disabled type="text" class="form-control" name="MaNguyenVatLieu" value="{{ $data->MaNguyenVatLieu }}">
           @if($errors->has('MaNguyenVatLieu'))
           <span class="error" style="color: red">
               {{ $errors->first('MaNguyenVatLieu') }}

@@ -135,17 +135,23 @@
 
     <br>
 
-
+{{-- giới tính 1 là nam --}}
 {{-- <select name="GioiTinh" class="form-select">
-                                        <option selected>Chọn giới tính</option>
-                                        <option value="Nam">Nam</option>
-                                        <option value="Nu">Nữ</option>
-                                    </select> --}}
+              <option selected>Chọn giới tính</option>
+              <option value="1">Nam</option>
+              <option value="0">Nữ</option>
+            </select> --}}
 
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Giới tính: </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="GioiTinh" placeholder="Nhập Giới tính...">
+          {{-- <input type="text" class="form-control" name="GioiTinh" placeholder="Nhập Giới tính..."> 
+          --}}
+          <select name="GioiTinh" class="form-control select">
+            <option selected>Chọn giới tính</option>
+            <option value="1">Nam</option>
+            <option value="0">Nữ</option>
+          </select>
           @if ($errors->has('GioiTinh'))
           <span class="error" style="color: red;">
               {{ $errors->first('GioiTinh') }}
