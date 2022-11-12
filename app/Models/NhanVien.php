@@ -31,4 +31,14 @@ class NhanVien extends Model
         'MaChucVu',
         'MaXuong'
     ];
+
+    public function chucvu()
+    {
+        return $this->belongsTo(ChucVu::class,'MaChucVu','MaChucVu');
+    }
+
+    public function xuong()
+    {
+        return $this->belongsTo(Xuong::class,'MaXuong','MaXuong');
+    }
 }
