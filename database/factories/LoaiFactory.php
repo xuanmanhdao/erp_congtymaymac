@@ -19,7 +19,7 @@ class LoaiFactory extends Factory
         return [
             'MaLoai' => $this->faker->unique()->userName(),
             'TenLoai' => $this->faker->name(),
-            'MauSac' => $this->faker->hexColor(),
+            'MauSac' => $this->faker->rgbColor(),
             'ViTriXep' => $this->faker->userName(),
         ];
     }

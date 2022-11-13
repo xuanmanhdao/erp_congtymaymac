@@ -58,10 +58,10 @@
                             <input type="password" value="{{ old('MatKhau') }}" placeholder="......" name="MatKhau">
                         </div>
                         <div class="login-options d-flex justify-content-between">
-                            <div>
+                            {{-- <div>
                                 <input type="checkbox" id="remember">
                                 <label for="remember">Ghi nhớ tài khoản</label>
-                            </div>
+                            </div> --}}
                             <a href="{{ route('quenmatkhau') }}">Quên mật khẩu?</a>
                         </div>
                     </div>

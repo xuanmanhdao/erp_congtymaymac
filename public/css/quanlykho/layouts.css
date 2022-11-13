@@ -54,7 +54,20 @@
     padding: 32px 50px;
 }
 
-.nav .nav-active span{
+/* .nav-items>a>span{
+    color: #EC6660 !important;
+
+} */
+
+/* .nav-active{
+    color: #EC6660 !important;
+} */
+
+/* .nav .nav-active span{
+    color: #EC6660 !important;
+} */
+
+.nav ul .nav-items a.active{
     color: #EC6660 !important;
 }
 

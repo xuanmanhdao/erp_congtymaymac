@@ -15,7 +15,7 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        //
+        
         return view('QuanLyKho.sanpham.product');
     }
 

@@ -39,6 +39,8 @@
         <!-- Footer End-->
     </div>
     @include('QuanLyKho.sanpham.modal-add-product')
+    @include('QuanLyKho.loaisanpham.modal-add-type-product')
+    @include('QuanLyKho.loaisanpham.modal-edit-type-product')
 
 
     <script src="{{ asset('library/quanlykho/jQuery.min.js') }}"></script>

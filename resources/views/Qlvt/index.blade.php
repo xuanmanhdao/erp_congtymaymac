@@ -1,8 +1,5 @@
 @extends('layout.master')
 @section('content')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -32,7 +29,8 @@
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
-            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã vật tư" class="form-control">
+            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã vật tư"
+                class="form-control">
         </form>
     </caption>
     <table class="table table-striped table-centered mb-0">
@@ -52,10 +50,11 @@
                 <td>{{ $data->SoLuong }}</td>
                 <td>{{ $data->GiaVatTu }}</td>
                 <td>{{ $data->MoTaVatTu }}</td>
-                <td>{{ $data->MaXuong}}</td>
-               
+                <td>{{ $data->MaXuong }}</td>
+
                 <td>
-                    <a class="btn btn-warning" href="{{ route('vattu.edit', $data->MaVatTu) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="btn btn-warning" href="{{ route('vattu.edit', $data->MaVatTu) }}"><i
+                            class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 {{-- <td>
                     <form action="{{ route('vattu.delete', $data->MaVatTu) }}" method="post">
@@ -67,7 +66,7 @@
                 {{-- <td>
                     <button type="button" class="btn btn-danger deleteKehoachBtn" value="{{ $data->MaXuong }}">Demo</button>
                 </td> --}}
-                
+
             </tr>
         @endforeach
     </table>
@@ -78,7 +77,7 @@
     </nav>
     </div>
     </div>
-    </div>    
+    </div>
 @endsection
 
 {{-- @section('scripts')
