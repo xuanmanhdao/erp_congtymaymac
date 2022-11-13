@@ -76,6 +76,20 @@
                            
                         
                         <div class="col-12">
+                            <style type="text/css">
+                                .flex-div {
+                              display: flex;
+                              width: 200px;
+                              height: 50px;
+                              justify-content: center;
+                              align-items: center;
+                              font-size: medium;
+                              font-weight: bold;
+                              /*background-color: #f0fff0;*/
+                             /* border: solid 1px lightgray;*/
+                            }
+                            
+                            </style>
                             {{-- section @ ở đây  --}}
                             @yield('content')
                         </div>

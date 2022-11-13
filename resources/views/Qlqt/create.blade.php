@@ -1,20 +1,8 @@
 @extends('layout.master')
 @section('content')
-<style type="text/css">
-    .flex-div {
-  display: flex;
-  width: 200px;
-  height: 50px;
-  justify-content: center;
-  align-items: center;
-  font-size: medium;
-  font-weight: bold;
-  /*background-color: #f0fff0;*/
- /* border: solid 1px lightgray;*/
-}
-</style>
-    <h3>Thêm quy trình</h3>
-    <br>
+
+
+<h3>Thêm quy trình</h3>
     <form action="{{ route('quytrinh.store') }}" method="post">
         @csrf
         <div class="form-group row">
@@ -27,24 +15,38 @@
                     </span>
                 @endif
             </div>
+
         </div>
 
         <br>
 
-        <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên quy trình: </strong></label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" name="TenQuyTrinh">
-                @if ($errors->has('TenQuyTrinh'))
-                    <span class="error" style="color: red;">
-                        {{ $errors->first('TenQuyTrinh') }}
-                    </span>
-                @endif
 
-            </div>
-        </div>
+    <div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên quy trình: </strong></label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" name="TenQuyTrinh">
+          @if ($errors->has('TenQuyTrinh'))
+          <span class="error" style="color: red;">
+               {{ $errors->first('TenQuyTrinh') }}
+          </span>
+          @endif
+          
 
-        <br>
+    <div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
+        <textarea name="MoTaQuyTrinh" cols="55" rows="4" placeholder="Nhập mô tả..."></textarea>
+        @if ($errors->has('MoTaQuyTrinh'))
+        <span class="error" style="color: red;">
+             {{ $errors->first('MoTaQuyTrinh') }}
+        </span>
+        @endif
+    </div>
+    <br>
+
+    <div class="form-group row">
+    <label class="col-sm-1,5 col-form-label flex-div"><strong> Nguyên vật liệu: </strong></label>
+    <div class="col-sm-5">   
+    <select name="MaNguyenVatLieu" class="form-control select ">
 
         <div class="form-group row">
             <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
@@ -60,6 +62,7 @@
         {{-- 
     Nguyên vật liệu
       <select name="MaNguyenVatLieu" class="form-control select">
+>>>>>>> 1287c1479b8d2fe6eb3a3957d1aa8584adb639d0
         <option selected>Chọn nguyên vật liệu</option>
         @foreach ($nguyenvatlieu as $nguyenvatlieu)
             <option value="{{ $nguyenvatlieu->MaNguyenVatLieu }}">
@@ -67,7 +70,13 @@
             </option>
         @endforeach
       </select>
+<<<<<<< HEAD
+    </div>
+  </div>
+
+=======
        --}}
+
 
         <div class="form-group">
             <label style="display: block">Chọn nguyên vật liệu</label>

@@ -58,7 +58,7 @@
                 <td>{{ $data->TenNhanVien }}</td>
                 <td>{{ $data->NgaySinh }}</td>
                 <td>{{ $data->CanCuocCongDan }}</td>
-                <td>{{ $data->GioiTinh }}</td>
+                <td>{{ $data->GioiTinh === 1 ? 'Nam' : 'Nữ' }}</td>
                 <td>{{ $data->DiaChi }}</td>
                 <td>{{ $data->Email }}</td>
                 <td>{{ $data->SoDienThoai }}</td>
