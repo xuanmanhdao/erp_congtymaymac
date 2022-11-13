@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoaiController;
 use App\Http\Controllers\LoaiQuyTrinhController;
 use App\Http\Controllers\NguyenVatLieuController;
 use App\Http\Controllers\qlsx\KeHoachController;
@@ -116,5 +117,14 @@ Route::group(['prefix' => 'quan-ly-nguyen-vat-lieu', 'middleware' => KiemTraDang
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
+    });
+    Route::group(['prefix' => 'loai-san-pham'], function () {
+        Route::get('/', [LoaiController::class, 'index'])->name('loaisanpham.index');
+        Route::get('/order-by-column', [LoaiController::class, 'orderByColumn'])->name('loaisanpham.orderbycolumn');
+        Route::get('/tim-kiem', [LoaiController::class, 'show'])->name('loaisanpham.search');
+        Route::post('/store', [LoaiController::class, 'store'])->name('loaisanpham.store');
+        Route::get('/edit/{loai}', [LoaiController::class, 'edit'])->name('loaisanpham.edit');
+        Route::put('/update-loai-san-pham/{loai}', [LoaiController::class, 'update'])->name('loaisanpham.update');
+        Route::get('/export', [LoaiController::class, 'export'])->name('loaisanpham.export');
     });
 });

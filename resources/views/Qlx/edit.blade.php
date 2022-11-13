@@ -79,10 +79,11 @@
 <form action="{{ route('xuong.update',$data) }}" method="post">
   @method('PUT')
     @csrf
+    <input type="hidden"  class="form-control" name="MaXuong" value="{{ $data->MaXuong }}">
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Xưởng </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="MaXuong" value="{{ $data->MaXuong }}">
+          <input type="text" disabled class="form-control"  value="{{ $data->MaXuong }}">
           @if ($errors->has('MaXuong'))
           <span class="error" style="color: red;">
                {{ $errors->first('MaXuong') }}

@@ -1,23 +1,27 @@
 @extends('layout.master')
 @section('content')
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Xoá vật tư</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xoá vật tư</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" name="MaVatTu" id="MaVatTu">
+                    Bạn có chắc muốn xoá không?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-            <input type="text" name="MaVatTu" id="MaVatTu">
-          Bạn có chắc muốn xoá không?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huỷ</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
     </div>
-  </div>
     <h3>Quản lý vật tư</h3>
     {{-- @if (session()->has('success'))
                 <div class="alert alert-success">
@@ -25,11 +29,12 @@
                 </div>
             @endif --}}
 
-    <a class="btn btn-success" href="{{ route('vattu.create') }}">Thêm vật tư</a>
+    <a class="btn btn-success" href="{{ route('vattu.create') }}"><i class="fa-solid fa-plus"></i></a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
-            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã vật tư" class="form-control">
+            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã vật tư"
+                class="form-control">
         </form>
     </caption>
     <table class="table table-striped table-centered mb-0">
@@ -49,10 +54,11 @@
                 <td>{{ $data->SoLuong }}</td>
                 <td>{{ $data->GiaVatTu }}</td>
                 <td>{{ $data->MoTaVatTu }}</td>
-                <td>{{ $data->MaXuong}}</td>
-               
+                <td>{{ $data->MaXuong }}</td>
+
                 <td>
-                    <a class="btn btn-success " href="{{ route('vattu.edit', $data->MaVatTu) }}">Sửa</a>
+                    <a class="btn btn-warning" href="{{ route('vattu.edit', $data->MaVatTu) }}"><i
+                            class="fa-solid fa-pen-to-square"></i></a>
                 </td>
                 {{-- <td>
                     <form action="{{ route('vattu.delete', $data->MaVatTu) }}" method="post">
@@ -64,7 +70,7 @@
                 {{-- <td>
                     <button type="button" class="btn btn-danger deleteKehoachBtn" value="{{ $data->MaXuong }}">Demo</button>
                 </td> --}}
-                
+
             </tr>
         @endforeach
     </table>
@@ -75,7 +81,7 @@
     </nav>
     </div>
     </div>
-    </div>    
+    </div>
 @endsection
 
 {{-- @section('scripts')

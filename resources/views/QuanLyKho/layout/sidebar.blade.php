@@ -1,28 +1,33 @@
 <div class="nav">
     <ul>
         <li class="nav-items nav-active">
-            <a href="#">
-                <span>Quản lý sản phẩm</span>
+            <a href="{{ route('loaisanpham.index') }}">
+                Quản lý loại sản phẩm
+            </a>
+        </li>
+        <li class="nav-items">
+            <a href="{{ route('sanpham.index') }}">
+                Quản lý sản phẩm
             </a>
         </li>
         <li class="nav-items">
             <a href="#">
-                <span>Nhập hàng</span>
+                Nhập hàng
             </a>
         </li>
         <li class="nav-items">
             <a href="#">
-                <span>Xuất hàng</span>
+                Xuất hàng
             </a>
         </li>
         <li class="nav-items">
             <a href="#">
-                <span>Kiểm kê hàng hoá</span>
+                Kiểm kê hàng hoá
             </a>
         </li>
         <li class="nav-items">
             <a href="#">
-                <span>Báo cáo</span>
+                Báo cáo
             </a>
         </li>
     </ul>

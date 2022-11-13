@@ -25,4 +25,8 @@ class Loai extends Model
         'MauSac',
         'ViTriXep'
     ];
+
+    public function sanPham(){
+        return $this->hasMany(SanPham::class, 'MaLoai', 'MaLoai');
+    }
 }

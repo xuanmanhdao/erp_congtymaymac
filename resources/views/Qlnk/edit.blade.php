@@ -147,7 +147,7 @@ function format_curency(a) {
    <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Nhân viên: </strong></label>
         <div class="col-sm-5">
-          <select type="" class="form-control" name="MaNhanVien" >
+          <select type="text" disabled class="form-control" name="MaNhanVien" >
           @foreach ($nhanvien as $nv)
                     <option value="{{ $nv->MaNhanVien }}">{{ $nv->TenNhanVien }}</option>
           @endforeach
