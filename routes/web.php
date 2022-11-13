@@ -8,11 +8,14 @@ use App\Http\Controllers\qlsx\KeHoachController;
 use App\Http\Controllers\qlsx\QuanTriVienController;
 use App\Http\Controllers\qlsx\XuongController;
 use App\Http\Controllers\qlsx\VatTuConTroller;
+use App\Http\Controllers\NhanVienController;
+use App\Http\Controllers\ChucVuController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
 use App\Models\DonViPhanPhoi;
 use App\Models\NhapKho;
+
 
 use App\Http\Controllers\qlsx\DonViPhanPhoiController;
 use App\Http\Controllers\qlsx\NhapKhoController;
@@ -112,7 +115,24 @@ Route::group(['prefix' => 'quan-ly-nguyen-vat-lieu', 'middleware' => KiemTraDang
 });
 
 
+Route::group(['prefix' => 'quan-ly-nhan-vien', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [NhanVienController::class, 'index'])->name('nhanvien.index');
+    Route::get('/create', [NhanVienController::class, 'create'])->name('nhanvien.create');
+    Route::post('/store', [NhanVienController::class, 'store'])->name('nhanvien.store');
+    Route::get('/edit/{nhanvien}', [NhanVienController::class, 'edit'])->name('nhanvien.edit');
+    Route::put('/update/{nhanvien}', [NhanVienController::class, 'update'])->name('nhanvien.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
 
+
+Route::group(['prefix' => 'quan-ly-chuc-vu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [ChucVuController::class, 'index'])->name('chucvu.index');
+    Route::get('/create', [ChucVuController::class, 'create'])->name('chucvu.create');
+    Route::post('/store', [ChucVuController::class, 'store'])->name('chucvu.store');
+    Route::get('/edit/{chucvu}', [ChucVuController::class, 'edit'])->name('chucvu.edit');
+    Route::put('/update/{chucvu}', [ChucVuController::class, 'update'])->name('chucvu.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
 
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {

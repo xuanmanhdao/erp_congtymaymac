@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ChucVu;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreChucVuRequest;
 use App\Http\Requests\UpdateChucVuRequest;
 
@@ -13,9 +14,18 @@ class ChucVuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request, ChucVu $chucvu)
     {
-        //
+        $search = $request->get('q');
+
+        $chucvu = $chucvu->query()
+        ->where('MaChucVu','like', '%'. $search. '%')
+        ->paginate(6);
+
+        return view('Qlcv.index',[
+            'chucvu' => $chucvu,
+            'search'  => $search,
+        ]);
     }
 
     /**
@@ -25,7 +35,7 @@ class ChucVuController extends Controller
      */
     public function create()
     {
-        //
+       return view('Qlcv.create');
     }
 
     /**
@@ -34,9 +44,13 @@ class ChucVuController extends Controller
      * @param  \App\Http\Requests\StoreChucVuRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreChucVuRequest $request)
+    public function store(StoreChucVuRequest $request, ChucVu $chucvu)
     {
-        //
+         
+    
+        $chucvu->create($request->validated());
+        return redirect()->route('chucvu.index')->with('success','Thêm thành công !');
+
     }
 
     /**
@@ -56,9 +70,14 @@ class ChucVuController extends Controller
      * @param  \App\Models\ChucVu  $chucVu
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChucVu $chucVu)
+    public function edit(ChucVu $chucvu)
     {
-        //
+        
+        return view('Qlcv.edit',[
+            'data' => $chucvu,
+            'chucvu'=>$chucvu
+        ]);
+
     }
 
     /**
@@ -68,9 +87,10 @@ class ChucVuController extends Controller
      * @param  \App\Models\ChucVu  $chucVu
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateChucVuRequest $request, ChucVu $chucVu)
+    public function update(UpdateChucVuRequest $request, ChucVu $chucvu)
     {
-        //
+        $chucvu->update($request->validated());
+        return redirect()->route('chucvu.index')->with('success','Sửa thành công !');   
     }
 
     /**

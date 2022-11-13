@@ -9,7 +9,7 @@
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label"><strong> Mã kế hoạch: </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="MaKeHoach" value="{{ $data->MaKeHoach }}">
+          <input disabled type="text" class="form-control" name="MaKeHoach" value="{{ $data->MaKeHoach }}">
           @if($errors->has('MaKeHoach'))
           <span class="error" style="color: red">
               {{ $errors->first('MaKeHoach') }}

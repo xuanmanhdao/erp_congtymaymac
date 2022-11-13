@@ -99,6 +99,18 @@
                     <span> Quản lý Vật Tư </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+                <a href="{{ route('nhanvien.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span> Quản lý Nhân viên</span>
+                </a>
+            </li>
+             <li class="side-nav-item">
+                <a href="{{ route('chucvu.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span> Quản lý chức vụ</span>
+                </a>
+            </li>
 
             <li class="side-nav-item">
                 <a href="#"class="side-nav-link">

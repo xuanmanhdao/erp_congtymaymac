@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateChucVuRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class UpdateChucVuRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,21 @@ class UpdateChucVuRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           "MaChucVu" => ['bail','string',Rule::unique('chucvu')->ignore($this->chucvu)],
+            "TenChucVu" => ['required'],
+            "MoTaChucVu" => ['required'],
+            
+        ];
+    }
+    public function messages() : array
+    {
+        return [
+        'unique' => 'Mã Đơn vị phân phối bị trùng.',
+        'required' => 'Trường này không được trống.',
+        // 'string' => 'A message is String',
+        // 'alpha_num'=>'Dữ liệu nhập phải là số.',
+        // 'email' => 'Dữ liệu nhập phải là địa chỉ email.',
+        // 'numeric' => 'Ký tự phải là số',
         ];
     }
 }
