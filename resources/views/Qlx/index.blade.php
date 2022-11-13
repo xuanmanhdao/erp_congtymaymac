@@ -1,6 +1,9 @@
 @extends('layout.master')
 @section('content')
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+{{-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -17,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
     <h3>Quản lý xưởng</h3>
 
     <a class="btn btn-success" href="{{ route('xuong.create') }}"><i class="fa-solid fa-plus"></i></a>

@@ -30,10 +30,13 @@
                {{ $errors->first('TenQuyTrinh') }}
           </span>
           @endif
-          
+          </div>
+          </div>
+          <br>          
 
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
+        <div class="col-sm-5">
         <textarea name="MoTaQuyTrinh" cols="55" rows="4" placeholder="Nhập mô tả..."></textarea>
         @if ($errors->has('MoTaQuyTrinh'))
         <span class="error" style="color: red;">
@@ -41,23 +44,10 @@
         </span>
         @endif
     </div>
+</div>
     <br>
 
-    <div class="form-group row">
-    <label class="col-sm-1,5 col-form-label flex-div"><strong> Nguyên vật liệu: </strong></label>
-    <div class="col-sm-5">   
-    <select name="MaNguyenVatLieu" class="form-control select ">
-
-        <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label flex-div"><strong> Mô tả quy trình: </strong></label>
-            <textarea name="MoTaQuyTrinh" cols="55" rows="4" placeholder="Nhập mô tả..."></textarea>
-            @if ($errors->has('MoTaQuyTrinh'))
-                <span class="error" style="color: red;">
-                    {{ $errors->first('MoTaQuyTrinh') }}
-                </span>
-            @endif
-        </div>
-        <br>
+    
 
         {{-- 
     Nguyên vật liệu
@@ -79,7 +69,8 @@
 
 
         <div class="form-group">
-            <label style="display: block">Chọn nguyên vật liệu</label>
+            <label style="display: block" class="col-sm-1,5 col-form-label flex-div" >Chọn nguyên vật liệu</label>
+            <div class="col-sm-5">
             @foreach ($nguyenvatlieu as $nguyenvatlieu)
                 <div class="custom-control custom-checkbox custom-control-inline">
                     <input type="checkbox" name='NguyenVatLieu[]'
@@ -95,7 +86,10 @@
                     {{ $errors->first('NguyenVatLieu') }}
                 </div>
             @endif
+            </div>
+        
         </div>
+        <br>
 
         <button class="btn btn-success">Thêm</button>
 
