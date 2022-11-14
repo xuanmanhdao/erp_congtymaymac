@@ -11,7 +11,7 @@ a {
 .wrapper {
     width: 100vw;
     height: 100vh;
-    background-image: url('/images/login_background.png');
+    background-image: url('http://127.0.0.1:8000/img/quanlykho/login_background.png');
     background-position: center;
     background-repeat: none;
     background-size: contain;

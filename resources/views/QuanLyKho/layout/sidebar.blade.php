@@ -6,13 +6,13 @@
             </a>
         </li>
         <li class="nav-items">
-            <a href="{{ route('sanpham.index') }}">
-                Quản lý sản phẩm
+            <a href="{{ route('nhapsanpham.index') }}">
+                Quản lý nhập sản phẩm
             </a>
         </li>
         <li class="nav-items">
-            <a href="#">
-                Nhập hàng
+            <a href="{{ route('sanpham.index') }}">
+                Quản lý kho sản phẩm
             </a>
         </li>
         <li class="nav-items">

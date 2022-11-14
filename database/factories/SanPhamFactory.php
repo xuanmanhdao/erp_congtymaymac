@@ -22,10 +22,13 @@ class SanPhamFactory extends Factory
             'TenSanPham'=>$this->faker->name(),
             'SoLuong' => $this->faker->numberBetween($min = 0, $max = 200),
             'DonViTinh'=>'chiếc',
-            'Gia'=>$this->faker->numberBetween($min = 1000000, $max = 30000000),
+            // 'Gia'=>$this->faker->numberBetween($min = 1000000, $max = 30000000),
             'MoTaSanPham'=>$this->faker->paragraph(),
             'MaLoai'=>$this->faker->randomElement(Loai::pluck('MaLoai')),
             'MaLoaiQuyTrinh'=>$this->faker->randomElement(LoaiQuyTrinh::pluck('MaLoaiQuyTrinh')),
+            'HinhAnh'=>$this->faker->imageUrl(),
+            // 'ThoiGianTao',
+            // 'ThoiGianCapNhat'
         ];
     }
 }

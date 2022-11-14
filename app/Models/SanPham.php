@@ -13,20 +13,27 @@ class SanPham extends Model
 
     public $incrementing = false;
 
-    public $timestamps = false;
+    // public $timestamps = false;
+    public $timestamps = true;
 
     protected $primaryKey = 'MaSanPham';
 
     protected $keyType = 'string';
+
+    const CREATED_AT = 'ThoiGianTao';
+    const UPDATED_AT = 'ThoiGianCapNhat';
     
     protected $fillable = [
         'MaSanPham',
         'TenSanPham',
         'SoLuong',
         'DonViTinh',
-        'Gia',
+        // 'Gia',
         'MoTaSanPham',
         'MaLoai',
-        'MaLoaiQuyTrinh'
+        'MaLoaiQuyTrinh',
+        'HinhAnh',
+        'ThoiGianTao',
+        'ThoiGianCapNhat'
     ];
 }
