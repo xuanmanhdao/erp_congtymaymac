@@ -7,6 +7,8 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
+        'reference' => 'd08bb2580d021c3dabc8fb28e324466bfc795481',
+        'name' => 'laravel/laravel',
         'dev' => true,
     ),
     'versions' => array(
@@ -421,6 +423,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
+            'reference' => 'd08bb2580d021c3dabc8fb28e324466bfc795481',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1298,6 +1301,15 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../webmozart/assert',
             'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'yajra/laravel-datatables-oracle' => array(
+            'pretty_version' => 'v9.21.2',
+            'version' => '9.21.2.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../yajra/laravel-datatables-oracle',
+            'aliases' => array(),
+            'reference' => 'a7fd01f06282923e9c63fa27fe6b391e21dc321a',
             'dev_requirement' => false,
         ),
     ),

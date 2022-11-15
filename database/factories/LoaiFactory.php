@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LoaiFactory extends Factory
 {
-    protected $model=Loai::class;
+    protected $model = Loai::class;
 
     /**
      * Define the model's default state.
@@ -19,7 +19,8 @@ class LoaiFactory extends Factory
         return [
             'MaLoai' => $this->faker->unique()->userName(),
             'TenLoai' => $this->faker->name(),
-            'MauSac' => $this->faker->rgbColor(),
+            // 'MauSac' => $this->faker->rgbColor(),
+            'MauSac' => $this->faker->hexColor(),
             'ViTriXep' => $this->faker->userName(),
         ];
     }

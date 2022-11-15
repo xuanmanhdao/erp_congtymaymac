@@ -55,9 +55,9 @@
                     </div>
                 </div>
                 <div class="control-actions">
-                    <div class="btn add-btn">
+                    <div class="btn add-btn" data-bs-toggle="modal" data-bs-target="#importTypeProduct">
                         <img src="{{ asset('img/quanlykho/add.svg') }} " alt="">
-                        <span class="label" data-bs-toggle="modal" data-bs-target="#importTypeProduct">Thêm loại sản phẩm
+                        <span class="label">Thêm loại sản phẩm
                             mới</span>
                     </div>
                     <div class="btn export-btn">
@@ -86,7 +86,7 @@
                                 </td>
                                 <td class="td">
                                     Màu sắc
-                                    <img src="{{ asset('img/quanlykho/sort-icon.svg') }}" alt="">
+                                    {{-- <img src="{{ asset('img/quanlykho/sort-icon.svg') }}" alt=""> --}}
                                 </td>
                                 <td class="td">
                                     Ví trị xếp

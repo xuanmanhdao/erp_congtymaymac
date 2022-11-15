@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\qlsx\ChiTietNhapKhoController;
-
+use App\Http\Controllers\XuatKhoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,5 +146,15 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::get('/edit/{loai}', [LoaiController::class, 'edit'])->name('loaisanpham.edit');
         Route::put('/update-loai-san-pham/{loai}', [LoaiController::class, 'update'])->name('loaisanpham.update');
         Route::get('/export', [LoaiController::class, 'export'])->name('loaisanpham.export');
+    });
+    Route::group(['prefix' => 'nhap-san-pham'], function () {
+        Route::get('/', [XuatKhoController::class, 'index'])->name('nhapsanpham.index');
+        Route::get('/ajax-index', [XuatKhoController::class, 'ajaxXuatKhoIndex'])->name('nhapsanpham.ajax.index');
+
+        Route::get('/auto-fill-ma-xuat-kho-last', [XuatKhoController::class, 'getMaXuatKhoLast'])->name('nhapsanpham.getmaxuatkholast');
+        Route::get('/create', [XuatKhoController::class, 'create'])->name('nhapsanpham.create');
+        Route::post('/store', [XuatKhoController::class, 'store'])->name('nhapsanpham.store');
+        Route::get('/edit/{xuatKho}', [XuatKhoController::class, 'edit'])->name('nhapsanpham.edit');
+        Route::put('/update/{xuatKho}', [XuatKhoController::class, 'update'])->name('nhapsanpham.update');
     });
 });
