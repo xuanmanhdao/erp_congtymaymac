@@ -30,7 +30,7 @@ class UpdateDonViPhanPhoiRequest extends FormRequest
             "DiaChi" => ['required'],
             "SoDienThoai" => ['numeric', 'digits:10'],
             "Fax" => ['numeric'],
-             "Email" => ['required','email'],
+            "Email" => ['required','email'],
         ];
     }
     public function messages() : array

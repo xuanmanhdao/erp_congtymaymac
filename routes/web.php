@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatLieuController;
 use App\Http\Controllers\LoaiController;
 use App\Http\Controllers\LoaiQuyTrinhController;
 use App\Http\Controllers\NguyenVatLieuController;
@@ -131,6 +132,15 @@ Route::group(['prefix' => 'quan-ly-chuc-vu', 'middleware' => KiemTraDangNhapMidd
     Route::post('/store', [ChucVuController::class, 'store'])->name('chucvu.store');
     Route::get('/edit/{chucvu}', [ChucVuController::class, 'edit'])->name('chucvu.edit');
     Route::put('/update/{chucvu}', [ChucVuController::class, 'update'])->name('chucvu.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
+
+Route::group(['prefix' => 'chat-lieu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [ChatLieuController::class, 'index'])->name('chatlieu.index');
+    Route::get('/create', [ChatLieuController::class, 'create'])->name('chatlieu.create');
+    Route::post('/store', [ChatLieuController::class, 'store'])->name('chatlieu.store');
+    Route::get('/edit/{chatlieu}', [ChatLieuController::class, 'edit'])->name('chatlieu.edit');
+    Route::put('/update/{chatlieu}', [ChatLieuController::class, 'update'])->name('chatlieu.update');
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 

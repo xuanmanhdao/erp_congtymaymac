@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý vật tư</title>
 <h3>Thêm vật tư</h3>

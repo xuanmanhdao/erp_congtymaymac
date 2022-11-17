@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý chi tiết nhập kho</title>
 <h3>Thêm chi tiết nhập kho </h3>
