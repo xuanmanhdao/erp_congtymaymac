@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">​
     <title>Product</title>
 
     <link rel="stylesheet" href="{{ asset('library/quanlykho/bootstrap-5.2.2-dist/css/bootstrap.min.css') }}">
     <link href="{{ asset('css/quanlykho/main.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/quanlykho/layouts.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/quanlykho/product.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    @stack('css')
 </head>
 
 <body>
@@ -39,14 +43,22 @@
         <!-- Footer End-->
     </div>
     @include('QuanLyKho.sanpham.modal-add-product')
+
     @include('QuanLyKho.loaisanpham.modal-add-type-product')
     @include('QuanLyKho.loaisanpham.modal-edit-type-product')
+
+    @include('QuanLyKho.nhapkho.modal-add-bill-import-warehouse')
+    @include('QuanLyKho.nhapkho.modal-edit-bill-import-warehouse')
 
 
     <script src="{{ asset('library/quanlykho/jQuery.min.js') }}"></script>
     <script src="{{ asset('library/quanlykho/bootstrap-5.2.2-dist/js/bootstrap.min.js') }}"></script>
     <script src="https://kit.fontawesome.com/fb15251dc0.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/quanlykho/main.js') }}"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     @stack('js')
 </body>

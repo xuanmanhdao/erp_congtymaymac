@@ -19,7 +19,8 @@ class XuongFactory extends Factory
     {
         return [
             'MaXuong' => $this->faker->unique()->userName(),
-            'TenXuong' => $this->faker->name(),
+            // 'TenXuong' => $this->faker->name(),
+            'TenXuong' => $this->faker->unique()->name(),
             'DiaChi' => $this->faker->address(),
             // 'SoLuongVatTu' => $this->faker->numberBetween($min = 0, $max = 200),
             'MoTaXuong' => $this->faker->paragraph(),

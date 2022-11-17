@@ -56,6 +56,10 @@ return [
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
             'prefix_indexes' => true,
+<<<<<<< HEAD
+=======
+            // 'strict' => true,
+>>>>>>> df13ee10390d3e94e21f0010994bdedc39f1c9c4
             'strict' => false,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([

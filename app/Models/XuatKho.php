@@ -18,7 +18,7 @@ class XuatKho extends Model
     protected $primaryKey = 'MaXuatKho';
 
     protected $keyType = 'int';
-    
+
     protected $fillable = [
         'MaXuatKho',
         'ThoiGianXuat',
@@ -27,4 +27,14 @@ class XuatKho extends Model
         'MaNhanVien',
         'MaXuong'
     ];
+
+    public function nhanVien()
+    {
+        return $this->belongsTo(NhanVien::class, 'MaNhanVien', 'MaNhanVien');
+    }
+
+    public function xuong()
+    {
+        return $this->belongsTo(Xuong::class, 'MaXuong', 'MaXuong');
+    }
 }
