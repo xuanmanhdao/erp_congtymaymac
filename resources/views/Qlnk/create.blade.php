@@ -143,6 +143,7 @@ function format_curency(a) {
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Nhân viên: </strong></label>
         <div class="col-sm-5">
           <select type="" class="form-control" name="MaNhanVien" >
+            <option >Chọn nhân viên ...</option>
           @foreach ($nhanvien as $nv)
                     <option value="{{ $nv->MaNhanVien }}">{{ $nv->TenNhanVien }}</option>
           @endforeach
@@ -168,6 +169,7 @@ function format_curency(a) {
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Đơn vị phân phối: </strong></label>
         <div class="col-sm-5">
           <select type="text" class="form-control" name="MaDonViPhanPhoi" >
+            <option >Chọn đơn vị ...</option>
           @foreach ($donviphanphoi as $phanphoi)
                     <option value="{{ $phanphoi->MaDonViPhanPhoi }}">{{ $phanphoi->TenDonViPhanPhoi }}</option>
           @endforeach
