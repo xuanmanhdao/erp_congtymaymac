@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LoaiQuyTrinh;
 use App\Http\Requests\StoreLoaiQuyTrinhRequest;
 use App\Http\Requests\UpdateLoaiQuyTrinhRequest;
+use App\Models\ChatLieu;
 use App\Models\NguyenVatLieu;
 use App\Models\NguyenVatLieuLoaiQuyTrinh;
 use Illuminate\Http\Request;
@@ -18,18 +19,7 @@ class LoaiQuyTrinhController extends Controller
      */
     public function index(Request $request, LoaiQuyTrinh $quytrinh)
     {
-        /*  $search = $request->get('q');
-
-        $quytrinh = $quytrinh->query()
-        ->where('MaLoaiQuyTrinh','like', '%'. $search. '%')
-        ->paginate(10);
-        $nguyenvatlieu = NguyenVatLieu::class;
-
-        return view('Qlqt.index',[
-            'quytrinh' => $quytrinh,
-            'search'  => $search,
-            'nguyenvatlieu' => $nguyenvatlieu,
-        ]); */
+        
 
         $search = $request->get('q');
         $quytrinh = $quytrinh->query()
@@ -59,8 +49,10 @@ class LoaiQuyTrinhController extends Controller
     public function create(Request $request, LoaiQuyTrinh $quytrinh)
     {
         $nguyenvatlieu = NguyenVatLieu::get();
+        $chatlieu = ChatLieu::get();
         return view('Qlqt.create', [
             'nguyenvatlieu' => $nguyenvatlieu,
+            'chatlieu' => $chatlieu,
         ]);
     }
 
