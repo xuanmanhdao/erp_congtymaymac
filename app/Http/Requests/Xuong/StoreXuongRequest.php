@@ -26,7 +26,7 @@ class StoreXuongRequest extends FormRequest
         return [
             "MaXuong" => ['bail', 'required','string', 'unique:xuong,MaXuong'],
             "DiaChi" => ['required'],
-            "TenXuong" => ['required'],
+            "TenXuong" => ['required','unique:xuong,TenXuong'],
             "MoTaXuong" => ['required','nullable'],
             
         ];
@@ -34,7 +34,7 @@ class StoreXuongRequest extends FormRequest
     public function messages() : array
     {
         return [
-        'unique' => 'Mã xưởng bị trùng',
+        'unique' => 'Dữ liệu bị trùng',
         'required' => 'Trường này không được trống',
         'string' => 'A message is String',
         ];
