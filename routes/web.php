@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatLieuController;
 use App\Http\Controllers\LoaiController;
 use App\Http\Controllers\LoaiQuyTrinhController;
 use App\Http\Controllers\NguyenVatLieuController;
@@ -24,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 
 use App\Http\Controllers\qlsx\ChiTietNhapKhoController;
-
+use App\Http\Controllers\XuatKhoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -134,6 +135,15 @@ Route::group(['prefix' => 'quan-ly-chuc-vu', 'middleware' => KiemTraDangNhapMidd
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 
+Route::group(['prefix' => 'chat-lieu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [ChatLieuController::class, 'index'])->name('chatlieu.index');
+    Route::get('/create', [ChatLieuController::class, 'create'])->name('chatlieu.create');
+    Route::post('/store', [ChatLieuController::class, 'store'])->name('chatlieu.store');
+    Route::get('/edit/{chatlieu}', [ChatLieuController::class, 'edit'])->name('chatlieu.edit');
+    Route::put('/update/{chatlieu}', [ChatLieuController::class, 'update'])->name('chatlieu.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
+
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
@@ -146,5 +156,15 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::get('/edit/{loai}', [LoaiController::class, 'edit'])->name('loaisanpham.edit');
         Route::put('/update-loai-san-pham/{loai}', [LoaiController::class, 'update'])->name('loaisanpham.update');
         Route::get('/export', [LoaiController::class, 'export'])->name('loaisanpham.export');
+    });
+    Route::group(['prefix' => 'nhap-san-pham'], function () {
+        Route::get('/', [XuatKhoController::class, 'index'])->name('nhapsanpham.index');
+        Route::get('/ajax-index', [XuatKhoController::class, 'ajaxXuatKhoIndex'])->name('nhapsanpham.ajax.index');
+
+        Route::get('/auto-fill-ma-xuat-kho-last', [XuatKhoController::class, 'getMaXuatKhoLast'])->name('nhapsanpham.getmaxuatkholast');
+        Route::get('/create', [XuatKhoController::class, 'create'])->name('nhapsanpham.create');
+        Route::post('/store', [XuatKhoController::class, 'store'])->name('nhapsanpham.store');
+        Route::get('/edit/{xuatKho}', [XuatKhoController::class, 'edit'])->name('nhapsanpham.edit');
+        Route::put('/update/{xuatKho}', [XuatKhoController::class, 'update'])->name('nhapsanpham.update');
     });
 });

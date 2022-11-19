@@ -5,7 +5,7 @@
     <form action="{{ route('nguyenvatlieu.store') }}" method="post">
         @csrf
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Mã nguyên vật liệu: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã nguyên vật liệu: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="MaNguyenVatLieu" placeholder="Nhập mã nguyên vật liệu...">
                 @if ($errors->has('MaNguyenVatLieu'))
@@ -18,7 +18,7 @@
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Tên nguyên vật liệu: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên nguyên vật liệu: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="TenNguyenVatLieu">
                 @if ($errors->has('TenNguyenVatLieu'))
@@ -28,11 +28,25 @@
                 @endif
             </div>
         </div>
-
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Số lượng: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Kiểu chất liệu: </strong></label>
+            <div class="col-sm-5">
+                <select name="MaChatLieu" class="form-control select">
+                    <option selected>Chọn:</option>
+                    @foreach ($chatlieu as $chatlieu)
+                        <option value="{{ $chatlieu->MaChatLieu }}">
+                            {{ $chatlieu->TenChatLieu }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Số lượng: </strong></label>
             <div class="col-sm-5">
                 <input type="number" class="form-control" name="SoLuong">
                 @if ($errors->has('SoLuong'))
@@ -42,11 +56,10 @@
                 @endif
             </div>
         </div>
-
         <br>
 
         <div class="form-group row">
-            <label class="col-sm-1,5 col-form-label"><strong> Đơn vị tính: </strong></label>
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Đơn vị tính: </strong></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="DonViTinh" placeholder="Đơn vị tính...">
                 @if ($errors->has('DonViTinh'))
@@ -58,30 +71,36 @@
         </div>
         <br>
 
-        <label class="col-sm-1,5 col-form-label"><strong> Tên xưởng: </strong></label>
-        <div class="col-sm-5">
-        <select name="MaXuong" class="form-control select">
-            <option selected>Chọn loại xưởng</option>
-            @foreach ($xuong as $xuong)
-                <option value="{{ $xuong->MaXuong }}">
-                    {{ $xuong->TenXuong }}
-                </option>
-            @endforeach
-        </select>
+        <div class="form-group row">
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên xưởng: </strong></label>
+            <div class="col-sm-5">
+                <select name="MaXuong" class="form-control select">
+                    <option selected>Chọn loại xưởng</option>
+                    @foreach ($xuong as $xuong)
+                        <option value="{{ $xuong->MaXuong }}">
+                            {{ $xuong->TenXuong }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
         </div>
         <br>
 
-        <label class="col-sm-1,5 col-form-label"><strong> Đơn vị phân phối: </strong></label>
-        <div class="col-sm-5">
-        <select name="MaDonViPhanPhoi" class="form-control select">
-            <option selected>Chọn đơn vị</option>
-            @foreach ($donviphanphoi as $donviphanphoi)
-                <option value="{{ $donviphanphoi->MaDonViPhanPhoi }}">
-                    {{ $donviphanphoi->TenDonViPhanPhoi }}
-                </option>
-            @endforeach
-        </select>
+        <div class="form-group row">
+
+            <label class="col-sm-1,5 col-form-label flex-div"><strong> Đơn vị phân phối: </strong></label>
+            <div class="col-sm-5">
+                <select name="MaDonViPhanPhoi" class="form-control select">
+                    <option selected>Chọn đơn vị</option>
+                    @foreach ($donviphanphoi as $donviphanphoi)
+                        <option value="{{ $donviphanphoi->MaDonViPhanPhoi }}">
+                            {{ $donviphanphoi->TenDonViPhanPhoi }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
         </div>
+
         <br>
 
         <button class="btn btn-success">Thêm</button>
@@ -89,3 +108,5 @@
 
     </form>
 @endsection
+
+@endpush

@@ -19,7 +19,7 @@ class XuatKhoFactory extends Factory
     {
         return [
             'ThoiGianXuat'=>$this->faker->dateTime(),
-            'TongGia'=>$this->faker->numberBetween($min=1000000,$max=30000000),
+            // 'TongGia'=>$this->faker->numberBetween($min=1000000,$max=30000000),
             'GhiChu'=>$this->faker->paragraph(),
             'MaNhanVien'=>$this->faker->randomElement(NhanVien::pluck('MaNhanVien')),
             'MaXuong'=>$this->faker->randomElement(Xuong::pluck('MaXuong')),

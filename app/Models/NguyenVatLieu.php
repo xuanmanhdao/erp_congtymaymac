@@ -17,6 +17,7 @@ class NguyenVatLieu extends Model
     protected $fillable = [
         'MaNguyenVatLieu',
         'TenNguyenVatLieu',
+        'MaChatLieu',
         'SoLuong',
         'DonViTinh',
         'MaXuong',
@@ -29,6 +30,10 @@ class NguyenVatLieu extends Model
 
     public function donviphanphoi(){
         return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
+    }
+    
+    public function chatlieu(){
+        return $this->belongsTo(ChatLieu::class,'MaChatLieu','MaChatLieu');
     }
 
 }

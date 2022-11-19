@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header pb-0">
                 <div>
-                    <h1 class="modal-title fs-5" id="importProductLabel">Thêm nhà cung cấp</h1>
+                    <h1 class="modal-title fs-5" id="importProductLabel">Thêm sản phẩm</h1>
                     <div class="modal-tab">
                         <div class="tab active" data-click="changModalTab" data-label="info">
                             Thông tin
@@ -20,31 +20,31 @@
                 <div class="row justify-content-between tab-content tab-active" data-label="tab-info">
                     <div class="col-lg-5">
                         <div class="modal-input">
-                            <label for="">Mã hàng</label>
+                            <label for="">Mã sản phẩm</label>
                             <input type="text" placeholder="Điền mã hàng">
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="modal-input">
-                            <label for="">Giá vốn</label>
+                            <label for="">Tên sản phẩm</label>
                             <input type="text" placeholder="0">
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="modal-input">
-                            <label for="">Mã vạch</label>
+                            <label for="">Số lượng</label>
                             <input type="text" placeholder="Điền mã vạch">
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="modal-input">
-                            <label for="">Giá bán</label>
+                            <label for="">Đơn vị tính</label>
                             <input type="text" placeholder="0">
                         </div>
                     </div>
                     <div class="col-lg-5">
                         <div class="modal-input">
-                            <label for="">Tên hàng</label>
+                            <label for="">Giá</label>
                             <input type="text" placeholder="Điền tên hàng">
                         </div>
                     </div>

@@ -20,6 +20,8 @@ class UpdateXuongsTable extends Migration
             $table->dropForeign('xuong_mavattu_foreign');
             $table->dropColumn('MaVatTu');
             $table->dropColumn('SoLuongVatTu');
+
+            DB::statement('ALTER TABLE xuong ADD UNIQUE (TenXuong)');
         });
     }
 

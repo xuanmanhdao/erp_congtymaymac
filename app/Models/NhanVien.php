@@ -18,7 +18,7 @@ class NhanVien extends Model
     protected $primaryKey = 'MaNhanVien';
 
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'MaNhanVien',
         'TenNhanVien',
@@ -34,11 +34,16 @@ class NhanVien extends Model
 
     public function chucvu()
     {
-        return $this->belongsTo(ChucVu::class,'MaChucVu','MaChucVu');
+        return $this->belongsTo(ChucVu::class, 'MaChucVu', 'MaChucVu');
     }
 
     public function xuong()
     {
-        return $this->belongsTo(Xuong::class,'MaXuong','MaXuong');
+        return $this->belongsTo(Xuong::class, 'MaXuong', 'MaXuong');
+    }
+
+    public function xuatKho()
+    {
+        return $this->hasMany(XuatKho::class, 'MaNhanVien', 'MaNhanVien');
     }
 }

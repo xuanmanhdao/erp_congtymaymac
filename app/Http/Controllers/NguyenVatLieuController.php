@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NguyenVatLieu;
 use App\Http\Requests\StoreNguyenVatLieuRequest;
 use App\Http\Requests\UpdateNguyenVatLieuRequest;
+use App\Models\ChatLieu;
 use App\Models\DonViPhanPhoi;
 use App\Models\Xuong;
 use Illuminate\Http\Request;
@@ -25,12 +26,14 @@ class NguyenVatLieuController extends Controller
         ->paginate(10);
         $xuong = Xuong::get();
         $donviphanphoi = DonViPhanPhoi::get();
+        $chatlieu = ChatLieu::get();
 
         return view('qlnvl.index',[
             'donviphanphoi' => $donviphanphoi,
             'xuong' => $xuong,
             'search'  => $search,
             'nguyenvatlieu' => $nguyenvatlieu,
+            'chatlieu' => $chatlieu,
         ]);
     }
 
@@ -41,11 +44,14 @@ class NguyenVatLieuController extends Controller
      */
     public function create()
     {
+        $chatlieu = ChatLieu::get();
         $xuong = Xuong::get();
         $donviphanphoi = DonViPhanPhoi::get();
         return view('Qlnvl.create',[
             'xuong' => $xuong,
             'donviphanphoi' => $donviphanphoi,
+            'chatlieu' => $chatlieu,
+
         ]);
     }
 
@@ -57,6 +63,7 @@ class NguyenVatLieuController extends Controller
      */
     public function store(StoreNguyenVatLieuRequest $request, NguyenVatLieu $nguyenvatlieu)
     {
+        // dd($nguyenvatlieu);
         $nguyenvatlieu->create($request->validated());
         return redirect()->route('nguyenvatlieu.index')->with('success', 'Đã thêm thành công');
     }
