@@ -49,6 +49,10 @@
 
     @include('QuanLyKho.nhapkho.modal-add-bill-import-warehouse')
     @include('QuanLyKho.nhapkho.modal-edit-bill-import-warehouse')
+    @include('QuanLyKho.nhapkho.modal-confirm-bill-import-warehouse')
+    @include('QuanLyKho.nhapkho.modal-add-product-new')
+    @include('QuanLyKho.nhapkho.modal-add-product-old')
+    @include('QuanLyKho.nhapkho.modal-confirm-add-bill-import-warehouse')
 
 
     <script src="{{ asset('library/quanlykho/jQuery.min.js') }}"></script>

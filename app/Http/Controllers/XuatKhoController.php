@@ -42,6 +42,9 @@ class XuatKhoController extends Controller
             ->addColumn('btnEdit', function ($row) {
                 return route('nhapsanpham.edit', $row->MaXuatKho);
             })
+            ->addColumn('btnDetail', function($row){
+                return route('chitietnhapsanpham.show', $row->MaXuatKho);
+            })
             ->make(true);
     }
 
@@ -79,6 +82,8 @@ class XuatKhoController extends Controller
     {
         XuatKho::create($request->validated());
         return response()->json(['message' => 'Đã thêm hóa đơn nhập sản phẩm thành công'], 200);
+
+        // return redirect()->route('chitietnhapsanpham.create')->with('success', 'Đã thêm thành công');
     }
 
     /**

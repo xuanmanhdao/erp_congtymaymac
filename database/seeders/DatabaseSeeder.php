@@ -17,18 +17,18 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call([
             XuongSeeder::class,
-            VatTuSeeder::class,
+            // VatTuSeeder::class,
             ChucVuSeeder::class,
             NhanVienSeeder::class,
             TaiKhoanSeeder::class,
-            DonViPhanPhoiSeeder::class,
-            NguyenVatLieuSeeder::class,
+            // DonViPhanPhoiSeeder::class,
+            // NguyenVatLieuSeeder::class,
             LoaiQuyTrinhSeeder::class,
-            LoaiSeeder::class,
-            SanPhamSeeder::class,
+            // LoaiSeeder::class,
+            // SanPhamSeeder::class,
             XuatKhoSeeder::class,
-            ChiTietXuatKhoSeeder::class,
-            NguyenVatLieuLoaiQuyTrinhSeeder::class,
+            // ChiTietXuatKhoSeeder::class,
+            // NguyenVatLieuLoaiQuyTrinhSeeder::class,
         ]); 
         // $this->seed(VatTuSeeder::class);
     }

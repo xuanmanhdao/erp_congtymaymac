@@ -21,6 +21,8 @@ class UdateSanPhamsTable extends Migration
             // $table->dropColumn('SoLuong');
             // $table->dropColumn('DonViTinh');
             $table->dropColumn('Gia');
+            DB::statement('ALTER TABLE sanpham ALTER SoLuong SET DEFAULT 0;');
+            DB::statement("ALTER TABLE sanpham ALTER DonViTinh SET DEFAULT 'chiếc';");
         });
     }
 

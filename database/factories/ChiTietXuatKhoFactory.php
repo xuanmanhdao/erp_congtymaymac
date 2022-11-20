@@ -23,6 +23,7 @@ class ChiTietXuatKhoFactory extends Factory
             'SoLuong'=>$this->faker->numberBetween($min = 10, $max = 2000),
             'DonViTinh'=>'chiếc',
             'ThanhTien'=>$this->faker->numberBetween($min=100000,$max=20000000),
+            'Gia'=>$this->faker->numberBetween($min=100000,$max=20000000),
         ];
     }
 }

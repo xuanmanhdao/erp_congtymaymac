@@ -5,39 +5,41 @@
 @endpush
 @section('ContentPageQuanLyKho')
     <div class="container">
-
+      
         <div class="box">
             <div class="control-table">
+                @if (session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
                 <div class="control-info">
                     <div class="total-products">
-                        <p class="h6" id="total-product-warehouse">Có tất cả 0 sản phẩm</p>
+                        <p class="h6" id="total-bill-detail-improt-warehouse">Có tất cả 0 sản phẩm</p>
                     </div>
                     <div class="progress">
-                        <div id="progressbar-product-warehouse" class="progress-bar" role="progressbar"
+                        <div id="progressbar-bill-detail-improt-warehouse" class="progress-bar" role="progressbar"
                             aria-label="Success example" style="width: 10%" aria-valuenow="1" aria-valuemin="0"
                             aria-valuemax="100">
                         </div>
                     </div>
                     <div class="upload-info">
-                        <p id="showing-product-warehouse">Đang hiển thị bản ghi từ 1 - 10</p>
+                        <p id="showing-bill-detail-improt-warehouse">Đang hiển thị bản ghi từ 1 - 10</p>
                     </div>
                 </div>
             </div>
             <div class="custom-table table-responsive">
                 <div class="table-content">
-                    <table class="table" id="table-product-warehouse">
+                    <table class="table" id="table-bill-detail-improt-warehouse">
                         <thead class="thead">
                             <th>STT</th>
+                            <th>Mã nhập sản phẩm</th>
                             <th>Mã sản phẩm</th>
-                            <th>Tên sản phẩm</th>
                             <th>Số lượng</th>
                             <th>Đơn vị tính</th>
-                            <th>Mô tả sản phẩm</th>
-                            <th>Mã loại sản phẩm</th>
-                            <th>Mã loại quy trình</th>
-                            <th>Thời gian tạo</th>
-                            <th>Thời gian cập nhật</th>
-                            <th>Hình ảnh</th>
+                            <th>Giá</th>
+                            <th>Thành tiền</th>
+                            <th>Thời gian nhập sản phẩm</th>
                         </thead>
                     </table>
                 </div>
@@ -66,17 +68,18 @@
                 var ariaValueNowProgressBar = (totalRecords === 0) ? 0 : (((currentPage * perPage) / totalRecords) *
                     100);
 
-                $('#total-product-warehouse').text(`Có tất cả ${totalRecords} sản phẩm tồn kho`);
-                $('#showing-product-warehouse').text(`Đang hiển thị bản ghi từ ${startRecord} - ${endRecord}`);
-                $('#progressbar-product-warehouse').attr("style", `width: ${widthProgressBar}%`);
-                $('#progressbar-product-warehouse').attr("aria-valuenow", `${ariaValueNowProgressBar}`);
+                $('#total-bill-detail-improt-warehouse').text(`Có tất cả ${totalRecords} sản phẩm tồn kho`);
+                $('#showing-bill-detail-improt-warehouse').text(
+                    `Đang hiển thị bản ghi từ ${startRecord} - ${endRecord}`);
+                $('#progressbar-bill-detail-improt-warehouse').attr("style", `width: ${widthProgressBar}%`);
+                $('#progressbar-bill-detail-improt-warehouse').attr("aria-valuenow", `${ariaValueNowProgressBar}`);
             }
             var buttonCommon = {
                 exportOptions: {
                     columns: ':visible :not(.not-export)'
                 }
             };
-            var table = $('#table-product-warehouse').DataTable({
+            var table = $('#table-bill-detail-improt-warehouse').DataTable({
                 dom: 'Blfrtip',
                 select: true,
                 buttons: [
@@ -99,7 +102,7 @@
                 ],
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('sanpham.ajax.index') }}',
+                ajax: '{{ route('chitietnhapsanpham.ajax.show', $maXuatKho) }}',
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex',
@@ -107,10 +110,10 @@
                         searchable: false
                     },
                     {
-                        "data": "MaSanPham"
+                        "data": "MaXuatKho"
                     },
                     {
-                        "data": "TenSanPham"
+                        "data": "MaSanPham"
                     },
                     {
                         "data": "SoLuong"
@@ -119,31 +122,15 @@
                         "data": "DonViTinh"
                     },
                     {
-                        "data": "MoTaSanPham"
+                        "data": "Gia"
                     },
                     {
-                        "data": "MaLoai"
+                        "data": "ThanhTien"
                     },
                     {
-                        "data": "MaLoaiQuyTrinh"
-                    },
-                    {
-                        "data": "ThoiGianTao"
-                    },
-                    {
-                        "data": "ThoiGianCapNhat"
-                    },
-                    {
-                        "data": "HinhAnh",
-                        "render": function(data) {
-                        var arrayHinhAnh = data.split("|");
-                        var html="";
-                        for(let i=0; i< arrayHinhAnh.length; i++){
-                            html += `<img src="{{asset('storage/images')}}/${arrayHinhAnh[i]}" class="format-img-table" alt="Ảnh lỗi">`;
-                        }
-                            return html;
-                        }
+                        "data": "ThoiGianXuat"
                     }
+
                 ],
                 columnDefs: [{
                     className: "not-export",
