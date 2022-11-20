@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatLieuController;
 use App\Http\Controllers\ChiTietXuatKhoController;
 use App\Http\Controllers\LoaiController;
 use App\Http\Controllers\LoaiQuyTrinhController;
@@ -137,6 +138,15 @@ Route::group(['prefix' => 'quan-ly-chuc-vu', 'middleware' => KiemTraDangNhapMidd
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 
+Route::group(['prefix' => 'chat-lieu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [ChatLieuController::class, 'index'])->name('chatlieu.index');
+    Route::get('/create', [ChatLieuController::class, 'create'])->name('chatlieu.create');
+    Route::post('/store', [ChatLieuController::class, 'store'])->name('chatlieu.store');
+    Route::get('/edit/{chatlieu}', [ChatLieuController::class, 'edit'])->name('chatlieu.edit');
+    Route::put('/update/{chatlieu}', [ChatLieuController::class, 'update'])->name('chatlieu.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+});
+
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
@@ -166,7 +176,6 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::put('/update/{xuatKho}', [XuatKhoController::class, 'update'])->name('nhapsanpham.update');
     });
     Route::group(['prefix' => 'chi-tiet-nhap-san-pham'], function () {
-        Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
         Route::get('/create', [ChiTietXuatKhoController::class, 'create'])->name('chitietnhapsanpham.create');
         Route::post('/store', [ChiTietXuatKhoController::class, 'store'])->name('chitietnhapsanpham.store');
         Route::get('/chi-tiet-hoa-don-nhap-san-pham/{maXuatKho}', [ChiTietXuatKhoController::class, 'show'])->name('chitietnhapsanpham.show');

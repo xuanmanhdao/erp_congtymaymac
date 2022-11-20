@@ -71,9 +71,9 @@ class SanPhamController extends Controller
         $images = array();
         if ($files = $request->file('HinhAnh')) {
             foreach ($files as $file) {
-                $request->validate([
-                    'HinhAnh' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
-                ]);
+                // $request->validate([
+                //     'HinhAnh' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+                // ]);
                 $var = date_create();
                 $time = date_format($var, 'YmdHis');
                 $imageName = $time . '-' . $file->getClientOriginalName();

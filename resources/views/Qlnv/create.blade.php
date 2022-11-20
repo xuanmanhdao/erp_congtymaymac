@@ -202,6 +202,7 @@
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã chức vụ : </strong></label>
         <div class="col-sm-5">
           <select type="text" class="form-control" name="MaChucVu" >
+            <option >Chọn chức vụ ...</option>
           @foreach ($chucvu as $nv)
                     <option value="{{ $nv->MaChucVu }}">{{ $nv->MaChucVu }}</option>
           @endforeach
@@ -213,6 +214,7 @@
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã xưởng: </strong></label>
         <div class="col-sm-5">
           <select type="" class="form-control" name="MaXuong" >
+            <option >Chọn xưởng ...</option>
           @foreach ($xuong as $nv)
                     <option value="{{ $nv->MaXuong }}">{{ $nv->MaXuong }}</option>
           @endforeach

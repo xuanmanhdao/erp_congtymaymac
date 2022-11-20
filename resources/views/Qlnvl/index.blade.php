@@ -18,6 +18,7 @@
         <tr>
             <th>Mã nguyên vật liệu</th>
             <th>Tên nguyên vật liệu</th>
+            <th>Kiểu chất liệu</th>
             <th>Số lượng</th>
             <th>Đơn vị tính</th>
             <th>Tên Xưởng</th>
@@ -28,7 +29,8 @@
         @foreach ($nguyenvatlieu as $data)
             <tr>
                 <td>{{ $data->MaNguyenVatLieu }}</td>
-                <td>{{ $data->TenNguyenVatLieu }}</td>
+                <td>{{ $data->TenNguyenVatLieu }} </td>
+                <td>{{ $data->chatlieu->TenChatLieu }}</td>
                 <td>{{ $data->SoLuong }}</td>
                 <td>{{ $data->DonViTinh }}</td>
                 <td>{{ $data->xuong->TenXuong}}</td>

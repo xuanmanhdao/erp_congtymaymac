@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý chi tiết nhập kho</title>
 <h3>Thêm chi tiết nhập kho </h3>
@@ -82,6 +82,7 @@
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Nhập kho: </strong></label>
         <div class="col-sm-5">
           <select type="text" class="form-control" name="MaNhapKho" >
+            <option >Chọn mã nhập kho ...</option>
           @foreach ($nhapkho as $nhapkho1)
                     <option value="{{ $nhapkho1->MaNhapKho }}">{{ $nhapkho1->MaNhapKho }}</option>
           @endforeach
@@ -95,6 +96,7 @@
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên nguyên vật liệu : </strong></label>
         <div class="col-sm-5">
         <select type="text" class="form-control" name="MaNguyenVatLieu" >
+          <option >Chọn nguyên vật liệu ...</option>
           @foreach ($nguyenvatlieu as $vatlieu)
                     <option value="{{ $vatlieu->MaNguyenVatLieu }}">{{ $vatlieu->TenNguyenVatLieu }}</option>
           @endforeach

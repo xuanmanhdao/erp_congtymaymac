@@ -26,7 +26,7 @@ class UpdateNguyenVatLieuRequest extends FormRequest
     
     {
         return [
-            'MaNguyenVatLieu' =>['bail','required','string', Rule::unique('nguyenvatlieu')->ignore($this->nguyenvatlieu)],
+            'MaNguyenVatLieu' =>['bail','string', Rule::unique('nguyenvatlieu')->ignore($this->nguyenvatlieu)],
             'MaXuong' => ['required'],
             'MaDonViPhanPhoi' => ['required'],
             'TenNguyenVatLieu' =>['required','string'],

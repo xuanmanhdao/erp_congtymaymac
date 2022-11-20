@@ -26,6 +26,7 @@ class StoreNguyenVatLieuRequest extends FormRequest
         return [
             'MaNguyenVatLieu' =>['bail','required','string','unique:nguyenvatlieu,MaNguyenVatLieu'],
             'TenNguyenVatLieu' =>['required','string'],
+            'MaChatLieu' => ['required'],
             'SoLuong' => ['required','numeric'],
             'DonViTinh' => ['required','string'],
             'MaXuong' => ['required'],

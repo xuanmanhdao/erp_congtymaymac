@@ -48,8 +48,8 @@
             <th>Địa chỉ</th>
             <th>Email</th>
            <th>Số điện thoại</th>
-           <th>Mã chức vụ</th>
-           <th>Mã xưởng</th>
+           <th>Tên chức vụ</th>
+           <th>Tên xưởng</th>
             <th>Tác vụ</th>
         </tr>
         @foreach ($nhanvien as $data)
