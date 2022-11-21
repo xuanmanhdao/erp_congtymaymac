@@ -43,6 +43,8 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Requests\\AuthRequest' => $baseDir . '/app/Http/Requests/AuthRequest.php',
+    'App\\Http\\Requests\\ChatLieu\\StoreChatLieuRequest' => $baseDir . '/app/Http/Requests/ChatLieu/StoreChatLieuRequest.php',
+    'App\\Http\\Requests\\ChatLieu\\UpdateChatLieuRequest' => $baseDir . '/app/Http/Requests/ChatLieu/UpdateChatLieuRequest.php',
     'App\\Http\\Requests\\ChiTietNhapKho\\StoreChiTietNhapKhoRequest' => $baseDir . '/app/Http/Requests/ChiTietNhapKho/StoreChiTietNhapKhoRequest.php',
     'App\\Http\\Requests\\ChiTietNhapKho\\UpdateChiTietNhapKhoRequest' => $baseDir . '/app/Http/Requests/ChiTietNhapKho/UpdateChiTietNhapKhoRequest.php',
     'App\\Http\\Requests\\DonViPhanPhoi\\StoreDonViPhanPhoiRequest' => $baseDir . '/app/Http/Requests/DonViPhanPhoi/StoreDonViPhanPhoiRequest.php',
