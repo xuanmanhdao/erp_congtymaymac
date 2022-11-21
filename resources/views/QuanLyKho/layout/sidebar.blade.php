@@ -16,6 +16,11 @@
             </a>
         </li>
         <li class="nav-items">
+            <a href="{{ route('loainguyenvatlieu.index') }}">
+                Quản lý loại nguyên vật liệu
+            </a>
+        </li>
+        <li class="nav-items">
             <a href="#">
                 Xuất hàng
             </a>

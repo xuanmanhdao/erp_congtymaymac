@@ -54,6 +54,9 @@
     @include('QuanLyKho.nhapkho.modal-add-product-old')
     @include('QuanLyKho.nhapkho.modal-confirm-add-bill-import-warehouse')
 
+    @include('QuanLyKho.loainguyenvatlieu.modal-add-ingredient-type')
+    @include('QuanLyKho.loainguyenvatlieu.modal-edit-ingredient-type')
+
 
     <script src="{{ asset('library/quanlykho/jQuery.min.js') }}"></script>
     <script src="{{ asset('library/quanlykho/bootstrap-5.2.2-dist/js/bootstrap.min.js') }}"></script>

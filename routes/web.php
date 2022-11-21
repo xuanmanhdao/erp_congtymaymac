@@ -180,6 +180,16 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::post('/store', [ChiTietXuatKhoController::class, 'store'])->name('chitietnhapsanpham.store');
         Route::get('/chi-tiet-hoa-don-nhap-san-pham/{maXuatKho}', [ChiTietXuatKhoController::class, 'show'])->name('chitietnhapsanpham.show');
         Route::get('/chi-tiet-hoa-don-nhap-san-pham/ajax/{maXuatKho}', [ChiTietXuatKhoController::class, 'ajaxShowForMaXuatKho'])->name('chitietnhapsanpham.ajax.show');
+    });
 
+    // Nguyen vat lieu
+    Route::group(['prefix' => 'loai-nguyen-vat-lieu'], function () {
+        Route::get('/', [ChatLieuController::class, 'index'])->name('loainguyenvatlieu.index');
+        Route::get('/ajax-index', [ChatLieuController::class, 'ajaxLoaiNguyenVatLieuIndex'])->name('loainguyenvatlieu.ajax.index');
+        Route::post('/store', [ChatLieuController::class, 'store'])->name('loainguyenvatlieu.store');
+        Route::get('/edit/{chatLieu}', [ChatLieuController::class, 'edit'])->name('loainguyenvatlieu.edit');
+        Route::put('/update/{chatLieu}', [ChatLieuController::class, 'update'])->name('loainguyenvatlieu.update');
+
+     
     });
 });

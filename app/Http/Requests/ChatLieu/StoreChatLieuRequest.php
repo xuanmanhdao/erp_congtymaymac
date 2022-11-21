@@ -24,9 +24,42 @@ class StoreChatLieuRequest extends FormRequest
     public function rules()
     {
         return [
-            'MaChatLieu' => ['required', 'string', 'unique:chatlieu,MaChatLieu'],
-            'TenChatLieu' => ['required', 'string'],
-            'MoTaChatLieu' => ['nullable'],
+            'MaChatLieu' => [
+                'bail',
+                'required', 
+                'string', 
+                'unique:chatlieu,MaChatLieu',
+                'max:50',
+            ],
+            'TenChatLieu' => [
+                'bail',
+                'required', 
+                'string',
+                'unique:chatlieu,TenChatLieu',
+                'max:255',
+            ],
+            'MoTaChatLieu' => ['required'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'unique' => ':attribute đã tồn tại',
+            'required' => ':attribute bắt buộc phải nhập',
+            'string' => ':attribute phải là kiểu chữ',
+
+            'MaChatLieu.max' => ':attribute tối đa 50 ký tự',
+            'TenChatLieu.max' => ':attribute tối đa 255 ký tự',
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'MaChatLieu' => 'Mã kiểu nguyên liệu',
+            'TenChatLieu' => 'Tên kiểu nguyên liệu',
+            'MoTaChatLieu' => 'Mô tả kiểu nguyên liệu',
         ];
     }
 }
