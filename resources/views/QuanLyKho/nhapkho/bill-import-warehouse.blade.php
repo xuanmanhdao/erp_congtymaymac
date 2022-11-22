@@ -28,7 +28,7 @@
                 </div>
                 <div class="control-actions">
                     <div class="btn add-btn" id="btn-add-bill-import-warehouse" data-bs-toggle="modal"
-                        data-bs-target="#importAddBillImportWarehouse">
+                        data-bs-target="#confirmAddBillImportWarehouse">
                         <img src="{{ asset('img/quanlykho/add.svg') }} " alt="">
                         <span class="label">Thêm hóa đơn nhập
                             sản phẩm
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div class="custom-table">
+            <div class="custom-table table-responsive">
                 <div class="table-content">
                     <table class="table" id="table-bill-import-warehouse">
                         <thead class="thead">
@@ -49,6 +49,7 @@
                             <th>Tên nhân viên</th>
                             <th>Tên xưởng</th>
                             <th>Hành động</th>
+                            <th>Chi tiết</th>
                         </thead>
                     </table>
                 </div>
@@ -143,16 +144,25 @@
                         orderable: false,
                         searchable: false,
                         render: function(data) {
-                            return `<span class="btn btn-edit" data-bs-toggle="modal"
+                            return `<span class="btn btn-edit btn-waring" data-bs-toggle="modal"
                                             data-bs-target="#updateAddBillImportWarehouse"
                                             data-url="${data}">Sửa</span>`;
+                        }
+                    },
+                    {
+                        data: 'btnDetail',
+                        orderable: false,
+                        searchable: false,
+                        render: function(data) {
+                            return `<a class="btn btn-show-detail-bill-import-warehouse format-btn-custom" href="${data}">Xem</a>`;
                         }
                     }
                 ],
                 columnDefs: [{
                     className: "not-export",
-                    "targets": [8],
+                    "targets": [8, 9],
                 }],
+                autoWidth: false,
                 drawCallback: function() {
                     processInfo(this.api().page.info());
                     $('.btn-edit').click(function() {
@@ -202,7 +212,9 @@
                                 }
                             },
                             error: function() {
-                                toastr.error("Lỗi không thể lấy dữ liệu hóa đơn cần sửa!");
+                                toastr.error(
+                                    "Lỗi không thể lấy dữ liệu hóa đơn cần sửa!"
+                                );
                             }
                         });
                     });
@@ -232,6 +244,8 @@
                                     '<option value=' + response.arrayXuong[i].MaXuong +
                                     '>' + response.arrayXuong[i].TenXuong +
                                     '</option>');
+                                // `<option value='${ response.arrayXuong[i].MaXuong }>${ response.arrayXuong[i].TenXuong}</option>`
+
                             }
                         }
                         // toastr.success("Thêm mới thương hiệu thành công!");
@@ -262,8 +276,11 @@
                     },
                     success: function(response) {
                         toastr.success(response.message);
-                        $("#importAddBillImportWarehouse").modal('hide');
+                        // $("#importAddBillImportWarehouse").modal('hide');
+                        // $("#confirmAddBillImportWarehouse").modal('show');
                         // location.reload();
+
+                        window.location.href = "{{ route('chitietnhapsanpham.create') }}";
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         toastr.error("Thêm mới hóa đơn nhập sản phẩm thất bại!");
@@ -300,8 +317,195 @@
                 });
             });
 
+            $('#btn-confirm-add-product-new').click(function() {
+                $("#confirmAddBillImportWarehouse").modal('hide');
+                $("#importProductNewBillImportWarehouse").modal('show');
+                $.ajax({
+                    url: "{{ route('sanpham.create') }}",
+                    method: "get",
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log(response);
+                        // $('#MaXuatKho').val(response.lastIDXuatKho + 1);
+                        // $('#MaNhanVien').val(valueMaNhanVien);
+                        for (var i = 0; i < response.arrayLoaiSanPham.length; i++) {
+                            // if (response.arrayLoaiSanPham[0].MaLoai != response
+                            //     .arrayLoaiSanPham[i]
+                            //     .MaLoai) {
+                            $("#form-add-select-loai").append(
+                                '<option value=' + response.arrayLoaiSanPham[i].MaLoai +
+                                '>' + response.arrayLoaiSanPham[i].TenLoai +
+                                '</option>');
+                            // }
+                        }
 
+                        for (var i = 0; i < response.arrayLoaiQuyTrinh.length; i++) {
+                            // if (response.arrayLoaiQuyTrinh[0].MaLoaiQuyTrinh != response
+                            //     .arrayLoaiQuyTrinh[i]
+                            //     .MaLoaiQuyTrinh) {
+                            $("#form-add-select-loai-quy-trinh").append(
+                                '<option value=' + response.arrayLoaiQuyTrinh[i]
+                                .MaLoaiQuyTrinh +
+                                '>' + response.arrayLoaiQuyTrinh[i].TenQuyTrinh +
+                                '</option>');
+                            // }
+                        }
+                    },
+                    error: function() {
+                        toastr.error("Lỗi không thể tạo sản phẩm mới!");
+                    }
+                });
+            });
+
+            $('#btn-confirm-add-product-old').click(function() {
+                $("#confirmAddBillImportWarehouse").modal('hide');
+                $("#confirmAddNewBillImportWarehouse").modal('show');
+            });
+
+            $("#form-modal-add-product-new").submit(function(e) {
+                e.preventDefault();
+                var url = $(this).attr("action");
+
+                var inputHinhAnh = document.getElementsByName('HinhAnh[]');
+                console.log(inputHinhAnh);
+
+                var arrayHinhAnh = [];
+                for (var i = 0; i < inputHinhAnh.length; i++) {
+                    // console.log(document.getElementsByName('HinhAnh[]')[i].files[0]);
+                    arrayHinhAnh[i] = document.getElementsByName('HinhAnh[]')[i].files[0];
+                }
+                console.log(arrayHinhAnh);
+
+                // Get form
+                var form = $('#form-modal-add-product-new')[0];
+
+                // FormData object 
+                var formData = new FormData(form);
+
+                console.log(formData);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    processData: false,
+                    contentType: false,
+                    data: formData, //* Dùng ajax thì dùng cái này
+                    success: function(response) {
+                        toastr.success(response.message);
+                        $("#importProductNewBillImportWarehouse").modal('hide');
+                        $("#confirmAddNewBillImportWarehouse").modal('show');
+                        // location.reload();
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        toastr.error("Thêm mới hóa đơn nhập sản phẩm thất bại!");
+                        var data = jqXHR.responseJSON;
+                        if ($.isEmptyObject(data.errors) == false) {
+                            console.log(data);
+                            $.each(data.errors, function(key, value) {
+                                if (key === "MaSanPham") {
+                                    $(".error-ma-san-pham").css('display', 'block');
+                                    $(".error-ma-san-pham").html(value);
+                                }
+                                if (key === "TenSanPham") {
+                                    $(".error-ten-san-pham").css('display', 'block');
+                                    $(".error-ten-san-pham").html(value);
+                                }
+                                if (key === "MaLoai") {
+                                    $(".error-ma-loai-san-pham").css('display',
+                                    'block');
+                                    $(".error-ma-loai-san-pham").html(value);
+                                }
+                                if (key === "MaLoaiQuyTrinh") {
+                                    $(".error-ma-loai-quy-trinh").css('display',
+                                        'block');
+                                    $(".error-ma-loai-quy-trinh").html(value);
+                                }
+                                if (key === "HinhAnh") {
+                                    $(".error-hinh-anh").css('display', 'block');
+                                    $(".error-hinh-anh").html(value);
+                                }
+                                if (key === "MoTaSanPham") {
+                                    $(".error-mo-ta-san-pham").css('display', 'block');
+                                    $(".error-mo-ta-san-pham").html(value);
+                                }
+                            });
+                        }
+                    },
+                });
+            });
+
+            $('#btn-confirm-add-bill-new').click(function() {
+                $("#confirmAddNewBillImportWarehouse").modal('hide');
+                $("#importAddBillImportWarehouse").modal('show');
+            });
         });
         // `<option value='${ response.arrayXuong[i].MaXuong }>${ response.arrayXuong[i].TenXuong}</option>`
+    </script>
+
+    <script>
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#HinhAnh1').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#HinhAnh2').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#HinhAnh3').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL4(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#HinhAnh4').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL5(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#HinhAnh5').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL6(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#HinhAnh6').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 @endpush

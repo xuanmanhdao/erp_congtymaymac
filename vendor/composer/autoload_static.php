@@ -595,6 +595,8 @@ class ComposerStaticInitd45f0e35a6981fdc27d333ace25dc44a
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Requests\\AuthRequest' => __DIR__ . '/../..' . '/app/Http/Requests/AuthRequest.php',
+        'App\\Http\\Requests\\ChatLieu\\StoreChatLieuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ChatLieu/StoreChatLieuRequest.php',
+        'App\\Http\\Requests\\ChatLieu\\UpdateChatLieuRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ChatLieu/UpdateChatLieuRequest.php',
         'App\\Http\\Requests\\ChiTietNhapKho\\StoreChiTietNhapKhoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ChiTietNhapKho/StoreChiTietNhapKhoRequest.php',
         'App\\Http\\Requests\\ChiTietNhapKho\\UpdateChiTietNhapKhoRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ChiTietNhapKho/UpdateChiTietNhapKhoRequest.php',
         'App\\Http\\Requests\\DonViPhanPhoi\\StoreDonViPhanPhoiRequest' => __DIR__ . '/../..' . '/app/Http/Requests/DonViPhanPhoi/StoreDonViPhanPhoiRequest.php',

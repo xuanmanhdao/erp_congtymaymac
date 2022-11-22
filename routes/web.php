@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatLieuController;
+use App\Http\Controllers\ChiTietXuatKhoController;
 use App\Http\Controllers\LoaiController;
 use App\Http\Controllers\LoaiQuyTrinhController;
 use App\Http\Controllers\NguyenVatLieuController;
@@ -26,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\qlsx\ChiTietNhapKhoController;
 use App\Http\Controllers\XuatKhoController;
+use App\Models\ChiTietXuatKho;
+use App\Models\SanPham;
 
 /*
 |--------------------------------------------------------------------------
@@ -147,6 +150,11 @@ Route::group(['prefix' => 'chat-lieu', 'middleware' => KiemTraDangNhapMiddleware
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
+        Route::get('/ajax-index', [SanPhamController::class, 'ajaxSanPhamIndex'])->name('sanpham.ajax.index');
+        Route::get('/create', [SanPhamController::class, 'create'])->name('sanpham.create');
+        Route::post('/store', [SanPhamController::class, 'store'])->name('sanpham.store');
+
+        Route::get('/test', [SanPhamController::class, 'test'])->name('sanpham.test');
     });
     Route::group(['prefix' => 'loai-san-pham'], function () {
         Route::get('/', [LoaiController::class, 'index'])->name('loaisanpham.index');
@@ -166,5 +174,22 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::post('/store', [XuatKhoController::class, 'store'])->name('nhapsanpham.store');
         Route::get('/edit/{xuatKho}', [XuatKhoController::class, 'edit'])->name('nhapsanpham.edit');
         Route::put('/update/{xuatKho}', [XuatKhoController::class, 'update'])->name('nhapsanpham.update');
+    });
+    Route::group(['prefix' => 'chi-tiet-nhap-san-pham'], function () {
+        Route::get('/create', [ChiTietXuatKhoController::class, 'create'])->name('chitietnhapsanpham.create');
+        Route::post('/store', [ChiTietXuatKhoController::class, 'store'])->name('chitietnhapsanpham.store');
+        Route::get('/chi-tiet-hoa-don-nhap-san-pham/{maXuatKho}', [ChiTietXuatKhoController::class, 'show'])->name('chitietnhapsanpham.show');
+        Route::get('/chi-tiet-hoa-don-nhap-san-pham/ajax/{maXuatKho}', [ChiTietXuatKhoController::class, 'ajaxShowForMaXuatKho'])->name('chitietnhapsanpham.ajax.show');
+    });
+
+    // Nguyen vat lieu
+    Route::group(['prefix' => 'loai-nguyen-vat-lieu'], function () {
+        Route::get('/', [ChatLieuController::class, 'index'])->name('loainguyenvatlieu.index');
+        Route::get('/ajax-index', [ChatLieuController::class, 'ajaxLoaiNguyenVatLieuIndex'])->name('loainguyenvatlieu.ajax.index');
+        Route::post('/store', [ChatLieuController::class, 'store'])->name('loainguyenvatlieu.store');
+        Route::get('/edit/{chatLieu}', [ChatLieuController::class, 'edit'])->name('loainguyenvatlieu.edit');
+        Route::put('/update/{chatLieu}', [ChatLieuController::class, 'update'])->name('loainguyenvatlieu.update');
+
+     
     });
 });

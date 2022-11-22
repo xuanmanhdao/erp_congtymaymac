@@ -242,3 +242,18 @@ input, select {
     border-bottom: 1px solid #000000;
     padding-bottom: 15px;
 }
+
+.format-btn-custom{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #4294CC;
+}
+
+.format-img-table{
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}

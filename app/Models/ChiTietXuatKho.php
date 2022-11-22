@@ -12,12 +12,18 @@ class ChiTietXuatKho extends Model
     protected $table = 'chitietxuatkho';
 
     public $timestamps = false;
-    
+
     protected $fillable = [
         'MaXuatKho',
         'MaSanPham',
         'SoLuong',
         'DonViTinh',
         'ThanhTien',
+        'Gia',
     ];
+
+    public function setThanhTien($soLuong, $gia)
+    {
+        $this->ThanhTien = $soLuong * $gia;
+    }
 }
