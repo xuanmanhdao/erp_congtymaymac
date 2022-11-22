@@ -10,6 +10,7 @@ use App\Models\ChucVu;
 use App\Models\Xuong;
 use App\Http\Requests\StoreNhanVienRequest;
 use App\Http\Requests\UpdateNhanVienRequest;
+use App\Models\TaiKhoan;
 
 class NhanVienController extends Controller
 {
@@ -53,7 +54,15 @@ class NhanVienController extends Controller
      */
    public function store(StoreNhanVienRequest $request, NhanVien $nhanvien)
     {
+        
         $nhanvien->create($request->validated());
+        $maNhanVien = $request->MaNhanVien;
+        $matKhauMacDinh = '123456';
+        TaiKhoan::create([
+            'MaNhanVien' => $maNhanVien,
+            'MatKhau' => $matKhauMacDinh,
+            'Quyen' => $request->Quyen,
+        ]);
         return redirect()->route('nhanvien.index')->with('success','Thêm thành công !');
     }
 

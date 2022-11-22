@@ -29,7 +29,17 @@
 
             <li class="side-nav-title side-nav-item">Công ty may mặc</li>
 
-            <li class="side-nav-item">
+            
+
+
+         <li class="side-nav-item"> 
+                <a href="javascript: void(0);" class="side-nav-link">
+                    <i class="uil-envelope"></i>
+                    <span> Quản lý   </span>
+                    <span class="menu-arrow"></span>
+                </a>
+                <ul class="side-nav-second-level" aria-expanded="false">
+                <li class="side-nav-item">
                 <a href="{{ route('kehoach.index') }}" class="side-nav-link">
                     <i class="uil-home-alt"></i>
                     <span class="badge badge-success float-right"></span>
@@ -41,6 +51,12 @@
                 <a href="{{ route('quytrinh.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
                     <span>Quản lý quy trình  </span>
+                </a>
+            </li>
+            <li class="side-nav-item">
+                <a href="{{ route('chatlieu.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span>Quản lý chất liệu </span>
                 </a>
             </li>
 
@@ -69,24 +85,6 @@
                     <span>Quản lý chi tiết  nhập kho </span>
                 </a>
             </li>
-
-
-            {{-- <li class="side-nav-item"> có thể cụp mở
-                <a href="javascript: void(0);" class="side-nav-link">
-                    <i class="uil-envelope"></i>
-                    <span> Quản lý phòng </span>
-                    <span class="menu-arrow"></span>
-                </a>
-                <ul class="side-nav-second-level" aria-expanded="false">
-                    <li>
-                        <a href="">Phòng</a>
-                    </li>
-                    <li>
-                        <a href="">Loại phòng</a>
-                    </li>
-                    
-                </ul>
-            </li>  --}}
             <li class="side-nav-item">
                 <a href="{{ route('xuong.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
@@ -111,6 +109,10 @@
                     <span> Quản lý chức vụ</span>
                 </a>
             </li>
+                    
+                </ul>
+            </li>  
+           
 
             <li class="side-nav-item">
                 <a href="#"class="side-nav-link">

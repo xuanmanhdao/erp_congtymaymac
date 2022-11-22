@@ -25,7 +25,7 @@ class UpdateKeHoachRequest extends FormRequest
     public function rules()
     {
         return [
-            "MaKeHoach" => ['bail', 'required','string', Rule::unique('kehoach')->ignore($this->kehoach)],
+            "MaKeHoach" => ['bail','string', Rule::unique('kehoach')->ignore($this->kehoach)],
             "MaXuong" => ['required'],
             "MaLoaiQuyTrinh" => ['required'],
             "NgayBatDau" => ['required'],

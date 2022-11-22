@@ -45,7 +45,7 @@
         <br>
 
 
-        <button class="btn btn-success">Thêm</button>
+        <button class="btn btn-success">Sửa</button>
 
 
     </form>
