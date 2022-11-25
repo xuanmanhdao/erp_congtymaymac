@@ -12,7 +12,12 @@
         </li>
         <li class="nav-items">
             <a href="{{ route('sanpham.index') }}">
-                Quản lý kho sản phẩm
+                Quản lý sản phẩm tồn kho
+            </a>
+        </li>
+        <li class="nav-items">
+            <a href="{{ route('donviphanphoi.index') }}">
+                Quản lý đơn vị cung cấp
             </a>
         </li>
         <li class="nav-items">
@@ -21,6 +26,16 @@
             </a>
         </li>
         <li class="nav-items">
+            <a href="{{ route('nhapnguyenlieu.index') }}">
+                Quản lý nhập nguyên vật liệu
+            </a>
+        </li>
+        <li class="nav-items">
+            <a href="{{ route('nguyenvatlieu.index') }}">
+                Quản lý nguyên vật liệu tồn kho
+            </a>
+        </li>
+        {{-- <li class="nav-items">
             <a href="#">
                 Xuất hàng
             </a>
@@ -34,6 +49,6 @@
             <a href="#">
                 Báo cáo
             </a>
-        </li>
+        </li> --}}
     </ul>
 </div>

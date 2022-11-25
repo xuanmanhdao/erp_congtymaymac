@@ -57,6 +57,16 @@
     @include('QuanLyKho.loainguyenvatlieu.modal-add-ingredient-type')
     @include('QuanLyKho.loainguyenvatlieu.modal-edit-ingredient-type')
 
+    @include('QuanLyKho.nhapkhonguyenlieu.modal-confirm-ingredient-exist')
+    @include('QuanLyKho.nhapkhonguyenlieu.modal-add-ingredient-new')
+    @include('QuanLyKho.nhapkhonguyenlieu.modal-confirm-bill-import-ingredient-warehouse-exist')
+    @include('QuanLyKho.nhapkhonguyenlieu.modal-add-bill-import-ingredient-warehouse')
+    @include('QuanLyKho.nhapkhonguyenlieu.modal-edit-bill-import-ingredient-warehouse')
+
+    @include('QuanLyKho.donviphanphoi.modal-add-supplier')
+    @include('QuanLyKho.donviphanphoi.modal-edit-supplier')
+
+
 
     <script src="{{ asset('library/quanlykho/jQuery.min.js') }}"></script>
     <script src="{{ asset('library/quanlykho/bootstrap-5.2.2-dist/js/bootstrap.min.js') }}"></script>

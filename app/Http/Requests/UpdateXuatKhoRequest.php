@@ -46,10 +46,14 @@ class UpdateXuatKhoRequest extends FormRequest
             'MaNhanVien' => [
                 'bail',
                 'required',
+                'exists:nhanvien,MaNhanVien'
+
             ],
             'MaXuong' => [
                 'bail',
                 'required',
+                'exists:xuong,MaXuong'
+
             ],
         ];
     }
@@ -59,6 +63,7 @@ class UpdateXuatKhoRequest extends FormRequest
             'unique' => ':attribute đã tồn tại',
             'required' => ':attribute bắt buộc phải nhập',
             'string' => ':attribute phải là kiểu chữ',
+            'exists' => ':attribute không tồn tại',
 
             'MaXuatKho.exists' => ':attribute không tồn tại trong kho dữ liệu',
             'MaXuatKho.max' => ':attribute tối đa 20 ký tự',

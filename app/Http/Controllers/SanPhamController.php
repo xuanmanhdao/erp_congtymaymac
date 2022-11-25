@@ -96,7 +96,7 @@ class SanPhamController extends Controller
         ]);
 
 
-        return response()->json(['message' => 'Đã thêm hóa đơn nhập sản phẩm thành công'], 200);
+        return response()->json(['message' => 'Đã thêm sản phẩm thành công'], 200);
 
         // return redirect()->route('nhapsanpham.index')->with('success', 'Đã thêm thành công');
 
