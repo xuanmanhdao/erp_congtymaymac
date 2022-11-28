@@ -32,7 +32,7 @@ class StoreSanPhamRequest extends FormRequest
             ],
             'TenSanPham' => [
                 'bail', // khi gặp lỗi sẽ báo về luôn
-                'required',
+                'unique:sanpham,TenSanPham',
                 'max:100',
             ],
             'MoTaSanPham' => [
@@ -42,10 +42,12 @@ class StoreSanPhamRequest extends FormRequest
             'MaLoai' => [
                 'bail', // khi gặp lỗi sẽ báo về luôn
                 'required',
+                'exists:loai,MaLoai'
             ],
             'MaLoaiQuyTrinh' => [
                 'bail', // khi gặp lỗi sẽ báo về luôn
                 'required',
+                'exists:loaiquytrinh,MaLoaiQuyTrinh'
             ],
             'HinhAnh' => [
                 'bail', // khi gặp lỗi sẽ báo về luôn
@@ -65,7 +67,7 @@ class StoreSanPhamRequest extends FormRequest
             'unique' => ':attribute đã tồn tại',
             'required' => ':attribute bắt buộc phải nhập',
             'string' => ':attribute phải là kiểu chữ',
-
+            'exists' => ':attribute không tồn tại',
             'MaSanPham.max' => ':attribute tối đa 50 ký tự',
 
             'TenSanPham.max' => ':attribute tối đa 100 ký tự',

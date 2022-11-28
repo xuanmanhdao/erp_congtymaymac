@@ -36,7 +36,8 @@ var menuItem=document.querySelectorAll('a');
 var menuLength = menuItem.length;
 for (let i = 0; i < menuLength; i++) {
     if (menuItem[i].href === currentLocation) {
-        menuItem[i].className = "active";
+        // menuItem[i].className = "active";
+        menuItem[i].classList.add("active");
     }
 }
 console.log(currentLocation);

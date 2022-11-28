@@ -27,11 +27,13 @@ class StoreChiTietXuatKhoRequest extends FormRequest
             'MaXuatKho' => [
                 'bail', // khi gặp lỗi sẽ báo về luôn
                 'required',
+                'exists:xuatkho,MaXuatKho'
             ],
             'MaSanPham' => [
                 'bail', // khi gặp lỗi sẽ báo về luôn
                 'required',
                 'max:50',
+                'exists:sanpham,MaSanPham'
             ],
             'SoLuong' => [
                 'bail',

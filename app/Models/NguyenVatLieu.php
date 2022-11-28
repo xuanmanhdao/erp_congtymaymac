@@ -12,7 +12,12 @@ class NguyenVatLieu extends Model
     protected $casts = [
         'MaNguyenVatLieu' => 'string',
     ];
-    public $timestamps = false;
+    // public $timestamps = false;
+
+    const CREATED_AT = 'ThoiGianTao';
+    const UPDATED_AT = 'ThoiGianCapNhat';
+    public $timestamps = true;
+
     protected $primaryKey = 'MaNguyenVatLieu';
     protected $fillable = [
         'MaNguyenVatLieu',
@@ -20,17 +25,20 @@ class NguyenVatLieu extends Model
         'MaChatLieu',
         'SoLuong',
         'DonViTinh',
-        'MaXuong',
-        'MaDonViPhanPhoi',
+        // 'MaXuong',
+        // 'MaDonViPhanPhoi',
+        'MoTaNguyenVatLieu',
+        'ThoiGianTao',
+        'ThoiGianCapNhat'
     ];
 
-    public function xuong(){
-        return $this->belongsTo(Xuong::class, 'MaXuong', 'MaXuong');
-    }
+    // public function xuong(){
+    //     return $this->belongsTo(Xuong::class, 'MaXuong', 'MaXuong');
+    // }
 
-    public function donviphanphoi(){
-        return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
-    }
+    // public function donviphanphoi(){
+    //     return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
+    // }
     
     public function chatlieu(){
         return $this->belongsTo(ChatLieu::class,'MaChatLieu','MaChatLieu');

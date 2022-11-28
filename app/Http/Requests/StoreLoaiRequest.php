@@ -34,6 +34,7 @@ class StoreLoaiRequest extends FormRequest
                 'bail', // khi gặp lỗi sẽ báo về luôn
                 'required',
                 'max:100',
+                'unique:loai,TenLoai',
             ],
             'MauSac' => [
                 'bail',
