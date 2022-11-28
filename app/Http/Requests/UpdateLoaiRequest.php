@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateLoaiRequest extends FormRequest
 {
@@ -34,6 +35,7 @@ class UpdateLoaiRequest extends FormRequest
                 'bail', // khi gặp lỗi sẽ báo về luôn
                 'required',
                 'max:100',
+                Rule::unique('loai')->ignore($this->loai),
             ],
             'MauSac' => [
                 'bail',

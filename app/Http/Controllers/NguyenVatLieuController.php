@@ -9,6 +9,7 @@ use App\Models\ChatLieu;
 use App\Models\DonViPhanPhoi;
 use App\Models\Xuong;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class NguyenVatLieuController extends Controller
 {
@@ -17,24 +18,23 @@ class NguyenVatLieuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, NguyenVatLieu $nguyenvatlieu)
+    public function index()
     {
-        $search = $request->get('q');
+        return view('QuanLyKho.nguyenvatlieu.ingredient');
+    }
 
-        $nguyenvatlieu = $nguyenvatlieu->query()
-        ->where('MaNguyenVatLieu','like', '%'. $search. '%')
-        ->paginate(10);
-        $xuong = Xuong::get();
-        $donviphanphoi = DonViPhanPhoi::get();
-        $chatlieu = ChatLieu::get();
+    public function ajaxNguyenVatLieuIndex()
+    {
+        $arrayNguyenVatLieu = NguyenVatLieu::selectRaw('nguyenvatlieu.*, chatlieu.TenChatLieu AS TenChatLieu')
+            ->join('chatlieu', 'chatlieu.MaChatLieu', '=', 'nguyenvatlieu.MaChatLieu')
+            ->get();
 
-        return view('qlnvl.index',[
-            'donviphanphoi' => $donviphanphoi,
-            'xuong' => $xuong,
-            'search'  => $search,
-            'nguyenvatlieu' => $nguyenvatlieu,
-            'chatlieu' => $chatlieu,
-        ]);
+        return DataTables::of($arrayNguyenVatLieu)
+            ->addIndexColumn()
+            ->addColumn('TenChatLieu', function ($row) {
+                return $row->TenChatLieu;
+            })
+            ->make(true);
     }
 
     /**
@@ -44,15 +44,12 @@ class NguyenVatLieuController extends Controller
      */
     public function create()
     {
-        $chatlieu = ChatLieu::get();
-        $xuong = Xuong::get();
-        $donviphanphoi = DonViPhanPhoi::get();
-        return view('Qlnvl.create',[
-            'xuong' => $xuong,
-            'donviphanphoi' => $donviphanphoi,
-            'chatlieu' => $chatlieu,
+        $arrayKieuNguyenLieu = ChatLieu::get();
+        $subsetKieuNguyenLieu = $arrayKieuNguyenLieu->map(function ($arrayKieuNguyenLieu) {
+            return $arrayKieuNguyenLieu->only(['MaChatLieu', 'TenChatLieu']);
+        });
 
-        ]);
+        return response()->json(['arrayKieuNguyenLieu' => $subsetKieuNguyenLieu], 200);
     }
 
     /**
@@ -61,11 +58,11 @@ class NguyenVatLieuController extends Controller
      * @param  \App\Http\Requests\StoreNguyenVatLieuRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreNguyenVatLieuRequest $request, NguyenVatLieu $nguyenvatlieu)
+    public function store(StoreNguyenVatLieuRequest $request, NguyenVatLieu $nguyenVatLieu)
     {
-        // dd($nguyenvatlieu);
-        $nguyenvatlieu->create($request->validated());
-        return redirect()->route('nguyenvatlieu.index')->with('success', 'Đã thêm thành công');
+        // dd("Alo");
+        $nguyenVatLieu->create($request->validated());
+        return response()->json(['message' => 'Đã thêm nguyên vật liệu thành công'], 200);
     }
 
     /**
@@ -87,13 +84,13 @@ class NguyenVatLieuController extends Controller
      */
     public function edit(NguyenVatLieu $nguyenvatlieu)
     {
-        $xuong = Xuong::get();
-        $donviphanphoi = DonViPhanPhoi::get();
-        return view('Qlnvl.edit',[
-            'xuong' => $xuong,
-            'donviphanphoi' => $donviphanphoi,
-            'data' => $nguyenvatlieu,
-        ]);
+        // $xuong = Xuong::get();
+        // $donviphanphoi = DonViPhanPhoi::get();
+        // return view('Qlnvl.edit', [
+        //     'xuong' => $xuong,
+        //     'donviphanphoi' => $donviphanphoi,
+        //     'data' => $nguyenvatlieu,
+        // ]);
     }
 
     /**
@@ -105,9 +102,8 @@ class NguyenVatLieuController extends Controller
      */
     public function update(UpdateNguyenVatLieuRequest $request, NguyenVatLieu $nguyenvatlieu)
     {
-        $nguyenvatlieu->update($request->validated());
-        return redirect()->route('nguyenvatlieu.index')->with('edited', 'Sửa thành công');
-
+        // $nguyenvatlieu->update($request->validated());
+        // return redirect()->route('nguyenvatlieu.index')->with('edited', 'Sửa thành công');
     }
 
     /**

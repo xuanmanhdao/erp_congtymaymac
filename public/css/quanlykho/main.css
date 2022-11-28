@@ -31,7 +31,8 @@ input, select {
 
 .content {
     min-height: calc(100vh - 8px - 55px);
-    width: 87%;
+    /* width: 87%; */
+    width: 80%;
     background-color: #E5E5E5;
 }
 

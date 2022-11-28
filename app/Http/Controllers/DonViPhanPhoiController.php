@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DonViPhanPhoi;
 use App\Http\Requests\StoreDonViPhanPhoiRequest;
 use App\Http\Requests\UpdateDonViPhanPhoiRequest;
+use Yajra\DataTables\DataTables;
 
 class DonViPhanPhoiController extends Controller
 {
@@ -15,7 +16,18 @@ class DonViPhanPhoiController extends Controller
      */
     public function index()
     {
-        //
+        return view('QuanLyKho.donviphanphoi.supplier');
+    }
+
+    public function ajaxDonViPhanPhoiIndex()
+    {
+
+        return DataTables::of(DonViPhanPhoi::get())
+            ->addIndexColumn()
+            ->addColumn('btnEditDonViPhanPhoi', function ($row) {
+                return route('donviphanphoi.edit', $row->MaDonViPhanPhoi);
+            })
+            ->make(true);
     }
 
     /**
@@ -34,9 +46,10 @@ class DonViPhanPhoiController extends Controller
      * @param  \App\Http\Requests\StoreDonViPhanPhoiRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDonViPhanPhoiRequest $request)
+    public function store(StoreDonViPhanPhoiRequest $request, DonViPhanPhoi $donViPhanPhoi)
     {
-        //
+        $donViPhanPhoi::create($request->validated());
+        return response()->json(['message' => 'Đã thêm kiểu nguyên vật liệu thành công'], 200);
     }
 
     /**
@@ -58,7 +71,8 @@ class DonViPhanPhoiController extends Controller
      */
     public function edit(DonViPhanPhoi $donViPhanPhoi)
     {
-        //
+        return response()->json($donViPhanPhoi, 200);
+
     }
 
     /**
@@ -70,7 +84,8 @@ class DonViPhanPhoiController extends Controller
      */
     public function update(UpdateDonViPhanPhoiRequest $request, DonViPhanPhoi $donViPhanPhoi)
     {
-        //
+        $donViPhanPhoi->update($request->validated());
+        return response()->json(['message' => 'Đã sửa đơn vị cung cấp thành công'], 200);
     }
 
     /**

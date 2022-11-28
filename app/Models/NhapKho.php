@@ -9,11 +9,15 @@ class NhapKho extends Model
 {
    use HasFactory;
     protected $table = 'nhapkho';
-    protected $casts = [
-        'MaNhapKho' => 'string',
-    ];
+
+    public $incrementing = true;
+
     public $timestamps = false;
+
     protected $primaryKey = 'MaNhapKho';
+
+    protected $keyType = 'int';
+
     protected $fillable = [
         'MaNhapKho',
         'ThoiGianNhap',
@@ -23,14 +27,14 @@ class NhapKho extends Model
         'MaDonViPhanPhoi',
     ];
 
-    public function nhanvien()
-    {
-        return $this->belongsTo(NhanVien::class,'MaNhanVien','MaNhanVien');
-    }
+    // public function nhanvien()
+    // {
+    //     return $this->belongsTo(NhanVien::class,'MaNhanVien','MaNhanVien');
+    // }
 
-    public function donviphanphoi()
-    {
+    // public function donviphanphoi()
+    // {
 
-        return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
-    }
+    //     return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
+    // }
 }

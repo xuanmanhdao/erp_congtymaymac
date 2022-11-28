@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatLieuController;
+use App\Http\Controllers\ChiTietNhapKhoController as ControllersChiTietNhapKhoController;
 use App\Http\Controllers\ChiTietXuatKhoController;
 use App\Http\Controllers\LoaiController;
 use App\Http\Controllers\LoaiQuyTrinhController;
@@ -12,6 +13,8 @@ use App\Http\Controllers\qlsx\XuongController;
 use App\Http\Controllers\qlsx\VatTuConTroller;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\ChucVuController;
+use App\Http\Controllers\DonViPhanPhoiController as ControllersDonViPhanPhoiController;
+use App\Http\Controllers\NhapKhoController as ControllersNhapKhoController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\TinhTrangXuatKhoController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
@@ -28,7 +31,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\qlsx\ChiTietNhapKhoController;
 use App\Http\Controllers\XuatKhoController;
+use App\Models\ChiTietNhapKho;
 use App\Models\ChiTietXuatKho;
+use App\Models\NguyenVatLieu;
 use App\Models\SanPham;
 
 /*
@@ -91,14 +96,15 @@ Route::group(['prefix' => 'quan-ly-nhap-kho', 'middleware' => KiemTraDangNhapMid
     Route::put('/update/{nhapkho}', [NhapKhoController::class, 'update'])->name('nhapkho.update');
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
-Route::group(['prefix' => 'quan-ly-chi-tiet-nhap-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
-    Route::get('/', [ChiTietNhapKhoController::class, 'index'])->name('chitietnhapkho.index');
-    Route::get('/create', [ChiTietNhapKhoController::class, 'create'])->name('chitietnhapkho.create');
-    Route::post('/store', [ChiTietNhapKhoController::class, 'store'])->name('chitietnhapkho.store');
-    Route::get('/edit/{chitietnhapkho}', [ChiTietNhapKhoController::class, 'edit'])->name('chitietnhapkho.edit');
-    Route::put('/update/{chitietnhapkho}', [ChiTietNhapKhoController::class, 'update'])->name('chitietnhapkho.update');
-    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
-});
+
+// Route::group(['prefix' => 'quan-ly-chi-tiet-nhap-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+//     Route::get('/', [ChiTietNhapKhoController::class, 'index'])->name('chitietnhapkho.index');
+//     Route::get('/create', [ChiTietNhapKhoController::class, 'create'])->name('chitietnhapkho.create');
+//     Route::post('/store', [ChiTietNhapKhoController::class, 'store'])->name('chitietnhapkho.store');
+//     Route::get('/edit/{chitietnhapkho}', [ChiTietNhapKhoController::class, 'edit'])->name('chitietnhapkho.edit');
+//     Route::put('/update/{chitietnhapkho}', [ChiTietNhapKhoController::class, 'update'])->name('chitietnhapkho.update');
+//     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+// });
 
 
 Route::group(['prefix' => 'quan-ly-quy-trinh', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
@@ -110,14 +116,14 @@ Route::group(['prefix' => 'quan-ly-quy-trinh', 'middleware' => KiemTraDangNhapMi
     // Route::delete('/delete/{quytrinh}', [quytrinhController::class, 'destroy'])->name('xuong.delete');
 });
 
-Route::group(['prefix' => 'quan-ly-nguyen-vat-lieu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
-    Route::get('/', [NguyenVatLieuController::class, 'index'])->name('nguyenvatlieu.index');
-    Route::get('/create', [NguyenVatLieuController::class, 'create'])->name('nguyenvatlieu.create');
-    Route::post('/store', [NguyenVatLieuController::class, 'store'])->name('nguyenvatlieu.store');
-    Route::get('/edit/{nguyenvatlieu}', [NguyenVatLieuController::class, 'edit'])->name('nguyenvatlieu.edit');
-    Route::put('/update/{nguyenvatlieu}', [NguyenVatLieuController::class, 'update'])->name('nguyenvatlieu.update');
-    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
-});
+// Route::group(['prefix' => 'quan-ly-nguyen-vat-lieu', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+//     Route::get('/', [NguyenVatLieuController::class, 'index'])->name('nguyenvatlieu.index');
+//     Route::get('/create', [NguyenVatLieuController::class, 'create'])->name('nguyenvatlieu.create');
+//     Route::post('/store', [NguyenVatLieuController::class, 'store'])->name('nguyenvatlieu.store');
+//     Route::get('/edit/{nguyenvatlieu}', [NguyenVatLieuController::class, 'edit'])->name('nguyenvatlieu.edit');
+//     Route::put('/update/{nguyenvatlieu}', [NguyenVatLieuController::class, 'update'])->name('nguyenvatlieu.update');
+//     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+// });
 
 
 Route::group(['prefix' => 'quan-ly-nhan-vien', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
@@ -158,6 +164,7 @@ Route::group(['prefix' => 'quan-ly-tinh-trang-xuat-kho', 'middleware' => KiemTra
     });
 
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    // San pham
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
         Route::get('/ajax-index', [SanPhamController::class, 'ajaxSanPhamIndex'])->name('sanpham.ajax.index');
@@ -199,8 +206,38 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::post('/store', [ChatLieuController::class, 'store'])->name('loainguyenvatlieu.store');
         Route::get('/edit/{chatLieu}', [ChatLieuController::class, 'edit'])->name('loainguyenvatlieu.edit');
         Route::put('/update/{chatLieu}', [ChatLieuController::class, 'update'])->name('loainguyenvatlieu.update');
+    });
 
-     
+    Route::group(['prefix' => 'nguyen-vat-lieu'], function () {
+        Route::get('/', [NguyenVatLieuController::class, 'index'])->name('nguyenvatlieu.index');
+        Route::get('/ajax-index', [NguyenVatLieuController::class, 'ajaxNguyenVatLieuIndex'])->name('nguyenvatlieu.ajax.index');
+        Route::get('/create', [NguyenVatLieuController::class, 'create'])->name('nguyenvatlieu.create');
+        Route::post('/store', [NguyenVatLieuController::class, 'store'])->name('nguyenvatlieu.store');
+    });
+
+    Route::group(['prefix' => 'nhap-nguyen-vat-lieu'], function () {
+        Route::get('/', [ControllersNhapKhoController::class, 'index'])->name('nhapnguyenlieu.index');
+        Route::get('/ajax-index', [ControllersNhapKhoController::class, 'ajaxNhapKhoNguyenVatLieuIndex'])->name('nhapnguyenlieu.ajax.index');
+        Route::get('/create', [ControllersNhapKhoController::class, 'create'])->name('nhapnguyenlieu.create');
+        Route::post('/store', [ControllersNhapKhoController::class, 'store'])->name('nhapnguyenlieu.store');
+        Route::get('/edit/{nhapKho}', [ControllersNhapKhoController::class, 'edit'])->name('nhapnguyenlieu.edit');
+        Route::put('/update/{nhapKho}', [ControllersNhapKhoController::class, 'update'])->name('nhapnguyenlieu.update');
+    });
+
+    Route::group(['prefix' => 'chi-tiet-nhap-nguyen-vat-lieu'], function () {
+        Route::get('/create', [ControllersChiTietNhapKhoController::class, 'create'])->name('chitietnhapnguyenvatlieu.create');
+        Route::post('/store', [ControllersChiTietNhapKhoController::class, 'store'])->name('chitietnhapnguyenvatlieu.store');
+        Route::get('/chi-tiet-hoa-don-nhap-nguyen-vat-lieu/{maNhapKho}', [ControllersChiTietNhapKhoController::class, 'show'])->name('chitietnhapnguyenvatlieu.show');
+        Route::get('/chi-tiet-hoa-don-nhap-nguyen-vat-lieu/ajax/{maNhapKho}', [ControllersChiTietNhapKhoController::class, 'ajaxShowForMaNhapKho'])->name('chitietnhapnguyenvatlieu.ajax.show');
+    });
+
+    // Đơn vị cung cấp
+    Route::group(['prefix' => 'don-vi-cung-cap'], function () {
+        Route::get('/', [ControllersDonViPhanPhoiController::class, 'index'])->name('donviphanphoi.index');
+        Route::get('/ajax-index', [ControllersDonViPhanPhoiController::class, 'ajaxDonViPhanPhoiIndex'])->name('donviphanphoi.ajax.index');
+        Route::post('/store', [ControllersDonViPhanPhoiController::class, 'store'])->name('donviphanphoi.store');
+        Route::get('/edit/{donViPhanPhoi}', [ControllersDonViPhanPhoiController::class, 'edit'])->name('donviphanphoi.edit');
+        Route::put('/update/{donViPhanPhoi}', [ControllersDonViPhanPhoiController::class, 'update'])->name('donviphanphoi.update');
     });
 
    

@@ -25,30 +25,22 @@
                             </div>
                             <span class="error" id="error-them-ma-kieu-chat-lieu"
                                 style="color: red; display: none;"></span>
-
-
                         </div>
-
                         <div class="col-lg-5">
                             <div class="modal-input">
                                 <label for="">Tên kiểu nguyên liệu</label>
                                 <input type="text" placeholder="Điền tên kiểu nguyên liệu" id="ThemTenChatLieu"
                                     name="TenChatLieu" required>
                             </div>
-
                             <span class="error" id="error-them-ten-kieu-chat-lieu"
                                 style="color: red; display: none;"></span>
-
-
                         </div>
                         <div class="col-lg-12">
                             <label for="">Mô tả chi tiết</label>
-                            <textarea name="MoTaChatLieu" id="ThemMoTaChatLieu" id="MoTaChatLieu" required
+                            <textarea name="MoTaChatLieu" id="ThemMoTaChatLieu" required
                                 style="width:100%; height: 200px; border: 1px solid #bdc3c7;"></textarea>
-
                             <span class="error" id="error-them-mo-ta-kieu-chat-lieu"
                                 style="color: red; display:none"></span>
-
                         </div>
                     </div>
                 </div>
