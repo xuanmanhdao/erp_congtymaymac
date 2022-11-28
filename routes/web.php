@@ -13,6 +13,7 @@ use App\Http\Controllers\qlsx\VatTuConTroller;
 use App\Http\Controllers\NhanVienController;
 use App\Http\Controllers\ChucVuController;
 use App\Http\Controllers\SanPhamController;
+use App\Http\Controllers\TinhTrangXuatKhoController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
 use App\Models\DonViPhanPhoi;
@@ -147,6 +148,15 @@ Route::group(['prefix' => 'chat-lieu', 'middleware' => KiemTraDangNhapMiddleware
     // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
 });
 
+Route::group(['prefix' => 'quan-ly-tinh-trang-xuat-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [TinhTrangXuatKhoController::class, 'index'])->name('tinhtrangxuatkho.index');
+    Route::get('/create', [TinhTrangXuatKhoController::class, 'create'])->name('tinhtrangxuatkho.create');
+    Route::post('/store', [TinhTrangXuatKhoController::class, 'store'])->name('tinhtrangxuatkho.store');
+    Route::get('/edit/{tinhtrangxuatkho}', [TinhTrangXuatKhoController::class, 'edit'])->name('tinhtrangxuatkho.edit');
+    Route::put('/update/{tinhtrangxuatkho}', [TinhTrangXuatKhoController::class, 'update'])->name('tinhtrangxuatkho.update');
+    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+    });
+
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
@@ -192,4 +202,7 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
 
      
     });
+
+   
+ 
 });
