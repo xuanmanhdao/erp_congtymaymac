@@ -63,12 +63,12 @@
                     <span>Quản nhập kho </span>
                 </a>
             </li>
-            <li class="side-nav-item">
+            {{-- <li class="side-nav-item">
                 <a href="{{ route('chitietnhapkho.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
                     <span>Quản lý chi tiết  nhập kho </span>
                 </a>
-            </li>
+            </li> --}}
 
 
             {{-- <li class="side-nav-item"> có thể cụp mở

@@ -9,6 +9,7 @@ use App\Models\ChatLieu;
 use App\Models\NguyenVatLieu;
 use App\Models\NguyenVatLieuLoaiQuyTrinh;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoaiQuyTrinhController extends Controller
 {
@@ -49,11 +50,27 @@ class LoaiQuyTrinhController extends Controller
     public function create(Request $request, LoaiQuyTrinh $quytrinh)
     {
         $nguyenvatlieu = NguyenVatLieu::get();
-        $chatlieu = ChatLieu::get();
+        $chatlieu= ChatLieu::get();
+        // $chatlieu = ChatLieu::get();
+        // $arrayKieuNguyenLieu = ChatLieu::get();
+        // $subsetKieuNguyenLieu = $arrayKieuNguyenLieu->map(function ($arrayKieuNguyenLieu) {
+        //     return $arrayKieuNguyenLieu->only(['MaChatLieu', 'TenChatLieu']);
+        // });
+        // dd($subsetKieuNguyenLieu);
+
+        // $arrayKieuNguyenLieu  = NguyenVatLieu::selectRaw('*')
+        // ->join('chatlieu', 'chatlieu.MaChatLieu', '=', 'nguyenvatlieu.MaChatLieu')
+        // ->groupBy('nguyenvatlieu.MaChatLieu')->get();
+        // dd($arrayKieuNguyenLieu);
+
         return view('Qlqt.create', [
             'nguyenvatlieu' => $nguyenvatlieu,
-            'chatlieu' => $chatlieu,
+            'chatlieu' =>$chatlieu
         ]);
+        
+    
+       
+
     }
 
     /**
@@ -64,17 +81,14 @@ class LoaiQuyTrinhController extends Controller
      */
     public function store(StoreLoaiQuyTrinhRequest $request, LoaiQuyTrinh $quytrinh)
     {
-        // $quytrinh->create($request->validated());
-        // return redirect()->route('quytrinh.index')->with('success', 'Đã thêm thành công');
-
         $quytrinh->fill($request->all()); // Lấy hết dữ liệu
-        $quytrinh->fill($request->except('_token')); // Lấy hết dữ liệu ngoại trừ thuộc tính _token
+        $quytrinh->fill($request->except('_token','NguyenVatLieu')); // Lấy hết dữ liệu ngoại trừ thuộc tính _token
         $quytrinh->save();
 
-        foreach ($request->NguyenVatLieu as $value) {
+        foreach ($request->NguyenVatLieu as $nguyenVatLieu) {
             $nguyenVatLieuLoaiQuyTrinh = new NguyenVatLieuLoaiQuyTrinh();
             $nguyenVatLieuLoaiQuyTrinh->setLoaiQuyTrinh($request->MaLoaiQuyTrinh);
-            $nguyenVatLieuLoaiQuyTrinh->setNguyenVatLieu($value);
+            $nguyenVatLieuLoaiQuyTrinh->setNguyenVatLieu($nguyenVatLieu);
             $nguyenVatLieuLoaiQuyTrinh->save();
         }
 
