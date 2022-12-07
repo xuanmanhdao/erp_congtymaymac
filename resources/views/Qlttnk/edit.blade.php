@@ -73,39 +73,37 @@
 }
 
 </style>
-  <title>Quản lý tình trạng xuất kho</title>
-<h3>Thêm tình trạng xuất kho </h3>
+  <title>Quản lý tình trạng nhập kho</title>
+<h3>Sửa tình trạng nhập kho: {{ $data->MaNhapKho }}</h3>
 <br>
-<form action="{{ route('tinhtrangxuatkho.store') }}" method="post">
+<form action="{{ route('tinhtrangnhapkho.update',$data) }}" method="post">
+  @method('PUT')
     @csrf
- <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Xuất kho: </strong></label>
+    <{{-- div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Nhập kho: </strong></label>
         <div class="col-sm-5">
-          <select type="text" class="form-control" name="MaXuatKho" >
-            <option >Chọn mã xuất kho ...</option>
-          @foreach ($xuatkho as $ttxk)
-                    <option value="{{ $ttxk->MaXuatKho }}">{{ $ttxk->MaXuatKho }}</option>
-          @endforeach
-         </select>
-
-         @if ($errors->has('MaXuatKho'))
+          <input  type="text" name="MaNhapKho" value="{{ $data->MaNhapKho }}" readonly>
+         @if ($errors->has('MaNhapKho'))
           <span class="error" style="color: red;">
-               {{ $errors->first('MaXuatKho') }}
+               {{ $errors->first('MaNhapKho') }}
           </span>
           @endif
         </div>
     </div>
-
-    <br>
+ --}}
+     <br>
 
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div "><strong>Tình trạng: </strong></label>
         <div class="col-sm-5">
           <select name="TinhTrang" class="form-control select">
+            <option>
             <option selected>Chọn tình trạng</option>
             <option value="0"> Chưa kiểm tra</option>
             <option value="1"> Tốt</option>
             <option value="2">Chưa đạt yêu cầu</option>
+            
+            </option>
           </select>
           @if ($errors->has('TinhTrang'))
           <span class="error" style="color: red;">
@@ -116,39 +114,10 @@
     </div>
 
     <br> 
-<!-- <script>
-function format_curency(a) {
-    a.value = a.value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-}
-</script> -->
-
-
-    
-    
-    
-
-    
-    {{-- <div class="form-group row">
-       <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên Đơn vị phân phối: </strong></label>
-        <div class="col-sm-5">
-    <select name="MaDonViPhanPhoi" class="form-control">
-          @foreach ($donviphanphoi as $phanphoi)
-            
-            <option value="{{ $phanphoi->MaDonViPhanPhoi }}"> {{ $phanphoi->TenDonViPhanPhoi }} </option>
-          @endforeach
-          </div>
-    </select>
-      </div>
-    </div> --}}
-
-
-
-    <br>
-    
 
     
 
-    <button   class="snip1582">Thêm</button>
+    <button class="snip1582">Sửa</button>
 
     
 </form>

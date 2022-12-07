@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UpdateTinhTrangXuatKho extends FormRequest
+class StoreTinhTrangNhapKho extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +21,11 @@ class UpdateTinhTrangXuatKho extends FormRequest
      *
      * @return array
      */
-     public function rules()
+    public function rules()
     {
+
         return [
-           "MaXuatKho" => ['bail','string', Rule::unique('tinh_trang_xuat_kho')->ignore($this->tinh_trang_xuat_kho)],   //MÃ TĂNG DẦN
+           "MaNhapKho" => ['bail','required','numeric','unique:tinh_trang_nhap_kho,MaNhapKho'],   //MÃ TĂNG DẦN 'unique:xuatkho:MaXuatKho
             "TinhTrang" => ['required','string'],
             
            
@@ -34,13 +34,13 @@ class UpdateTinhTrangXuatKho extends FormRequest
     public function messages() : array
     {
         return [
-        'unique' => 'Mã Đơn vị phân phối bị trùng.',
+        'unique' => 'Mã xuất kho bị trùng.',
         'required' => 'Trường này không được trống.',
         'string' => 'A message is String',
+        'numeric' => 'Lỗi rồi thử lại đi '
         // 'alpha_num'=>'Dữ liệu nhập phải là số.',
         // 'email' => 'Dữ liệu nhập phải là địa chỉ email.',
        
         ];
     }
-    
 }

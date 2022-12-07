@@ -76,21 +76,21 @@
   <title>Quản lý tình trạng xuất kho</title>
 <h3>Thêm tình trạng xuất kho </h3>
 <br>
-<form action="{{ route('tinhtrangxuatkho.store') }}" method="post">
+<form action="{{ route('tinhtrangnhapkho.store') }}" method="post">
     @csrf
  <div class="form-group row">
-        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Xuất kho: </strong></label>
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Nhập kho: </strong></label>
         <div class="col-sm-5">
-          <select type="text" class="form-control" name="MaXuatKho" >
-            <option >Chọn mã xuất kho ...</option>
-          @foreach ($xuatkho as $ttxk)
-                    <option value="{{ $ttxk->MaXuatKho }}">{{ $ttxk->MaXuatKho }}</option>
+          <select type="text" class="form-control" name="MaNhapKho" >
+            <option selected >Chọn mã nhập kho ...</option>
+          @foreach ($nhapkho as $ttxk)
+                    <option value="{{ $ttxk->MaNhapKho }}">{{ $ttxk->MaNhapKho }}</option>
           @endforeach
          </select>
-
-         @if ($errors->has('MaXuatKho'))
+         
+         @if ($errors->has('MaNhapKho'))
           <span class="error" style="color: red;">
-               {{ $errors->first('MaXuatKho') }}
+               {{ $errors->first('MaNhapKho') }}
           </span>
           @endif
         </div>

@@ -5,32 +5,32 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-  <title>Quản lý tình trạng xuất kho</title>
+  <title>Quản lý tình trạng nhập kho</title>
 
 
-    <h3>Quản lý tình trạng xuất kho</h3>
+    <h3>Quản lý tình trạng nhập kho</h3>
     <hr>
 
-    <a class="btn btn-success" href="{{ route('tinhtrangxuatkho.create') }}"><i class="fa-solid fa-plus"></i> </a>
+    <a class="btn btn-success" href="{{ route('tinhtrangnhapkho.create') }}"><i class="fa-solid fa-plus"></i> </a>
     <caption>
         <form class="float-right form-group form-inline">
             <label class="mr-1">Search:</label>
-            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã xuất kho" class="form-control">
+            <input type="search" name="q" value="{{ $search }}" placeholder="Theo mã nhập kho" class="form-control">
         </form>
     </caption>
     <table class="table table-striped table-centered mb-0">
         <tr>
           
-            <th>Mã Xuất kho</th>
+            <th>Mã Nhập kho</th>
             <th>Tình trạng</th>
            
            
             
             <th>Tác vụ</th>
         </tr>
-        @foreach ($tinhtrangxuatkho as $data)
+        @foreach ($tinhtrangnhapkho as $data)
             <tr>
-                <td>{{ $data->MaXuatKho}}</td>
+                <td>{{ $data->MaNhapKho}}</td>
                 <td>
                    @switch($data->TinhTrang)
                     @case(0)
@@ -55,8 +55,9 @@
                {{--  <td>{{ $data->MaDonViPhanPhoi }}</td> --}}
                
                 
-             <td>
-                    <a class="btn btn-warning" href="{{ route('tinhtrangxuatkho.edit', $data->MaXuatKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+              <td>
+                    <a class="btn btn-warning" href="{{ route('tinhtrangnhapkho.edit', $data->MaNhapKho) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+
                     <button type="button" class="btn btn-primary" style="padding: 2px" data-toggle="modal"
                         data-target="#deleteModal">
                         <i  class="fa-solid fa-trash"></i>
@@ -80,7 +81,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
-                            <form action="{{ route('tinhtrangxuatkho.delete', $data->MaXuatKho) }}" method="post">
+                            <form action="{{ route('tinhtrangnhapkho.delete', $data->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Xoá</button>
@@ -90,15 +91,14 @@
                 </div>
             </div>
             <!-- Modal Delete End-->
-                
-                
-            </tr>
+
+
         @endforeach
     </table>
     <br>
     <nav>
         <ul class="pagination pagination-rounded mb-0">
-            {{ $tinhtrangxuatkho->links() }}
+            {{ $tinhtrangnhapkho->links() }}
         </ul>
     </nav>
     </div>

@@ -79,17 +79,22 @@
 <form action="{{ route('tinhtrangxuatkho.update',$data) }}" method="post">
   @method('PUT')
     @csrf
-    <div class="form-group row">
+  {{--   <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Mã Xuất kho: </strong></label>
         <div class="col-sm-5">
-          <select type="text" class="form-control" name="MaXuatKho" >
+          <select disabled type="text" class="form-control" name="MaXuatKho" >
             <option >Chọn mã xuất kho ...</option>
           @foreach ($xuatkho as $ttxk)
                     <option value="{{ $ttxk->MaXuatKho }}">{{ $ttxk->MaXuatKho }}</option>
           @endforeach
          </select>
+         @if ($errors->has('MaXuatKho'))
+          <span class="error" style="color: red;">
+               {{ $errors->first('MaXuatKho') }}
+          </span>
+          @endif
         </div>
-    </div>
+    </div> --}}
 
      <br>
 
@@ -98,8 +103,8 @@
         <div class="col-sm-5">
           <select name="TinhTrang" class="form-control select">
             <option selected>Chọn tình trạng</option>
-            <option value="0">Chưa hoàn thành</option>
-            <option value="1">Đã hoàn thành</option>
+            <option value="0"> Chưa kiểm tra</option>
+            <option value="1"> Tốt</option>
             <option value="2">Chưa đạt yêu cầu</option>
           </select>
           @if ($errors->has('TinhTrang'))

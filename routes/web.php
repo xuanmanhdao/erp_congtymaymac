@@ -17,6 +17,7 @@ use App\Http\Controllers\DonViPhanPhoiController as ControllersDonViPhanPhoiCont
 use App\Http\Controllers\NhapKhoController as ControllersNhapKhoController;
 use App\Http\Controllers\SanPhamController;
 use App\Http\Controllers\TinhTrangXuatKhoController;
+use App\Http\Controllers\TinhTrangNhapKhoController;
 use App\Http\Middleware\KiemTraDangNhapMiddleware;
 use App\Models\KeHoach;
 use App\Models\DonViPhanPhoi;
@@ -160,7 +161,16 @@ Route::group(['prefix' => 'quan-ly-tinh-trang-xuat-kho', 'middleware' => KiemTra
     Route::post('/store', [TinhTrangXuatKhoController::class, 'store'])->name('tinhtrangxuatkho.store');
     Route::get('/edit/{tinhtrangxuatkho}', [TinhTrangXuatKhoController::class, 'edit'])->name('tinhtrangxuatkho.edit');
     Route::put('/update/{tinhtrangxuatkho}', [TinhTrangXuatKhoController::class, 'update'])->name('tinhtrangxuatkho.update');
-    // Route::delete('/delete/{kehoach}', [VatTuConTroller::class, 'destroy'])->name('kehoach.delete');
+    Route::delete('/delete/{tinhtrangxuatkho}', [TinhTrangXuatKhoController::class, 'destroy'])->name('tinhtrangxuatkho.delete');
+    });
+
+Route::group(['prefix' => 'quan-ly-tinh-trang-nhap-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [TinhTrangNhapKhoController::class, 'index'])->name('tinhtrangnhapkho.index');
+    Route::get('/create', [TinhTrangNhapKhoController::class, 'create'])->name('tinhtrangnhapkho.create');
+    Route::post('/store', [TinhTrangNhapKhoController::class, 'store'])->name('tinhtrangnhapkho.store');
+    Route::get('/edit/{tinhtrangnhapkho}', [TinhTrangNhapKhoController::class, 'edit'])->name('tinhtrangnhapkho.edit');
+    Route::put('/update/{tinhtrangnhapkho}', [TinhTrangNhapKhoController::class, 'update'])->name('tinhtrangnhapkho.update');
+    Route::delete('/delete/{tinhtrangnhapkho}', [TinhTrangNhapKhoController::class, 'destroy'])->name('tinhtrangnhapkho.delete');
     });
 
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {

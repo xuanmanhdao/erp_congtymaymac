@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateTinhTrangXuatKho extends FormRequest
+class UpdateTinhTrangNhapKho extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,10 @@ class UpdateTinhTrangXuatKho extends FormRequest
      *
      * @return array
      */
-     public function rules()
+    public function rules()
     {
         return [
-           "MaXuatKho" => ['bail','string', Rule::unique('tinh_trang_xuat_kho')->ignore($this->tinh_trang_xuat_kho)],   //MÃ TĂNG DẦN
+           "MaNhapKho" => ['bail','string', Rule::unique('tinh_trang_nhap_kho')->ignore($this->tinh_trang_nhap_kho)],   //MÃ TĂNG DẦN
             "TinhTrang" => ['required','string'],
             
            
@@ -42,5 +42,4 @@ class UpdateTinhTrangXuatKho extends FormRequest
        
         ];
     }
-    
 }

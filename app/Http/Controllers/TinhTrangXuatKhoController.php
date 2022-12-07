@@ -39,8 +39,10 @@ class TinhTrangXuatKhoController extends Controller
     public function create()
     {
        
-        $xuatkho = XuatKho::get();
-       
+       // SELECT * FROM `xuatkho` WHERE MaXuatKho NOT IN(SELECT MaXuatKho FROM tinh_trang_xuat_kho)
+        $xuatkho = XuatKho::whereNotIn('MaXuatKho',function($query){
+            $query->select('MaXuatKho')->from('tinh_trang_xuat_kho');
+        })->get();
         return view('Qlttxk.create',['xuatkho'=>$xuatkho]); //,
     }
     
@@ -107,6 +109,7 @@ class TinhTrangXuatKhoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        TinhTrangXuatKho::destroy($id);
+        return redirect()->route('tinhtrangxuatkho.index')->with('deleted', "Đã xoá thành công"); 
     }
 }
