@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý nhân viên</title>
 <h3>Thêm nhân viên</h3>
@@ -221,6 +221,20 @@
          </select>
         </div>
     </div>
+
+    <div class="form-group row">
+        <label class="col-sm-1,5 col-form-label flex-div"><strong> Chọn quyền: </strong></label>
+        <div class="col-sm-5">
+          <select type="" class="form-control" name="Quyen" >
+            <option value="0" > Quyền quản lý kho </option>
+            <option value="5" > Quyền quản lý sản xuất</option>
+            <option value="6" > Quyền quản lý QA</option>
+            <option value="7"> Quyền quản lý QC</option>
+          
+         </select>
+        </div>
+    </div>
+
 
 
     <button class="snip1582">Thêm</button>

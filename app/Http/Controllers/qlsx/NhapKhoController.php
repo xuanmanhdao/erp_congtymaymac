@@ -43,7 +43,7 @@ class NhapKhoController extends Controller
         $nhanvien = NhanVien::get();
         $donviphanphoi = DonViPhanPhoi::get();
         
-        return view('Qlnk.create',['donviphanphoi'=>$donviphanphoi])->with('nhanvien',$nhanvien);
+        return view('Qlnk.create',['donviphanphoi'=>$donviphanphoi,'nhanvien'=>$nhanvien]);
 
     }
 

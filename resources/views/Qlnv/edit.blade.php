@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý nhân viên</title>
 <h3>Sửa nhân viên: {{ $data->MaNhanVien }}</h3>
@@ -146,7 +146,12 @@
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Giới tính: </strong></label>
         <div class="col-sm-5">
-          <input type="text" class="form-control" name="GioiTinh" value="{{ $data->GioiTinh }}">
+        <select name="GioiTinh" class="form-control select">
+            <option selected>Chọn giới tính</option>
+            <option value="1">Nam</option>
+            <option value="0">Nữ</option>
+          </select>
+          <!-- <input type="text" class="form-control" name="GioiTinh" value="{{ $data->GioiTinh }}"> -->
           @if ($errors->has('GioiTinh'))
           <span class="error" style="color: red;">
               {{ $errors->first('GioiTinh') }}
@@ -208,9 +213,11 @@
         <label class="col-sm-1,5 col-form-label flex-div"><strong> Tên xưởng: </strong></label>
         <div class="col-sm-5">
           <select type="" class="form-control" name="MaXuong" >
-          @foreach ($xuong as $nv)
-                    <option value="{{ $nv->MaXuong }}">{{ $nv->TenXuong }}</option>
-          @endforeach
+          @foreach ($xuong as $xuong)
+      <option value="{{ $xuong->MaXuong }}" {{ $xuong->MaXuong == $data->xuong->MaXuong ? 'selected' : '' }}>{{ $xuong->TenXuong }}</option>
+        
+            
+        @endforeach
          </select>
         </div>
     </div>
