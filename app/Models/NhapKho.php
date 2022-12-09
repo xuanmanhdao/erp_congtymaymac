@@ -27,14 +27,14 @@ class NhapKho extends Model
         'MaDonViPhanPhoi',
     ];
 
-    // public function nhanvien()
-    // {
-    //     return $this->belongsTo(NhanVien::class,'MaNhanVien','MaNhanVien');
-    // }
+     public function nhanvien()
+     {
+         return $this->belongsTo(NhanVien::class,'MaNhanVien','MaNhanVien');
+     }
 
-    // public function donviphanphoi()
-    // {
+     public function donviphanphoi()
+     {
 
-    //     return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
-    // }
+         return $this->belongsTo(DonViPhanPhoi::class,'MaDonViPhanPhoi','MaDonViPhanPhoi');
+     }
 }

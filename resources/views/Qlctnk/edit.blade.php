@@ -29,7 +29,7 @@
   padding: 12px 40px 10px;
   position: relative;
   text-transform: uppercase;
-  font-weight: ;
+
 }
 
 .snip1582:before,
@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý chi tiết  nhập kho</title>
 <h3>Sửa  chi tiet kho nhập</h3>
@@ -118,7 +118,7 @@ function format_curency(a) {
     <div class="form-group row">
         <label class="col-sm-1,5 col-form-label flex-div "><strong> Số lượng: </strong></label>
         <div class="col-sm-5">
-          <input  type="text" class="form-control" name="SoLuong" value="{{ $data->SoLuong }}">
+          <input  type="number" class="form-control" name="SoLuong" value="{{ $data->SoLuong }}">
           @if ($errors->has('SoLuong'))
           <span class="error" style="color: red;">
                {{ $errors->first('SoLuong') }}
