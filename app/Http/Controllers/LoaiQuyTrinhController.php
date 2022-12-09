@@ -49,22 +49,22 @@ class LoaiQuyTrinhController extends Controller
      */
     public function create(Request $request, LoaiQuyTrinh $quytrinh)
     {
-        $nguyenvatlieu = NguyenVatLieu::get();
+        // $nguyenvatlieu = NguyenVatLieu::get();
         $chatlieu= ChatLieu::get();
-        // $chatlieu = ChatLieu::get();
-        // $arrayKieuNguyenLieu = ChatLieu::get();
-        // $subsetKieuNguyenLieu = $arrayKieuNguyenLieu->map(function ($arrayKieuNguyenLieu) {
-        //     return $arrayKieuNguyenLieu->only(['MaChatLieu', 'TenChatLieu']);
-        // });
-        // dd($subsetKieuNguyenLieu);
 
-        // $arrayKieuNguyenLieu  = NguyenVatLieu::selectRaw('*')
-        // ->join('chatlieu', 'chatlieu.MaChatLieu', '=', 'nguyenvatlieu.MaChatLieu')
-        // ->groupBy('nguyenvatlieu.MaChatLieu')->get();
-        // dd($arrayKieuNguyenLieu);
+        // SELECT * FROM nguyenvatlieu 
+        // INNER JOIN chitietnhapkho ON nguyenvatlieu.MaNguyenVatLieu = chitietnhapkho.MaNguyenVatLieu 
+        // INNER JOIN nhapkho ON chitietnhapkho.MaNhapKho = nhapkho.MaNhapKho 
+        // INNER JOIN tinh_trang_nhap_kho ON nhapkho.MaNhapKho = tinh_trang_nhap_kho.MaNhapKho
+        // WHERE tinh_trang_nhap_kho.TinhTrang = 1;
 
+        $nguyenvatlieudatchuan = NguyenVatLieu::join('chitietnhapkho', 'chitietnhapkho.MaNguyenVatLieu','=', 'nguyenvatlieu.MaNguyenVatLieu')
+        ->join('nhapkho', 'nhapkho.MaNhapKho','=', 'chitietnhapkho.MaNhapKho')
+        ->join('tinh_trang_nhap_kho', 'tinh_trang_nhap_kho.MaNhapKho','=', 'nhapkho.MaNhapKho')
+        ->where('tinh_trang_nhap_kho.TinhTrang','=', 1)->get();
+        
         return view('Qlqt.create', [
-            'nguyenvatlieu' => $nguyenvatlieu,
+            'nguyenvatlieu' => $nguyenvatlieudatchuan,
             'chatlieu' =>$chatlieu
         ]);
         
@@ -81,6 +81,8 @@ class LoaiQuyTrinhController extends Controller
      */
     public function store(StoreLoaiQuyTrinhRequest $request, LoaiQuyTrinh $quytrinh)
     {
+
+
         $quytrinh->fill($request->all()); // Lấy hết dữ liệu
         $quytrinh->fill($request->except('_token','NguyenVatLieu')); // Lấy hết dữ liệu ngoại trừ thuộc tính _token
         $quytrinh->save();

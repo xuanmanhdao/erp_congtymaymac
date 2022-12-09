@@ -47,7 +47,8 @@
 
         <div class="form-group">
             <label style="display: block" class="col-sm-1,5 col-form-label flex-div">Chọn nguyên vật liệu</label>
-            <table class="table table-dark">
+            <table class="table table-bordered table-dark">
+            
                 @foreach ($chatlieu as $cl)
                     <tr>
                         <td>{{ $cl->TenChatLieu }}</td>
