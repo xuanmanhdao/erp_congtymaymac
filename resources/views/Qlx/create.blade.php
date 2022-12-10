@@ -71,7 +71,7 @@
   height: 100%;
   width: 100%;
 }
-}
+
 </style>
   <title>Quản lý xưởng</title>
 <h3>Thêm xưởng</h3>

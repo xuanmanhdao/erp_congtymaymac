@@ -53,11 +53,12 @@
                     <tr>
                         <td>{{ $cl->TenChatLieu }}</td>
                         <td>
+                            
                             @foreach ($nguyenvatlieu as $nvl)
                                 @if ($nvl->MaChatLieu === $cl->MaChatLieu)
                                     <input type="checkbox" class="nguyen-vat-lieu" name="NguyenVatLieu[]"
                                         id="{{ $nvl->MaNguyenVatLieu }}" value="{{$nvl->MaNguyenVatLieu}}">
-                                    <label for="{{ $nvl->MaNguyenVatLieu }}">{{ $nvl->TenNguyenVatLieu }}</label>
+                                    <label  for="{{ $nvl->MaNguyenVatLieu }}">{{ $nvl->TenNguyenVatLieu }}</label>
                                 @endif
                             @endforeach
                         </td>
@@ -66,7 +67,15 @@
             </table>
 
         </div>
-
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <br>
 
 
