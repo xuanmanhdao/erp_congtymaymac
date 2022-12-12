@@ -45,66 +45,39 @@
         </div>
         <br>
 
-
-
-        {{-- 
-    Nguyên vật liệu
-      <select name="MaNguyenVatLieu" class="form-control select">
->>>>>>> 1287c1479b8d2fe6eb3a3957d1aa8584adb639d0
-        <option selected>Chọn nguyên vật liệu</option>
-        @foreach ($nguyenvatlieu as $nguyenvatlieu)
-            <option value="{{ $nguyenvatlieu->MaNguyenVatLieu }}">
-              {{ $nguyenvatlieu->TenNguyenVatLieu }}
-            </option>
-        @endforeach
-      </select>
-<<<<<<< HEAD
-    </div>
-  </div>
-
-=======
-       --}}
-
-
         <div class="form-group">
             <label style="display: block" class="col-sm-1,5 col-form-label flex-div">Chọn nguyên vật liệu</label>
-            <table class="table table-dark">
-                @foreach ($chatlieu as $chatlieu)
+            <table class="table table-bordered table-dark">
+            
+                @foreach ($chatlieu as $cl)
                     <tr>
-                        <td>{{ $chatlieu->TenChatLieu }}</td>
+                        <td>{{ $cl->TenChatLieu }}</td>
                         <td>
-                            <div class="col-sm-5">
-                                <div class="custom-control custom-checkbox custom-control-inline">
-
-                                    <input type="checkbox" name='NguyenVatLieu[]'
-                                        class="custom-control-input btn btn-warning nguyen-vat-lieu"
-                                        id="customCheck{{ $chatlieu->MaChatLieu }}" value="{{ $chatlieu->MaChatLieu }}">
-                                    <label class="custom-control-label" for="customCheck{{ $chatlieu->MaChatLieu }}">
-                                        @foreach ($nguyenvatlieu as $each)
-                                            @if ($chatlieu->MaChatLieu === $each->MaChatLieu)
-                                                {{ $each->TenNguyenVatLieu . ',' }}
-                                            @endif
-                                        @endforeach
-                                    </label>
-                                </div>
-                                @if ($errors->has('NguyenVatLieu'))
-                                    <div class="alert alert-danger">
-                                        {{ $errors->first('NguyenVatLieu') }}
-                                    </div>
+                            
+                            @foreach ($nguyenvatlieu as $nvl)
+                                @if ($nvl->MaChatLieu === $cl->MaChatLieu)
+                                    <input type="checkbox" class="nguyen-vat-lieu" name="NguyenVatLieu[]"
+                                        id="{{ $nvl->MaNguyenVatLieu }}" value="{{$nvl->MaNguyenVatLieu}}">
+                                    <label  for="{{ $nvl->MaNguyenVatLieu }}">{{ $nvl->TenNguyenVatLieu }}</label>
                                 @endif
-                            </div>
+                            @endforeach
                         </td>
                     </tr>
                 @endforeach
-
-
             </table>
 
-
-
-
         </div>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <br>
+
 
         <button class="btn btn-success">Thêm</button>
 
@@ -112,8 +85,9 @@
     </form>
 @endsection
 
+
 @push('js')
-    <script>
+    {{-- <script>
         const nguyenVatLieuElement = $('.nguyen-vat-lieu');
         let valueNguyenVatLieuDaNhap;
         var changed_status = true; // thiết lập trạng thái changed ban đầu là true (là được load data) ok 
@@ -129,5 +103,5 @@
             console.log('Bạn đã chọn nguyên vật liệu: ' + nguyenVatLieu);
             valueNguyenVatLieuDaNhap = nguyenVatLieu;
         });
-    </script>
+    </script> --}}
 @endpush

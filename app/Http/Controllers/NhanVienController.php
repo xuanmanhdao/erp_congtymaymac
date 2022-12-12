@@ -40,7 +40,7 @@ class NhanVienController extends Controller
      */
     public function create()
     {
-        //
+        
          $chucvu = ChucVu::get();
          $xuong = Xuong::get();
         return view('Qlnv.create',['chucvu'=>$chucvu,'xuong'=>$xuong]);

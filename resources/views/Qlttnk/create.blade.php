@@ -103,8 +103,8 @@
         <div class="col-sm-5">
           <select name="TinhTrang" class="form-control select">
             <option selected>Chọn tình trạng</option>
-            <option value="0"> Chưa kiểm tra</option>
-            <option value="1"> Tốt</option>
+            <option value="0">Chưa kiểm tra</option>
+            <option value="1">Tốt</option>
             <option value="2">Chưa đạt yêu cầu</option>
           </select>
           @if ($errors->has('TinhTrang'))

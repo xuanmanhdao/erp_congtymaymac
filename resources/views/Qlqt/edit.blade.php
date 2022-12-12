@@ -60,7 +60,7 @@
         <br>
 
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label style="display: block">Chọn nguyên vật liệu</label>
             @foreach ($nguyenvatlieu as $nguyenvatlieu)
                 <div class="custom-control custom-checkbox custom-control-inline ">
@@ -76,8 +76,38 @@
                     {{ $errors->first('NguyenVatLieu') }}
                 </div>
             @endif
+        </div> --}}
+        <div class="form-group">
+            <label style="display: block" class="col-sm-1,5 col-form-label flex-div">Chọn nguyên vật liệu</label>
+            <table class="table table-bordered table-dark">
+            
+                @foreach ($chatlieu as $cl)
+                    <tr>
+                        <td>{{ $cl->TenChatLieu }}</td>
+                        <td>
+                            @foreach ($nguyenvatlieu as $nvl)
+                                @if ($nvl->MaChatLieu === $cl->MaChatLieu)
+                                    <input type="checkbox" class="nguyen-vat-lieu" name="NguyenVatLieu[]"
+                                        id="{{ $nvl->MaNguyenVatLieu }}" value="{{$nvl->MaNguyenVatLieu}}" >       
+                                    <label  for="{{ $nvl->MaNguyenVatLieu }}">{{ $nvl->TenNguyenVatLieu }}</label>
+                                @endif
+                            @endforeach
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
         </div>
 
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        <br>
 
         <button class="btn btn-success">Sửa</button>
 
