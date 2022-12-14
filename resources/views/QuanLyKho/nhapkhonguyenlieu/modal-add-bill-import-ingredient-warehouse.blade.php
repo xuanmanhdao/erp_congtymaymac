@@ -49,7 +49,7 @@
                                 <label class="col-lg-4" for="ChonDonViPhanPhoi">Mã đơn vị phân phối</label>
                                 <select id="Them-ChonDonViPhanPhoi" class="form-select" aria-label="Default select example"
                                     name="DonViPhanPhoi" style="border: 1px solid #545F73; border-radius: 2px;">
-                                    <option selected disabled>Chọn kiểu nguyên liệu</option>
+                                    <option selected disabled>Chọn đơn vị phân phối</option>
                                 </select>
                             </div>
                             <span class="error" id="error-them-chon-ma-don-vi-phan-phoi" style="color: red; display:none"></span>

@@ -55,7 +55,7 @@
                         @endif
                         <div class="login-input">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" value="{{ old('MatKhau') }}" placeholder="......" name="MatKhau">
+                            <input type="password" value="{{ old('MatKhau') }}" placeholder="Nhập mật khẩu" name="MatKhau">
                         </div>
                         <div class="login-options d-flex justify-content-between">
                             {{-- <div>

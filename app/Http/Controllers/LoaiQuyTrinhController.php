@@ -43,7 +43,9 @@ class LoaiQuyTrinhController extends Controller
         $nguyenvatlieudatchuan = NguyenVatLieu::join('chitietnhapkho', 'chitietnhapkho.MaNguyenVatLieu', '=', 'nguyenvatlieu.MaNguyenVatLieu')
             ->join('nhapkho', 'nhapkho.MaNhapKho', '=', 'chitietnhapkho.MaNhapKho')
             ->join('tinh_trang_nhap_kho', 'tinh_trang_nhap_kho.MaNhapKho', '=', 'nhapkho.MaNhapKho')
-            ->where('tinh_trang_nhap_kho.TinhTrang', '=', 1)->get();
+            ->where('tinh_trang_nhap_kho.TinhTrang', '=', 1)
+            ->groupBy('nguyenvatlieu.MaNguyenVatLieu')
+            ->get();
 
         return view('Qlqt.create', [
             'nguyenvatlieu' => $nguyenvatlieudatchuan,

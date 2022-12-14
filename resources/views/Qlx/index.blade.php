@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div> --}}
+  </div>
     <h3>Quản lý xưởng</h3>
 
     <a class="btn btn-success" href="{{ route('xuong.create') }}"><i class="fa-solid fa-plus"></i></a>

@@ -24,13 +24,13 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="MaNguyenVatLieu">Mã nguyên vật liệu</label>
+                    <label for="MaNguyenVatLieu">Tên nguyên vật liệu</label>
                     <select class="form-control" id="MaNguyenVatLieu" name="MaNguyenVatLieu"
                         @if ($errors->has('MaNguyenVatLieu')) style="border: 2px solid red; border-radius: 2px;" 
                     @else style="border: 1px solid #545F73; border-radius: 2px;" @endif>
-                        <option selected disabled>Chọn mã nguyên liệu</option>
+                        <option selected disabled>Chọn nguyên liệu</option>
                         @foreach ($arrayNguyenVatLieuEloquent as $nguyenVatLieu)
-                            <option value="{{ $nguyenVatLieu->MaNguyenVatLieu }}">{{ $nguyenVatLieu->MaNguyenVatLieu }}
+                            <option value="{{ $nguyenVatLieu->MaNguyenVatLieu }}">{{ $nguyenVatLieu->TenNguyenVatLieu }} - {{ $nguyenVatLieu->MaNguyenVatLieu }}
                             </option>
                         @endforeach
                     </select>
@@ -51,6 +51,16 @@
                     @endif
                 </div>
                 <div class="form-group">
+                    <label for="Gia">Giá nguyên liệu</label>
+                    <input type="number" class="form-control" id="Gia" name="Gia"
+                        @if ($errors->has('Gia')) style="border: 2px solid red;" @endif>
+                    @if ($errors->has('Gia'))
+                        <span class="error" style="color: red;">
+                            {{ $errors->first('Gia') }}
+                        </span>
+                    @endif
+                </div>
+                <div class="form-group">
                     <label for="DonViTinh">Đơn vị tính</label>
                     <input type="text" class="form-control" id="DonViTinh" name="DonViTinh"
                         placeholder="Nhập đơn vị tính"
@@ -62,18 +72,8 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <label for="Gia">Giá nguyên liệu</label>
-                    <input type="number" class="form-control" id="Gia" name="Gia"
-                        @if ($errors->has('Gia')) style="border: 2px solid red;" @endif>
-                    @if ($errors->has('Gia'))
-                        <span class="error" style="color: red;">
-                            {{ $errors->first('Gia') }}
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
                     <label for="ThanhTien">Thành tiền</label>
-                    <input type="number" class="form-control" id="ThanhTien" name="ThanhTien" readonly
+                    <input type="text" class="form-control" id="ThanhTien" name="ThanhTien" placeholder="0 vnđ" readonly
                         @if ($errors->has('ThanhTien')) style="border: 2px solid red;" @endif>
                     @if ($errors->has('ThanhTien'))
                         <span class="error" style="color: red;">
@@ -94,13 +94,13 @@
             $('#SoLuong').change(function() {
                 var soLuong = $("#SoLuong").val();
                 var gia = $("#Gia").val();
-                $('#ThanhTien').val(soLuong * gia);
+                $('#ThanhTien').val(soLuong * gia + ' vnđ');
             });
 
             $('#Gia').change(function() {
                 var soLuong = $("#SoLuong").val();
                 var gia = $("#Gia").val();
-                $('#ThanhTien').val(soLuong * gia);
+                $('#ThanhTien').val(soLuong * gia + ' vnđ');
             });
         });
     </script>

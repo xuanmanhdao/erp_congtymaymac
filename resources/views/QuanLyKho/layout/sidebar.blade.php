@@ -52,6 +52,27 @@
             </a>
         </li> --}}
 
+        <li class="nav-items dropright">
+            <a href="javascript:void(0)" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false" style="white-space: inherit !important;">
+                Báo cáo - Thống kê
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a class="sub-menu-content" href="{{ route('baocao.nguyenvatlieu') }}">
+                        Nguyên vật liệu
+                    </a>
+                </li>
+                <li>
+                    <div class="dropdown-divider"></div>
+                </li>
+                <li>
+                    <a class="sub-menu-content" href="{{ route('baocao.nguyenvatlieu') }}">
+                        Sản phẩm
+                    </a>
+                </li>
+            </ul>
+        </li>
 
         <li class="nav-items dropright">
             <a href="javascript:void(0)" class="dropdown-toggle" type="button" data-toggle="dropdown"
@@ -120,10 +141,10 @@
             </ul>
         </li>
 
-        <li class="nav-items">
-            <a href="#">
+        {{-- <li class="nav-items">
+            <a href="{{ route('baocao.index') }}">
                 Báo cáo
             </a>
-        </li>
+        </li> --}}
     </ul>
 </div>

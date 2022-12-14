@@ -36,50 +36,51 @@
                 </a>
                 <ul class="side-nav-second-level" aria-expanded="false">
                 <li class="side-nav-item">
-                <a href="{{ route('kehoach.index') }}" class="side-nav-link">
+                <a href="{{ route('xuong.index') }}" class="side-nav-link">
                     <i class="uil-home-alt"></i>
                     <span class="badge badge-success float-right"></span>
-                    <span>Quản lý kế hoạch</span>
+                    <span>Quản lý xưởng</span>
                 </a>
             </li>
 
             <li class="side-nav-item">
-                <a href="{{ route('quytrinh.index') }}"class="side-nav-link">
+                <a href="{{ route('vattu.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span>Quản lý quy trình  </span>
+                    <span>Quản lý Vật Tư  </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{ route('vattu.index') }}"class="side-nav-link">
+                <a href="{{ route('tinhtrangnhapkho.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span> Quản lý Vật Tư </span>
+                    <span> Quản lý tình trạng nhập kho </span>
                 </a>
             </li>
             <li class="side-nav-item">
                 <a href="{{ route('nhapkho.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span>Quản nhập kho </span>
+                    <span>Quản lý nhập kho </span>
                 </a>
             </li>
-            {{-- <li class="side-nav-item">
-                <a href="{{ route('chitietnhapkho.index') }}"class="side-nav-link">
-                    <i class="uil-store"></i>
-                    <span>Quản lý chi tiết nhập kho </span>
-                </a>
-            </li> --}}
+            
 
             <li class="side-nav-item">
-                <a href="{{ route('xuong.index') }}"class="side-nav-link">
+                <a href="{{ route('quytrinh.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span> Quản lý Xưởng </span>
+                    <span> Quản lý quy trình </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="{{ route('vattu.index') }}"class="side-nav-link">
+                <a href="{{ route('kehoach.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
-                    <span> Quản lý Vật Tư </span>
+                    <span> Quản lý kế hoạch </span>
                 </a>
             </li>
+            <li class="side-nav-item">
+<a href="{{ route('tinhtrangxuatkho.index') }}"class="side-nav-link">
+                    <i class="uil-store"></i>
+                    <span> Quản lý tình trạng xuất  kho</span>
+                </a>
+            </li> 
             <li class="side-nav-item">
                 <a href="{{ route('nhanvien.index') }}"class="side-nav-link">
                     <i class="uil-store"></i>
@@ -92,24 +93,14 @@
                     <span> Quản lý chức vụ</span>
                 </a>
             </li> 
+            
+            
                     
                 </ul>
             </li>  
            
 
-            <li class="side-nav-item">
-                <a href="#"class="side-nav-link">
-                    <i class="uil-store"></i>
-                    <span> Giám sát </span>
-                </a>
-            </li>
-
-            <li class="side-nav-item">
-                <a href="#"class="side-nav-link">
-                    <i class="uil-store"></i>
-                    <span> Báo cáo </span>
-                </a>
-            </li>
+            
             {{-- @if(checkSuperAdmin())
             <li class="side-nav-item">
                 <a href="javascript: void(0);" class="side-nav-link">

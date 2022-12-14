@@ -73,8 +73,8 @@
 }
 
 </style>
-  <title>Quản lý tình trạng xuất kho</title>
-<h3>Thêm tình trạng xuất kho </h3>
+  <title>Quản lý tình trạng nhập kho</title>  
+<h3>Thêm tình trạng nhập kho </h3>
 <br>
 <form action="{{ route('tinhtrangnhapkho.store') }}" method="post">
     @csrf

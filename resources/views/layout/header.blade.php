@@ -54,7 +54,7 @@
         </li>
 
     </ul>
-    <ul class="nav">
+    {{-- <ul class="nav">
         <li class="nav-item d-none d-sm-inline-block" >
           <a href="#" class="nav-link">Trang chủ</a>
         </li>
@@ -64,7 +64,7 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Hỏi đáp</a>
         </li>
-    </ul>
+    </ul> --}}
     
     
     <button class="button-menu-mobile open-left disable-btn">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BaoCaoController;
 use App\Http\Controllers\ChatLieuController;
 use App\Http\Controllers\ChiTietNhapKhoController as ControllersChiTietNhapKhoController;
 use App\Http\Controllers\ChiTietXuatKhoController;
@@ -174,6 +175,7 @@ Route::group(['prefix' => 'quan-ly-tinh-trang-nhap-kho', 'middleware' => KiemTra
     });
 
 Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddleware::class], function () {
+    Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
     // San pham
     Route::group(['prefix' => 'san-pham'], function () {
         Route::get('/', [SanPhamController::class, 'index'])->name('sanpham.index');
@@ -250,6 +252,14 @@ Route::group(['prefix' => 'quan-ly-kho', 'middleware' => KiemTraDangNhapMiddlewa
         Route::put('/update/{donViPhanPhoi}', [ControllersDonViPhanPhoiController::class, 'update'])->name('donviphanphoi.update');
     });
 
+    // Báo cáo
+    Route::group(['prefix' => 'bao-cao'], function () {
+        Route::get('/', [BaoCaoController::class, 'baoCaoNguyenVatLieu'])->name('baocao.nguyenvatlieu');
+        Route::get('/chua-kiem-tra',[BaoCaoController::class, 'baoCaoNguyenVatLieuChuaKiemTra'])->name('baocao.nguyenvatlieuchuakiemtra');
+        Route::get('/chua-kiem-tra-ajax',[BaoCaoController::class, 'ajaxBaoCaoNguyenVatLieuChuaKiemTra'])->name('baocao.nguyenvatlieuchuakiemtra.ajax');
+        Route::get('/chua-dat-chuan',[BaoCaoController::class, 'baoCaoNguyenVatLieuChuaDatChuan'])->name('baocao.nguyenvatlieuchuadatchuan');
+        Route::get('/chua-dat-chuan-ajax',[BaoCaoController::class, 'ajaxBaoCaoNguyenVatLieuChuaDatChuan'])->name('baocao.nguyenvatlieuchuadatchuan.ajax');
+    });
    
  
 });

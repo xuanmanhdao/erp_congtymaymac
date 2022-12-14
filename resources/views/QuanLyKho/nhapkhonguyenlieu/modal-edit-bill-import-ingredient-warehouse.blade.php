@@ -51,7 +51,7 @@
                                 <select id="Sua-ChonDonViPhanPhoi" class="form-select"
                                     aria-label="Default select example" name="DonViPhanPhoi"
                                     style="border: 1px solid #545F73; border-radius: 2px;">
-                                    <option selected disabled>Chọn kiểu nguyên liệu</option>
+                                    <option selected disabled>Chọn mã đơn vị phân phối</option>
                                 </select>
                             </div>
                             <span class="error" id="error-sua-chon-ma-don-vi-phan-phoi"
